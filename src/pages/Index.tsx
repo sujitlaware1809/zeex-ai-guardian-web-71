@@ -8,7 +8,7 @@ import { ArrowRight } from 'lucide-react';
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div>
       <Hero />
       <Features />
       <SolutionsPreview />
