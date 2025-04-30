@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/utils/ScrollToTop";
+import Layout from "./components/layout/Layout";
 
 // Pages
 import Index from "./pages/Index";
