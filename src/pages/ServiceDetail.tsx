@@ -163,7 +163,7 @@ const servicesDetails = {
       },
       {
         title: 'Home Security Management',
-        description: 'Stay informed about activity at your home while you're away, with video verification to distinguish between family members and unknown visitors.',
+        description: 'Stay informed about activity at your home while you\'re away, with video verification to distinguish between family members and unknown visitors.',
         image: 'https://images.unsplash.com/photo-1558959356-2a58e342afef'
       },
       {
