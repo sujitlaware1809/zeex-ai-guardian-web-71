@@ -107,4 +107,26 @@
   .blog-card {
     @apply rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300;
   }
+  
+  /* Fix animations to prevent content from disappearing */
+  .animate-on-scroll {
+    opacity: 0;
+    visibility: visible;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .animate-fade-up {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
 }
+
+/* Fix App.css conflicting styles */
+#root {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+

@@ -14,7 +14,7 @@ const SolutionsPreview = () => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, rootMargin: "0px 0px -100px 0px" }
     );
 
     const elements = document.querySelectorAll('.animate-on-scroll');
@@ -50,7 +50,7 @@ const SolutionsPreview = () => {
                   <Home className="text-zeex-600" />
                 </div>
                 <h3 className="text-white text-2xl font-semibold mb-3">Residential Security</h3>
-                <p className="text-white/90 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-white/90 mb-4 opacity-100">
                   Protect your home with smart monitoring that integrates seamlessly with your existing security systems.
                 </p>
                 <Link 
@@ -81,7 +81,7 @@ const SolutionsPreview = () => {
                   <Building className="text-zeex-600" />
                 </div>
                 <h3 className="text-white text-2xl font-semibold mb-3">Commercial Surveillance</h3>
-                <p className="text-white/90 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-white/90 mb-4 opacity-100">
                   Enterprise-grade security solutions to protect your business assets, employees, and premises 24/7.
                 </p>
                 <Link 
@@ -112,7 +112,7 @@ const SolutionsPreview = () => {
                   <MapPin className="text-zeex-600" />
                 </div>
                 <h3 className="text-white text-2xl font-semibold mb-3">Public Safety</h3>
-                <p className="text-white/90 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-white/90 mb-4 opacity-100">
                   Enhance safety in public spaces with smart monitoring that helps identify potential threats before they escalate.
                 </p>
                 <Link 

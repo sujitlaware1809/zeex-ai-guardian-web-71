@@ -45,7 +45,7 @@ const Features = () => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, rootMargin: "0px 0px -100px 0px" }
     );
 
     const elements = document.querySelectorAll('.animate-on-scroll');
