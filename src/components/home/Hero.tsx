@@ -53,17 +53,17 @@ const Hero = () => {
 
       <div className="container-default relative z-10 pt-12 pb-24">
         <div className="text-center max-w-5xl mx-auto">
-          <h1 className="font-bold text-zeex-800 hero-element opacity-0 mb-6">
+          <h1 className="font-bold text-zeex-800 hero-element mb-6">
             AI-Powered Surveillance for a Safer Tomorrow
           </h1>
 
-          <p className="text-xl md:text-2xl mb-8 text-zeex-700 max-w-3xl mx-auto hero-element opacity-0" style={{ animationDelay: '0.3s' }}>
+          <p className="text-xl md:text-2xl mb-8 text-zeex-700 max-w-3xl mx-auto hero-element" style={{ animationDelay: '0.3s' }}>
             Zeex AI leverages real-time computer vision and intelligent analytics to secure what matters most.
           </p>
 
           {/* Video placeholder */}
           <div 
-            className="w-full max-w-4xl mx-auto aspect-video bg-zeex-600 rounded-xl shadow-2xl mb-12 overflow-hidden hero-element opacity-0" 
+            className="w-full max-w-4xl mx-auto aspect-video bg-zeex-600 rounded-xl shadow-2xl mb-12 overflow-hidden hero-element" 
             style={{ animationDelay: '0.6s' }}
           >
             <div className="w-full h-full flex items-center justify-center">
@@ -81,7 +81,7 @@ const Hero = () => {
 
           {/* CTA buttons */}
           <div 
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-16 hero-element opacity-0" 
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-16 hero-element" 
             style={{ animationDelay: '0.9s' }}
           >
             <Link to="/contact" className="btn-primary text-lg w-full sm:w-auto">

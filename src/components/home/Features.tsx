@@ -13,7 +13,7 @@ interface FeatureProps {
 
 const FeatureCard: React.FC<FeatureProps> = ({ icon, title, description, linkTo, delay }) => {
   return (
-    <Link to={linkTo} className="animate-on-scroll opacity-0 card-hover" style={{ animationDelay: delay }}>
+    <Link to={linkTo} className="animate-on-scroll card-hover" style={{ animationDelay: delay }}>
       <div className="bg-white rounded-xl shadow-md p-8 h-full flex flex-col">
         <div className="mb-5 text-zeex-500">
           {icon}
@@ -41,15 +41,23 @@ const Features = () => {
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-up');
+            setTimeout(() => {
+              entry.target.classList.add('animate-fade-up');
+            }, 100); // Small delay to ensure DOM updates
           }
         });
       },
-      { threshold: 0.1, rootMargin: "0px 0px -100px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
     );
 
+    // Ensure all elements are visible initially for SEO, then animate
     const elements = document.querySelectorAll('.animate-on-scroll');
-    elements.forEach(el => observer.observe(el));
+    
+    // Force initial visibility for all elements
+    elements.forEach(el => {
+      el.setAttribute('style', 'opacity: 0; transform: translateY(20px); visibility: visible;');
+      observer.observe(el);
+    });
 
     return () => {
       elements.forEach(el => observer.unobserve(el));
@@ -60,8 +68,8 @@ const Features = () => {
     <section className="py-20 bg-zeex-50">
       <div className="container-default">
         <div className="text-center mb-16">
-          <h2 className="text-zeex-800 mb-5 animate-on-scroll opacity-0">Our Core Services</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto animate-on-scroll opacity-0" style={{ animationDelay: '0.2s' }}>
+          <h2 className="text-zeex-800 mb-5 animate-on-scroll">Our Core Services</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto animate-on-scroll" style={{ animationDelay: '0.2s' }}>
             Zeex AI offers comprehensive intelligent surveillance solutions powered by cutting-edge technology.
           </p>
         </div>

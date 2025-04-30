@@ -10,15 +10,23 @@ const SolutionsPreview = () => {
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-up');
+            setTimeout(() => {
+              entry.target.classList.add('animate-fade-up');
+            }, 100); // Small delay to ensure DOM updates
           }
         });
       },
-      { threshold: 0.1, rootMargin: "0px 0px -100px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
     );
 
+    // Ensure all elements are visible initially for SEO, then animate
     const elements = document.querySelectorAll('.animate-on-scroll');
-    elements.forEach(el => observer.observe(el));
+    
+    // Force initial visibility for all elements
+    elements.forEach(el => {
+      el.setAttribute('style', 'opacity: 0; transform: translateY(20px); visibility: visible;');
+      observer.observe(el);
+    });
 
     return () => {
       elements.forEach(el => observer.unobserve(el));
@@ -29,15 +37,15 @@ const SolutionsPreview = () => {
     <section className="py-20">
       <div className="container-default">
         <div className="text-center mb-16">
-          <h2 className="text-zeex-800 mb-5 animate-on-scroll opacity-0">Tailored AI Solutions</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto animate-on-scroll opacity-0" style={{ animationDelay: '0.2s' }}>
+          <h2 className="text-zeex-800 mb-5 animate-on-scroll">Tailored AI Solutions</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto animate-on-scroll" style={{ animationDelay: '0.2s' }}>
             No matter your environment, our AI surveillance systems adapt to meet your specific security needs.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Residential Security Card */}
-          <div className="animate-on-scroll opacity-0" style={{ animationDelay: '0.1s' }}>
+          <div className="animate-on-scroll" style={{ animationDelay: '0.1s' }}>
             <div className="group relative overflow-hidden rounded-xl h-full">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-zeex-800 z-10"></div>
               <img 
@@ -68,7 +76,7 @@ const SolutionsPreview = () => {
           </div>
 
           {/* Commercial Surveillance Card */}
-          <div className="animate-on-scroll opacity-0" style={{ animationDelay: '0.2s' }}>
+          <div className="animate-on-scroll" style={{ animationDelay: '0.2s' }}>
             <div className="group relative overflow-hidden rounded-xl h-full">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-zeex-800 z-10"></div>
               <img 
@@ -99,7 +107,7 @@ const SolutionsPreview = () => {
           </div>
 
           {/* Public Safety Card */}
-          <div className="animate-on-scroll opacity-0" style={{ animationDelay: '0.3s' }}>
+          <div className="animate-on-scroll" style={{ animationDelay: '0.3s' }}>
             <div className="group relative overflow-hidden rounded-xl h-full">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-zeex-800 z-10"></div>
               <img 
