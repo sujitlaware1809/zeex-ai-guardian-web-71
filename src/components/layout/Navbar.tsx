@@ -1,24 +1,21 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, X, ArrowRight, Shield, User, Bell, Cloud, Home, Building, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-// Define the structure for dropdown menu items
 interface DropdownItem {
   title: string;
   path: string;
   description?: string;
+  icon?: React.ReactNode;
 }
 
-// Define the structure for navbar items
 interface NavItem {
   title: string;
   path: string;
   dropdown?: DropdownItem[];
 }
 
-// Define navigation items
 const navItems: NavItem[] = [
   { 
     title: "Home",
@@ -31,22 +28,26 @@ const navItems: NavItem[] = [
       { 
         title: "Intrusion Detection", 
         path: "/services/intrusion-detection",
-        description: "Advanced AI system to detect unauthorized entries"
+        description: "Advanced perimeter monitoring",
+        icon: <Shield size={16} />
       },
       { 
         title: "Facial Recognition", 
         path: "/services/facial-recognition",
-        description: "Identify and verify individuals with precision"
+        description: "Real-time identification",
+        icon: <User size={16} />
       },
       { 
         title: "Real-time Alerts", 
         path: "/services/real-time-alerts",
-        description: "Instant notifications for security events"
+        description: "Instant notifications",
+        icon: <Bell size={16} />
       },
       { 
-        title: "Cloud Video Analytics", 
+        title: "Cloud Analytics", 
         path: "/services/cloud-video-analytics",
-        description: "Process and analyze video data in the cloud"
+        description: "Scalable video processing",
+        icon: <Cloud size={16} />
       }
     ]
   },
@@ -55,29 +56,32 @@ const navItems: NavItem[] = [
     path: "/solutions",
     dropdown: [
       { 
-        title: "Residential Security", 
+        title: "Residential", 
         path: "/solutions/residential",
-        description: "Protect your home with AI-powered surveillance"
+        description: "Smart home security",
+        icon: <Home size={16} />
       },
       { 
-        title: "Commercial Surveillance", 
+        title: "Commercial", 
         path: "/solutions/commercial",
-        description: "Enterprise-grade security solutions for businesses"
+        description: "Business protection",
+        icon: <Building size={16} />
       },
       { 
         title: "Public Safety", 
         path: "/solutions/public-safety",
-        description: "Enhance safety in public spaces with smart monitoring"
+        description: "Smart city solutions",
+        icon: <MapPin size={16} />
       }
     ]
   },
   { 
-    title: "About Us",
+    title: "About",
     path: "/about"
   },
   { 
-    title: "Blog",
-    path: "/blog"
+    title: "Resources",
+    path: "/resources"
   },
   { 
     title: "Contact",
@@ -91,153 +95,152 @@ const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const location = useLocation();
 
-  // Handle scroll event to change navbar styling
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu when changing routes
   useEffect(() => {
     setMobileMenuOpen(false);
     setOpenDropdown(null);
   }, [location.pathname]);
 
-  // Toggle mobile dropdown
   const toggleMobileDropdown = (title: string) => {
-    if (openDropdown === title) {
-      setOpenDropdown(null);
-    } else {
-      setOpenDropdown(title);
-    }
+    setOpenDropdown(openDropdown === title ? null : title);
   };
 
   return (
     <header className={cn(
-      "fixed top-0 left-0 w-full z-50 transition-all duration-300",
+      "fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white",
       isScrolled || mobileMenuOpen 
-        ? "bg-white shadow-md py-2" 
-        : "bg-transparent py-4"
+        ? "shadow-md py-2 border-b border-gray-100" 
+        : "py-4"
     )}>
       <div className="container-default flex justify-between items-center">
         {/* Logo */}
-        <Link to="/" className="relative z-50">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-zeex-600 rounded-md flex items-center justify-center">
-              <span className="text-white font-bold">Z</span>
+        <Link to="/" className="relative z-50 group">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-navy-600 to-navy-800 flex items-center justify-center group-hover:rotate-12 transition-transform">
+              <Shield className="text-white" size={20} />
             </div>
-            <span className={cn(
-              "font-poppins font-bold text-2xl transition-colors duration-300",
-              isScrolled || mobileMenuOpen ? "text-zeex-600" : "text-zeex-600"
-            )}>ZeexAI</span>
+            <span className="font-bold text-2xl text-navy-800">
+              Zeex<span className="text-navy-600">AI</span>
+            </span>
           </div>
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center space-x-8">
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center gap-8">
           {navItems.map((item) => (
-            <div key={item.title} className="group relative">
-              <Link 
-                to={item.path}
-                className={cn(
-                  "font-medium transition-colors duration-300 py-2",
-                  location.pathname === item.path ? "text-zeex-500" : 
-                  isScrolled ? "text-zeex-800 hover:text-zeex-500" : 
-                  "text-zeex-800 hover:text-zeex-500",
-                  !item.dropdown && "link-hover"
-                )}
-              >
-                <span className="flex items-center gap-1">
+            <div key={item.title} className="relative group">
+              <div className="flex items-center">
+                <Link 
+                  to={item.path}
+                  className={cn(
+                    "font-medium text-navy-700 hover:text-navy-900 transition-colors py-2 px-1",
+                    location.pathname === item.path && "text-navy-900 font-semibold",
+                    !item.dropdown && "relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-navy-600 after:transition-all hover:after:w-full"
+                  )}
+                >
                   {item.title}
-                  {item.dropdown && <ChevronDown className="w-4 h-4" />}
-                </span>
-              </Link>
+                </Link>
+                {item.dropdown && (
+                  <ChevronDown className="w-4 h-4 ml-1 text-navy-500 group-hover:rotate-180 transition-transform" />
+                )}
+              </div>
 
-              {/* Dropdown Menu */}
               {item.dropdown && (
-                <div className="nav-dropdown">
-                  {item.dropdown.map((dropdownItem) => (
-                    <Link
-                      key={dropdownItem.path}
-                      to={dropdownItem.path}
-                      className="block px-4 py-2 hover:bg-zeex-50 text-sm"
-                    >
-                      <div className="font-medium">{dropdownItem.title}</div>
-                      {dropdownItem.description && (
-                        <p className="text-xs text-gray-600 mt-1">{dropdownItem.description}</p>
-                      )}
-                    </Link>
-                  ))}
+                <div className="absolute left-0 top-full mt-1 w-64 origin-top-right rounded-lg bg-white shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  <div className="p-2">
+                    {item.dropdown.map((dropdownItem) => (
+                      <Link
+                        key={dropdownItem.path}
+                        to={dropdownItem.path}
+                        className="flex items-start gap-3 rounded-lg p-3 hover:bg-gray-50 transition-colors"
+                      >
+                        <div className="p-1.5 rounded-md bg-navy-50 border border-navy-100">
+                          {React.cloneElement(dropdownItem.icon as React.ReactElement, { 
+                            className: "text-navy-600",
+                            size: 16 
+                          })}
+                        </div>
+                        <div>
+                          <div className="font-medium text-navy-800">{dropdownItem.title}</div>
+                          <p className="text-xs text-navy-500 mt-1">{dropdownItem.description}</p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
           ))}
           
-          {/* CTA Button */}
           <Link 
             to="/contact"
-            className="btn-primary whitespace-nowrap"
+            className="ml-4 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium rounded-lg shadow-sm hover:shadow-md hover:from-blue-500 hover:to-indigo-500 transition-all"
           >
-            Request Demo
+            Get Demo
           </Link>
         </nav>
 
         {/* Mobile Menu Button */}
         <button
-          className="lg:hidden relative z-50"
+          className="lg:hidden relative z-50 p-2 rounded-lg hover:bg-gray-100 transition-colors"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle Menu"
         >
           {mobileMenuOpen ? (
-            <X className="w-6 h-6 text-zeex-800" />
+            <X className="w-6 h-6 text-navy-800" />
           ) : (
-            <Menu className="w-6 h-6 text-zeex-800" />
+            <Menu className="w-6 h-6 text-navy-800" />
           )}
         </button>
 
         {/* Mobile Menu */}
         <div className={cn(
-          "fixed inset-0 bg-white z-40 p-6 pt-24 lg:hidden overflow-y-auto",
-          mobileMenuOpen ? "flex flex-col" : "hidden"
+          "fixed inset-0 bg-white z-40 pt-24 px-6 lg:hidden overflow-y-auto transition-all duration-300",
+          mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         )}>
-          <nav className="flex flex-col space-y-4">
+          <nav className="flex flex-col space-y-2">
             {navItems.map((item) => (
-              <div key={item.title} className="border-b border-gray-100 pb-2">
+              <div key={item.title} className="border-b border-gray-100 last:border-0">
                 {item.dropdown ? (
                   <div>
                     <button 
-                      className="flex justify-between w-full text-left py-2 font-medium text-zeex-800"
+                      className="flex justify-between items-center w-full text-left py-4 font-medium text-navy-800"
                       onClick={() => toggleMobileDropdown(item.title)}
                     >
                       {item.title}
                       <ChevronDown className={cn(
-                        "w-5 h-5 transition-transform",
+                        "w-5 h-5 text-navy-500 transition-transform",
                         openDropdown === item.title ? "rotate-180" : ""
                       )} />
                     </button>
                     
-                    {/* Mobile Dropdown */}
                     <div className={cn(
-                      "pl-4 space-y-2 mt-2 overflow-hidden transition-all",
-                      openDropdown === item.title ? "max-h-96" : "max-h-0"
+                      "pl-4 space-y-2 overflow-hidden transition-all",
+                      openDropdown === item.title ? "max-h-96 pb-4" : "max-h-0"
                     )}>
                       {item.dropdown.map((dropdownItem) => (
                         <Link
                           key={dropdownItem.path}
                           to={dropdownItem.path}
-                          className="block py-2 text-zeex-700 hover:text-zeex-500"
+                          className="flex items-center gap-3 py-3 text-navy-700 hover:text-navy-900 transition-colors"
                         >
-                          {dropdownItem.title}
+                          {dropdownItem.icon && (
+                            <div className="w-8 h-8 rounded-lg bg-navy-50 flex items-center justify-center text-navy-600 border border-navy-100">
+                              {dropdownItem.icon}
+                            </div>
+                          )}
+                          <div>
+                            <div className="font-medium">{dropdownItem.title}</div>
+                            <div className="text-xs text-navy-500 mt-1">{dropdownItem.description}</div>
+                          </div>
                         </Link>
                       ))}
                     </div>
@@ -245,16 +248,17 @@ const Navbar = () => {
                 ) : (
                   <Link
                     to={item.path}
-                    className="block py-2 font-medium text-zeex-800 hover:text-zeex-500"
+                    className="block py-4 font-medium text-navy-800 hover:text-navy-600 transition-colors"
                   >
                     {item.title}
                   </Link>
                 )}
               </div>
             ))}
+            
             <Link 
               to="/contact" 
-              className="btn-primary text-center mt-4"
+              className="mt-6 px-5 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium rounded-lg text-center shadow-sm hover:shadow-md transition-all"
             >
               Request Demo
             </Link>

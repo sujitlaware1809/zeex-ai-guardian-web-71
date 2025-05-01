@@ -1,6 +1,5 @@
-
 import React, { useEffect } from 'react';
-import { Shield, Video, Bell, Cloud } from 'lucide-react';
+import { Shield, Video, Bell, Cloud, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface FeatureProps {
@@ -13,20 +12,24 @@ interface FeatureProps {
 
 const FeatureCard: React.FC<FeatureProps> = ({ icon, title, description, linkTo, delay }) => {
   return (
-    <Link to={linkTo} className="animate-on-scroll card-hover" style={{ animationDelay: delay }}>
-      <div className="bg-white rounded-xl shadow-md p-8 h-full flex flex-col">
-        <div className="mb-5 text-zeex-500">
-          {icon}
+    <Link 
+      to={linkTo} 
+      className="animate-on-scroll group" 
+      style={{ animationDelay: delay }}
+    >
+      <div className="bg-white rounded-2xl p-8 h-full flex flex-col border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-blue-100">
+        <div className="mb-6 w-14 h-14 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center text-blue-600 group-hover:from-blue-100 group-hover:to-indigo-100 transition-colors">
+          {React.cloneElement(icon as React.ReactElement, { size: 28 })}
         </div>
-        <h3 className="text-xl font-semibold mb-3 text-zeex-800">{title}</h3>
-        <p className="text-gray-600 flex-grow">{description}</p>
-        <div className="mt-5">
-          <span className="text-zeex-500 font-medium flex items-center gap-1">
+        
+        <h3 className="text-xl font-semibold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">{title}</h3>
+        
+        <p className="text-gray-600 flex-grow mb-6">{description}</p>
+        
+        <div className="mt-auto">
+          <span className="inline-flex items-center gap-2 text-blue-600 font-medium group-hover:gap-3 transition-all">
             Learn more
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3.33337 8H12.6667" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M8.66667 4L12.6667 8L8.66667 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </span>
         </div>
       </div>
@@ -43,17 +46,15 @@ const Features = () => {
           if (entry.isIntersecting) {
             setTimeout(() => {
               entry.target.classList.add('animate-fade-up');
-            }, 100); // Small delay to ensure DOM updates
+            }, 100);
           }
         });
       },
       { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
     );
 
-    // Ensure all elements are visible initially for SEO, then animate
     const elements = document.querySelectorAll('.animate-on-scroll');
     
-    // Force initial visibility for all elements
     elements.forEach(el => {
       el.setAttribute('style', 'opacity: 0; transform: translateY(20px); visibility: visible;');
       observer.observe(el);
@@ -65,47 +66,62 @@ const Features = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-zeex-50">
-      <div className="container-default">
-        <div className="text-center mb-16">
-          <h2 className="text-zeex-800 mb-5 animate-on-scroll">Our Core Services</h2>
+    <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <div className="container-default px-6">
+        <div className="text-center mb-20">
+          <span className="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-medium mb-4 animate-on-scroll">
+            AI-Powered Solutions
+          </span>
+          <h2 className="text-4xl font-bold text-gray-900 mb-5 animate-on-scroll max-w-3xl mx-auto">
+            Advanced Security <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Features</span>
+          </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto animate-on-scroll" style={{ animationDelay: '0.2s' }}>
-            Zeex AI offers comprehensive intelligent surveillance solutions powered by cutting-edge technology.
+            Zeex AI delivers intelligent surveillance solutions powered by cutting-edge computer vision and deep learning technology.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <FeatureCard 
-            icon={<Shield size={42} />}
+            icon={<Shield />}
             title="Intrusion Detection"
-            description="Detect unauthorized entries with state-of-the-art perimeter monitoring that distinguishes between humans, animals, and objects."
+            description="Advanced perimeter monitoring that accurately distinguishes between humans, animals, and objects with 99.7% accuracy."
             linkTo="/services/intrusion-detection"
             delay="0.1s"
           />
           
           <FeatureCard 
-            icon={<Video size={42} />}
+            icon={<Video />}
             title="Facial Recognition"
-            description="Identify and verify individuals with precision using our advanced facial recognition system that works in various lighting conditions."
+            description="Real-time identification system that works in all lighting conditions with industry-leading precision."
             linkTo="/services/facial-recognition"
             delay="0.2s"
           />
           
           <FeatureCard 
-            icon={<Bell size={42} />}
+            icon={<Bell />}
             title="Real-time Alerts"
-            description="Receive instant notifications on your devices when security events are detected, allowing for immediate response to potential threats."
+            description="Instant notifications with contextual information delivered to your preferred devices."
             linkTo="/services/real-time-alerts"
             delay="0.3s"
           />
           
           <FeatureCard 
-            icon={<Cloud size={42} />}
-            title="Cloud Video Analytics"
-            description="Store, process and analyze video data in the cloud with our scalable infrastructure, providing insights and trend analysis."
+            icon={<Cloud />}
+            title="Cloud Analytics"
+            description="Scalable infrastructure for processing and analyzing video data with actionable insights."
             linkTo="/services/cloud-video-analytics"
             delay="0.4s"
           />
+        </div>
+
+        <div className="text-center mt-16 animate-on-scroll" style={{ animationDelay: '0.6s' }}>
+          <Link 
+            to="/solutions" 
+            className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-medium rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all hover:bg-gray-50 hover:-translate-y-0.5"
+          >
+            Explore all features
+            <ArrowRight className="ml-2 w-4 h-4" />
+          </Link>
         </div>
       </div>
     </section>

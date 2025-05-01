@@ -1,19 +1,20 @@
 
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
 	darkMode: ["class"],
+	prefix: "",
 	content: [
 		"./pages/**/*.{ts,tsx}",
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
 		"./src/**/*.{ts,tsx}",
 	],
-	prefix: "",
 	theme: {
 		container: {
 			center: true,
-			padding: '2rem',
+			padding: '0 rem',
 			screens: {
 				'2xl': '1400px'
 			}
@@ -54,10 +55,10 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				zeex: {
-					DEFAULT: '#0A2463',  // Navy blue
-					light: '#3E92CC',    // Light blue accent
-					bg: '#D8E1E9',       // Light background
-					dark: '#051530',     // Darker navy for hover states
+					DEFAULT: '#0A2463', // Navy blue
+					light: '#3E92CC', // Light blue accent
+					bg: '#D8E1E9', // Light background
+					dark: '#051530', // Darker navy for hover states
 					50: '#EEF2F7',
 					100: '#D8E1E9',
 					200: '#B0C5D9',
@@ -108,7 +109,7 @@ export default {
 				'fade-up': 'fade-up 0.7s ease-out',
 				'pulse-slow': 'pulse-slow 3s ease-in-out infinite'
 			}
-		}
-	},
-	plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+			}
+		},
+		plugins: [tailwindcssAnimate]
+	} satisfies Config;
