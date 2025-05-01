@@ -10,7 +10,7 @@ interface PageHeaderProps {
 const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle, backgroundImage }) => {
   return (
     <div 
-      className="relative py-20 lg:py-32 flex items-center"
+      className="relative py-16 lg:py-24 flex items-center"
       style={{
         background: backgroundImage 
           ? `linear-gradient(rgba(10, 36, 99, 0.8), rgba(10, 36, 99, 0.8)), url(${backgroundImage})`

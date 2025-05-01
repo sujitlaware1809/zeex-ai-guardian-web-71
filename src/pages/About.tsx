@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Layout from '@/components/layout/Layout';
 import PageHeader from '@/components/shared/PageHeader';
@@ -7,7 +8,7 @@ const About = () => {
   return (
     <Layout>
       {/* Hero Section with 3D-like gradient background */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-indigo-950 via-blue-900 to-indigo-800 py-24 md:py-32">
+      <section className="relative overflow-hidden bg-gradient-to-br from-indigo-950 via-blue-900 to-indigo-800 py-16 md:py-24">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0 bg-[url('/assets/grid-pattern.svg')] bg-center [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
         </div>
