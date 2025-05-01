@@ -1,12 +1,11 @@
 
 import React from 'react';
-import Layout from '@/components/layout/Layout';
 import PageHeader from '@/components/shared/PageHeader';
 import ContactForm from '@/components/shared/ContactForm';
 
 const Contact = () => {
   return (
-    <Layout>
+    <>
       <PageHeader 
         title="Contact Us"
         subtitle="Get in touch with our team for inquiries, demos, or support"
@@ -36,7 +35,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 };
 
