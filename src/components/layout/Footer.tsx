@@ -26,10 +26,10 @@ const Footer = () => {
               <a href="https://twitter.com" className="hover:text-zeex-300 transition-colors" aria-label="Twitter">
                 <Twitter size={20} />
               </a>
-              <a href="https://linkedin.com" className="hover:text-zeex-300 transition-colors" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/zeex-ai" className="hover:text-zeex-300 transition-colors" aria-label="LinkedIn">
                 <Linkedin size={20} />
               </a>
-              <a href="https://instagram.com" className="hover:text-zeex-300 transition-colors" aria-label="Instagram">
+              <a href="https://www.instagram.com/zeex_ai/" className="hover:text-zeex-300 transition-colors" aria-label="Instagram">
                 <Instagram size={20} />
               </a>
             </div>
@@ -65,15 +65,16 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex gap-3">
                 <Phone size={20} className="flex-shrink-0 text-zeex-300" />
-                <span className="text-zeex-100">(555) 123-4567</span>
+                <span className="text-zeex-100">+91 8709221636
+                </span>
               </li>
               <li className="flex gap-3">
                 <Mail size={20} className="flex-shrink-0 text-zeex-300" />
-                <span className="text-zeex-100">contact@zeex-ai.com</span>
+                <span className="text-zeex-100">admin@zeexai.com</span>
               </li>
               <li className="flex gap-3">
                 <MapPin size={20} className="flex-shrink-0 text-zeex-300" />
-                <span className="text-zeex-100">123 AI Boulevard, Tech City, TC 10101</span>
+                <span className="text-zeex-100">Nirmaan, CFI, IIT Madras               </span>
               </li>
             </ul>
           </div>

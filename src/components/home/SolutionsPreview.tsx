@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Building, MapPin, ArrowRight } from 'lucide-react';
+import { Home, Building, MapPin, ShoppingCart, ArrowRight } from 'lucide-react';
 
 const SolutionsPreview = () => {
   // Animation on scroll
@@ -45,44 +45,46 @@ const SolutionsPreview = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Residential Security Card */}
-          <div className="animate-on-scroll" style={{ animationDelay: '0.1s' }}>
-            <div className="group relative overflow-hidden rounded-2xl h-full border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-gray-900/80 z-10"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa" 
-                alt="Residential Security" 
-                className="w-full h-80 object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                loading="lazy"
-              />
-              <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
-                <div className="p-3 bg-white rounded-xl w-14 h-14 flex items-center justify-center mb-5 shadow-md group-hover:bg-blue-50 transition-colors">
-                  <Home className="text-blue-600" size={24} />
-                </div>
-                <h3 className="text-white text-2xl font-semibold mb-3">Residential Security</h3>
-                <p className="text-white/90 mb-6">
-                  Smart home monitoring that integrates with your existing systems for complete peace of mind.
-                </p>
-                <Link 
-                  to="/solutions/residential" 
-                  className="inline-flex items-center text-white font-medium group-hover:text-blue-300 transition-colors"
-                >
-                  Explore solution
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Residential Security Card with Home Icon */}
+<div className="animate-on-scroll" style={{ animationDelay: '0.1s' }}>
+  <div className="group relative overflow-hidden rounded-2xl h-full border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300">
+    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-gray-900/80 z-10"></div>
+    <div className="absolute inset-0 backdrop-blur-sm z-0"></div>
+    <img 
+      src="https://images.unsplash.com/photo-1560518883-ce09059eeffa" 
+      alt="Residential Security" 
+      className="w-full h-80 object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-100"
+      loading="lazy"
+    />
+    <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
+      <div className="p-3 bg-white rounded-xl w-14 h-14 flex items-center justify-center mb-5 shadow-md group-hover:bg-blue-50 transition-colors">
+        <Home className="text-blue-600" size={24} />
+      </div>
+      <h3 className="text-white text-2xl font-semibold mb-3">Residential Security </h3>
+      <p className="text-white/90 mb-6">
+      Smart home monitoring that integrates with your systems for complete surveillance.
+      </p>
+      <Link 
+        to="/solutions/residential" 
+        className="inline-flex items-center text-white font-medium group-hover:text-blue-300 transition-colors"
+      >
+        Explore solution
+        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+      </Link>
+    </div>
+  </div>
+</div>
 
           {/* Commercial Surveillance Card */}
           <div className="animate-on-scroll" style={{ animationDelay: '0.2s' }}>
             <div className="group relative overflow-hidden rounded-2xl h-full border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-gray-900/80 z-10"></div>
+              <div className="absolute inset-0 backdrop-blur-sm z-0"></div>
               <img 
                 src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab" 
                 alt="Commercial Surveillance" 
-                className="w-full h-80 object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-80 object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-100"
                 loading="lazy"
               />
               <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
@@ -108,10 +110,11 @@ const SolutionsPreview = () => {
           <div className="animate-on-scroll" style={{ animationDelay: '0.3s' }}>
             <div className="group relative overflow-hidden rounded-2xl h-full border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-gray-900/80 z-10"></div>
+              <div className="absolute inset-0 backdrop-blur-sm z-0"></div>
               <img 
                 src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205" 
                 alt="Public Safety" 
-                className="w-full h-80 object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-80 object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-100"
                 loading="lazy"
               />
               <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
@@ -132,9 +135,39 @@ const SolutionsPreview = () => {
               </div>
             </div>
           </div>
+
+          {/* Shops and Supermarkets Card */}
+          <div className="animate-on-scroll" style={{ animationDelay: '0.4s' }}>
+            <div className="group relative overflow-hidden rounded-2xl h-full border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-gray-900/80 z-10"></div>
+              <div className="absolute inset-0 backdrop-blur-sm z-0"></div>
+              <img 
+                src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df" 
+                alt="Shops and Supermarkets" 
+                className="w-full h-80 object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-100"
+                loading="lazy"
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
+                <div className="p-3 bg-white rounded-xl w-14 h-14 flex items-center justify-center mb-5 shadow-md group-hover:bg-green-50 transition-colors">
+                  <ShoppingCart className="text-green-600" size={24} />
+                </div>
+                <h3 className="text-white text-2xl font-semibold mb-3">Shops & Supermarkets</h3>
+                <p className="text-white/90 mb-6">
+                  Retail security solutions with theft prevention and customer behavior analytics.
+                </p>
+                <Link 
+                  to="/solutions/retail" 
+                  className="inline-flex items-center text-white font-medium group-hover:text-green-300 transition-colors"
+                >
+                  Explore solution
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="text-center mt-16 animate-on-scroll" style={{ animationDelay: '0.4s' }}>
+        <div className="text-center mt-16 animate-on-scroll" style={{ animationDelay: '0.5s' }}>
           <Link 
             to="/solutions" 
             className="inline-flex items-center px-6 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5"

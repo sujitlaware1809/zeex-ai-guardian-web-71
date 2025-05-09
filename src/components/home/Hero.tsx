@@ -40,7 +40,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 pt-0">
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 pt-20 md:pt-24">
       {/* Modern animated gradient background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent opacity-20 animate-gradient-pan"></div>
@@ -54,19 +54,19 @@ const Hero = () => {
         <div className="absolute bottom-1/3 left-[10%] w-10 h-10 rounded-full bg-cyan-500/50 filter blur-[30px] animate-float-slow"></div>
       </div>
 
-      <div className="container-default relative z-10 pt-16 md:pt-12 pb-24 px-4 mt-0">
+      <div className="container-default relative z-10 pb-24 px-4">
         <div className="text-center max-w-6xl mx-auto">
           <div className="inline-block mb-4 px-4 py-2 bg-blue-100/50 backdrop-blur-sm rounded-full border border-blue-200/50 hero-element">
-            <span className="text-sm font-medium text-blue-600">AI VISION 2.0 NOW LIVE</span>
+            <span className="text-sm font-medium text-blue-600"> Real-Time Intelligence. Real-World Impact</span>
           </div>
 
-          <h1 className="font-bold text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 leading-tight hero-element mb-5">
-            Next-Gen AI Surveillance <br className="hidden md:block" />for Intelligent Security
-          </h1>
+          <h1 className="font-bold text-4xl md:text-6xl lg:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 gradient-text-safe hero-element">
+  AI-Powered Surveillance for Safety, Sustainability & Smart Management
+</h1>
 
-          <p className="text-xl md:text-2xl mb-8 text-gray-700 max-w-3xl mx-auto hero-element" style={{ animationDelay: '0.3s' }}>
-            Zeex AI combines real-time computer vision with deep learning analytics to deliver proactive threat detection and situational awareness.
-          </p>
+<p className="text-xl md:text-2xl mb-8 text-gray-700 max-w-3xl mx-auto hero-element pb-1" style={{ animationDelay: '0.3s' }}>
+  Zeex AI redefines how businesses, cities, and industries protect and manage their environments — using AI-driven surveillance to detect, respond, and prevent incidents before they escalate.
+</p>
 
           {/* Video with modern border */}
           <div 
@@ -124,7 +124,7 @@ const Hero = () => {
       {/* Target for scroll indicator */}
       <div ref={scrollRef}></div>
 
-      {/* Add these to your CSS or Tailwind config */}
+      {/* Animation styles */}
       <style>{`
         @keyframes gradient-pan {
           from { background-position: 0% 0%; }

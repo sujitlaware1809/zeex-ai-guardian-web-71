@@ -28,8 +28,6 @@ const FeatureCard: React.FC<FeatureProps> = ({ icon, title, description, linkTo,
         
         <div className="mt-auto">
           <span className="inline-flex items-center gap-2 text-blue-600 font-medium group-hover:gap-3 transition-all">
-            Learn more
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </span>
         </div>
       </div>
@@ -73,7 +71,7 @@ const Features = () => {
             AI-Powered Solutions
           </span>
           <h2 className="text-4xl font-bold text-gray-900 mb-5 animate-on-scroll max-w-3xl mx-auto">
-            Advanced Security <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Features</span>
+          Core <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Features</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto animate-on-scroll" style={{ animationDelay: '0.2s' }}>
             Zeex AI delivers intelligent surveillance solutions powered by cutting-edge computer vision and deep learning technology.
@@ -83,23 +81,23 @@ const Features = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <FeatureCard 
             icon={<Shield />}
-            title="Intrusion Detection"
-            description="Advanced perimeter monitoring that accurately distinguishes between humans, animals, and objects with 99.7% accuracy."
+            title="Advanced Threat Detection"
+            description="Our AI-powered threat detection system continuously monitors and identifies potential security risks before they become problems."
             linkTo="/services/intrusion-detection"
             delay="0.1s"
           />
           
           <FeatureCard 
             icon={<Video />}
-            title="Facial Recognition"
-            description="Real-time identification system that works in all lighting conditions with industry-leading precision."
+            title="AI-Visual Surveillance Analytics"
+            description="Intelligent video analysis detects unusual patterns while ensuring privacy and compliance."
             linkTo="/services/facial-recognition"
             delay="0.2s"
           />
           
           <FeatureCard 
             icon={<Bell />}
-            title="Real-time Alerts"
+            title="Real-time alerts on your Devices"
             description="Instant notifications with contextual information delivered to your preferred devices."
             linkTo="/services/real-time-alerts"
             delay="0.3s"
@@ -107,16 +105,18 @@ const Features = () => {
           
           <FeatureCard 
             icon={<Cloud />}
-            title="Cloud Analytics"
-            description="Scalable infrastructure for processing and analyzing video data with actionable insights."
+            title="Seamless Integration with CCTV and Device"
+            description="Easy setup, multi-device support, and customizable dashboard."
             linkTo="/services/cloud-video-analytics"
             delay="0.4s"
           />
         </div>
 
+        
+
         <div className="text-center mt-16 animate-on-scroll" style={{ animationDelay: '0.6s' }}>
           <Link 
-            to="/solutions" 
+            to="/services" 
             className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-medium rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all hover:bg-gray-50 hover:-translate-y-0.5"
           >
             Explore all features

@@ -1,8 +1,9 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import Layout from '@/components/layout/Layout';
-import PageHeader from '@/components/shared/PageHeader';
+import { Shield, ArrowRight } from 'lucide-react';
+import { motion, useAnimation } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useInView } from 'react-intersection-observer';
 
 // Mock blog data
 const blogPosts = [
@@ -57,97 +58,235 @@ const blogPosts = [
 ];
 
 const Blog = () => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+  }, [controls, inView]);
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.6, 
+        ease: "easeOut",
+        delay: 0.2
+      }
+    }
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.3
+      }
+    }
+  };
+
   return (
     <Layout>
-      <PageHeader 
-        title="Blog & Insights"
-        subtitle="Stay updated with the latest in AI security technology and industry trends"
-        backgroundImage="https://images.unsplash.com/photo-1432821596592-e2c18b78144f"
-      />
-      
-      <section className="py-16">
-        <div className="container-default">
-          {/* Blog filter (can be expanded later) */}
-          <div className="flex justify-between items-center mb-10 flex-wrap gap-4">
-            <h2 className="text-2xl font-bold text-zeex-800">Latest Articles</h2>
-            <div className="flex gap-2">
-              <button className="px-4 py-2 bg-zeex-600 text-white rounded-md">All</button>
-              <button className="px-4 py-2 hover:bg-zeex-50 rounded-md">Technology</button>
-              <button className="px-4 py-2 hover:bg-zeex-50 rounded-md">Trends</button>
-              <button className="px-4 py-2 hover:bg-zeex-50 rounded-md">Case Studies</button>
+      {/* Hero Section - Matching About Page Style */}
+      <section className="relative min-h-[60vh] flex items-center justify-center bg-navy-900 overflow-hidden opacity-0 animate-fadeIn">
+        {/* Background elements matching About page */}
+        <div className="absolute inset-0 overflow-hidden z-0">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent opacity-20"></div>
+        </div>
+        
+        {/* Centered content container with matching animation */}
+        <div className="container-default relative z-10 transform translate-y-4 animate-slideUp">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 rounded-full bg-blue-500/20 px-4 py-1.5 text-sm font-medium text-blue-200 backdrop-blur-sm mb-6">
+              <Shield className="w-4 h-4" /> Latest Insights
             </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">
+              Blog & <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Insights</span>
+            </h1>
+            <p className="text-xl text-gray-300 mb-8 animate-fadeInDelay">
+              Stay updated with the latest in AI security technology, industry trends, and expert perspectives from the ZeexAI team.
+            </p>
           </div>
+        </div>
+
+        {/* Custom Animations Defined Inline - Matching About page */}
+        <style>{`
+          @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+
+          @keyframes slideUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+          }
+
+          .animate-fadeIn {
+            animation: fadeIn 1s ease-out forwards;
+          }
+
+          .animate-slideUp {
+            animation: slideUp 1.2s ease-out forwards;
+          }
+
+          .animate-fadeInDelay {
+            animation: fadeIn 1s ease-out 0.6s forwards;
+          }
+        `}</style>
+      </section>
+
+      {/* Blog Content Section */}
+      <motion.section 
+        ref={ref}
+        initial="hidden"
+        animate={controls}
+        variants={staggerContainer}
+        className="py-16 bg-gradient-to-b from-gray-50 to-white"
+      >
+        <div className="container-default px-6">
+          {/* Blog filter */}
+          <motion.div 
+            variants={staggerContainer}
+            className="flex justify-between items-center mb-12 flex-wrap gap-4"
+          >
+            <motion.div variants={fadeInUp}>
+              <h2 className="text-3xl font-bold text-gray-900">Latest Articles</h2>
+              <p className="text-gray-600">Discover our latest insights and updates</p>
+            </motion.div>
+            <motion.div 
+              variants={fadeInUp}
+              className="flex gap-2 flex-wrap"
+            >
+              <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+                All
+              </button>
+              <button className="px-4 py-2 border border-gray-200 rounded-md text-gray-700 hover:bg-gray-50 transition-colors">
+                Technology
+              </button>
+              <button className="px-4 py-2 border border-gray-200 rounded-md text-gray-700 hover:bg-gray-50 transition-colors">
+                Trends
+              </button>
+              <button className="px-4 py-2 border border-gray-200 rounded-md text-gray-700 hover:bg-gray-50 transition-colors">
+                Case Studies
+              </button>
+            </motion.div>
+          </motion.div>
           
           {/* Blog grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map(post => (
-              <div key={post.id} className="blog-card">
-                <Link to={`/blog/${post.id}`}>
-                  <img 
-                    src={post.image} 
-                    alt={post.title} 
-                    className="w-full h-52 object-cover"
-                  />
+          <motion.div 
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {blogPosts.map((post, index) => (
+              <motion.div 
+                key={post.id}
+                variants={fadeInUp}
+                className="group overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300"
+                whileHover={{ y: -5 }}
+              >
+                <Link to={`/blog/${post.id}`} className="block h-full">
+                  <motion.div 
+                    className="overflow-hidden"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <img 
+                      src={post.image} 
+                      alt={post.title} 
+                      className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </motion.div>
                   <div className="p-6">
                     <div className="flex justify-between items-center mb-3">
-                      <span className="text-sm text-zeex-500 font-medium">{post.date}</span>
-                      <span className="text-xs bg-zeex-50 text-zeex-600 px-2 py-1 rounded-full">
+                      <span className="text-sm text-blue-600 font-medium">{post.date}</span>
+                      <span className="text-xs bg-blue-50 text-blue-600 px-2 py-1 rounded-full">
                         {post.category}
                       </span>
                     </div>
-                    <h3 className="text-xl font-semibold mb-3 text-zeex-800">{post.title}</h3>
+                    <h3 className="text-xl font-semibold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">
+                      {post.title}
+                    </h3>
                     <p className="text-gray-600 mb-4 line-clamp-2">{post.excerpt}</p>
-                    <div className="text-zeex-600 font-medium flex items-center">
+                    <div className="text-blue-600 font-medium flex items-center group-hover:underline">
                       Read more
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-2">
-                        <path d="M3.33337 8H12.6667" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        <path d="M8.66667 4L12.6667 8L8.66667 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
+                      <ArrowRight className="ml-2 h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
                   </div>
                 </Link>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
           
           {/* Pagination */}
-          <div className="flex justify-center mt-12">
-            <div className="flex items-center space-x-1">
-              <button className="px-4 py-2 border border-zeex-200 rounded-md text-zeex-700 hover:bg-zeex-50">
+          <motion.div 
+            variants={fadeInUp}
+            className="flex justify-center mt-12"
+          >
+            <div className="flex items-center space-x-2">
+              <button className="px-4 py-2 border border-gray-200 rounded-md text-gray-700 hover:bg-gray-50 transition-colors">
                 Previous
               </button>
-              <button className="px-4 py-2 bg-zeex-600 text-white rounded-md">1</button>
-              <button className="px-4 py-2 border border-zeex-200 rounded-md text-zeex-700 hover:bg-zeex-50">2</button>
-              <button className="px-4 py-2 border border-zeex-200 rounded-md text-zeex-700 hover:bg-zeex-50">3</button>
-              <button className="px-4 py-2 border border-zeex-200 rounded-md text-zeex-700 hover:bg-zeex-50">
+              <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+                1
+              </button>
+              <button className="px-4 py-2 border border-gray-200 rounded-md text-gray-700 hover:bg-gray-50 transition-colors">
+                2
+              </button>
+              <button className="px-4 py-2 border border-gray-200 rounded-md text-gray-700 hover:bg-gray-50 transition-colors">
+                3
+              </button>
+              <button className="px-4 py-2 border border-gray-200 rounded-md text-gray-700 hover:bg-gray-50 transition-colors">
                 Next
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Newsletter Section */}
-      <section className="bg-zeex-50 py-16">
-        <div className="container-default">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-2xl font-bold mb-4 text-zeex-800">Subscribe to Our Newsletter</h2>
-            <p className="text-gray-600 mb-6">
+      <motion.section 
+        initial="hidden"
+        animate={controls}
+        variants={staggerContainer}
+        className="bg-gradient-to-r from-blue-600 to-indigo-600 py-16 text-white"
+      >
+        <div className="container-default px-6">
+          <motion.div 
+            variants={fadeInUp}
+            className="max-w-2xl mx-auto text-center"
+          >
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
+            <p className="text-blue-100 mb-6">
               Stay updated with the latest insights in AI security, delivered straight to your inbox.
             </p>
-            <form className="flex flex-col sm:flex-row gap-3">
+            <motion.form 
+              variants={fadeInUp}
+              className="flex flex-col sm:flex-row gap-3"
+            >
               <input
                 type="email"
                 placeholder="Your email address"
-                className="flex-grow px-4 py-3 rounded-md border focus:outline-none focus:ring-2 focus:ring-zeex-500"
+                className="flex-grow px-4 py-3 rounded-md border-0 focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-900"
               />
-              <button type="submit" className="btn-primary whitespace-nowrap">
+              <button 
+                type="submit" 
+                className="btn-primary bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-md font-medium transition-colors"
+              >
                 Subscribe
               </button>
-            </form>
-          </div>
+            </motion.form>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
     </Layout>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronDown, Menu, X, ArrowRight, Shield, User, Bell, Cloud, Home, Building, MapPin } from 'lucide-react';
+import { ChevronDown, Menu, X, ArrowRight, Shield, Video, Bell, Cloud, Cpu, Database, Lock, Home, Building, MapPin, ShoppingCart } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface DropdownItem {
@@ -21,67 +21,48 @@ const navItems: NavItem[] = [
     title: "Home",
     path: "/"
   },
+  { 
+    title: "About",
+    path: "/about"
+  },
   {
     title: "Services",
     path: "/services",
-    dropdown: [
-      { 
-        title: "Intrusion Detection", 
-        path: "/services/intrusion-detection",
-        description: "Advanced perimeter monitoring",
-        icon: <Shield size={16} />
-      },
-      { 
-        title: "Facial Recognition", 
-        path: "/services/facial-recognition",
-        description: "Real-time identification",
-        icon: <User size={16} />
-      },
-      { 
-        title: "Real-time Alerts", 
-        path: "/services/real-time-alerts",
-        description: "Instant notifications",
-        icon: <Bell size={16} />
-      },
-      { 
-        title: "Cloud Analytics", 
-        path: "/services/cloud-video-analytics",
-        description: "Scalable video processing",
-        icon: <Cloud size={16} />
-      }
-    ]
+    
   },
   {
     title: "Solutions",
     path: "/solutions",
     dropdown: [
       { 
-        title: "Residential", 
+        title: "Supermarkets & Shops", 
+        path: "/solutions/retail",
+        description: "Retail security solutions",
+        icon: <ShoppingCart size={16} />
+      },
+      { 
+        title: "Residential Security", 
         path: "/solutions/residential",
-        description: "Smart home security",
+        description: "Smart home protection",
         icon: <Home size={16} />
       },
       { 
-        title: "Commercial", 
+        title: "Commercial Surveillance", 
         path: "/solutions/commercial",
-        description: "Business protection",
+        description: "Business security solutions",
         icon: <Building size={16} />
       },
       { 
         title: "Public Safety", 
         path: "/solutions/public-safety",
-        description: "Smart city solutions",
+        description: "Community security systems",
         icon: <MapPin size={16} />
       }
     ]
   },
   { 
-    title: "About",
-    path: "/about"
-  },
-  { 
-    title: "Resources",
-    path: "/resources"
+    title: "Blogs",
+    path: "/blog"
   },
   { 
     title: "Contact",
@@ -123,15 +104,16 @@ const Navbar = () => {
       <div className="container-default flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="relative z-50 group">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-navy-600 to-navy-800 flex items-center justify-center group-hover:rotate-12 transition-transform">
-              <Shield className="text-white" size={20} />
-            </div>
-            <span className="font-bold text-2xl text-navy-800">
-              Zeex<span className="text-navy-600">AI</span>
-            </span>
-          </div>
-        </Link>
+  <div className="flex items-center gap-3">
+    <div className="w-9 h-9 rounded-full overflow-hidden bg-gradient-to-br from-navy-600 to-navy-800 flex items-center justify-center group-hover:rotate-12 transition-transform">
+      <img src="https://i.ibb.co/hJqt2xCz/zeex-ai-logo.png" alt="ZeexAI Logo" className="w-full h-full object-cover" />
+    </div>
+    <span className="font-bold text-2xl text-navy-800">
+      Zeex<span className="text-navy-600"> AI</span>
+    </span>
+  </div>
+</Link>
+
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-8">

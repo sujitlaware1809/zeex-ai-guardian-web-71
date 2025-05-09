@@ -1,382 +1,562 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '@/components/layout/Layout';
 import PageHeader from '@/components/shared/PageHeader';
 import { Link, useParams } from 'react-router-dom';
-import { Shield, Video, Bell, Cloud, Check, ArrowRight } from 'lucide-react';
+import { Home, Building, MapPin, ArrowRight, Check, Shield, Video, Bell, Cloud, Cpu, Database, Lock, Wifi } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+// Animation variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
 
 // Service details data
 const servicesDetails = {
-  'intrusion-detection': {
-    title: 'Intrusion Detection',
-    description: 'Advanced AI-powered intrusion detection systems that distinguish between humans, animals, and objects, reducing false alarms by up to 95%.',
+  'advanced-threat-detection': {
+    title: 'Advanced Threat Detection',
+    description: 'Our AI-powered threat detection system continuously monitors and identifies potential security risks before they become problems.',
     icon: Shield,
-    image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9',
-    headerImage: 'https://images.unsplash.com/photo-1553408436-2692d7b25d0b',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
+    headerImage: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485',
     features: [
-      'Perimeter monitoring with virtual boundaries',
-      'Human/animal/object classification',
-      'Low false alarm rate',
-      'Works in various lighting conditions',
-      'Integration with existing security systems'
+      '24/7 continuous monitoring',
+      'AI-powered anomaly detection',
+      'Real-time risk assessment',
+      'Automated threat classification',
+      'Historical pattern analysis'
     ],
     content: `
-      <h2>How Our Intrusion Detection Works</h2>
-      <p>ZeexAI's intrusion detection system uses advanced computer vision and machine learning algorithms to provide comprehensive perimeter security. Our technology can distinguish between humans, animals, vehicles, and other objects, reducing false alarms by up to 95% compared to traditional motion detection systems.</p>
+      <h2>Proactive Security Monitoring</h2>
+      <p>Our Advanced Threat Detection system uses cutting-edge artificial intelligence to identify potential security threats before they impact your operations. Unlike traditional security systems that react to incidents, our solution anticipates and prevents them.</p>
       
-      <p>The system works by establishing virtual boundaries around your property. When something crosses these boundaries, our AI immediately analyzes the object, classifies it, and determines if it represents a potential threat. If a threat is detected, alerts are sent to your mobile devices and security personnel in real-time.</p>
-      
-      <h3>Key Technology Components:</h3>
+      <h3>How It Works</h3>
+      <p>The system analyzes multiple data streams in real-time, including:</p>
       <ul>
-        <li><strong>Advanced Neural Networks:</strong> Our proprietary neural networks are trained on millions of images to accurately classify objects in various lighting and weather conditions.</li>
-        <li><strong>Behavioral Analysis:</strong> Beyond simple object recognition, our system analyzes movement patterns to distinguish between normal and suspicious behavior.</li>
-        <li><strong>Adaptive Learning:</strong> The system continuously learns from new data, improving its accuracy over time.</li>
+        <li>Video surveillance feeds</li>
+        <li>Access control logs</li>
+        <li>Network activity</li>
+        <li>Environmental sensors</li>
       </ul>
-      
-      <h2>Benefits of AI-Powered Intrusion Detection</h2>
-      <p>Traditional security cameras simply record footage for later review, but our system actively monitors your property and alerts you to potential threats as they happen. This proactive approach to security can prevent incidents before they occur and provide valuable time to respond appropriately.</p>
-      
-      <h3>Reduced False Alarms</h3>
-      <p>One of the biggest challenges in security systems is the high rate of false alarms. Our AI technology significantly reduces these by understanding the context of movements and accurately distinguishing between harmless activity (like animals or moving branches) and potential threats.</p>
-      
-      <h3>24/7 Reliable Monitoring</h3>
-      <p>Our system works effectively in all lighting conditions, including complete darkness, ensuring your property is protected around the clock. The technology adapts to changing environmental conditions to maintain consistent detection accuracy.</p>
     `,
     useCases: [
       {
-        title: 'Residential Security',
-        description: 'Protect your home with intelligent perimeter monitoring that distinguishes between delivery personnel, visitors, and potential intruders.',
-        image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa'
+        title: 'Perimeter Security',
+        description: 'Detects unauthorized access attempts before intruders reach sensitive areas'
       },
       {
-        title: 'Commercial Property Protection',
-        description: 'Secure warehouses, offices, and retail locations with advanced monitoring that detects unauthorized access and suspicious activity.',
-        image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2'
+        title: 'Internal Threat Detection',
+        description: 'Identifies suspicious behavior patterns within your facilities'
       },
       {
-        title: 'Construction Site Security',
-        description: 'Prevent theft and vandalism at construction sites by detecting after-hours activity and unauthorized access to restricted areas.',
-        image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5'
+        title: 'Network Protection',
+        description: 'Monitors for cybersecurity threats in integrated systems'
       }
     ]
   },
-  'facial-recognition': {
-    title: 'Facial Recognition',
-    description: 'Identify and verify individuals with industry-leading precision using our advanced facial recognition system that works effectively even in challenging lighting conditions.',
-    icon: Video,
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e',
-    headerImage: 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3',
-    features: [
-      'High-precision facial matching',
-      'Works in low light conditions',
-      'Spoof detection technology',
-      'GDPR and privacy compliant',
-      'Customizable access permissions'
+  // Other service details...
+};
+
+// Solution details data
+const solutionsDetails = {
+  'residential': {
+    title: 'Residential Security',
+    description: 'Comprehensive AI-powered security solutions designed specifically for homes to protect your family and property.',
+    icon: Home,
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa',
+    headerImage: 'https://images.unsplash.com/photo-1516455590571-18256e5bb9ff',
+    benefits: [
+      'Intelligent perimeter protection',
+      'Family member recognition',
+      'Mobile app control and monitoring',
+      'Integration with smart home systems',
+      'Customizable alert settings'
     ],
     content: `
-      <h2>State-of-the-Art Facial Recognition</h2>
-      <p>ZeexAI's facial recognition technology represents the cutting edge of biometric security. Our system can identify individuals with over 99.8% accuracy, even in challenging conditions such as low light, partial face coverage, or unusual angles.</p>
+      <h2>Smart Security for Your Home</h2>
+      <p>Your home is your sanctuary. ZeexAI's residential security solutions use advanced artificial intelligence to protect what matters most to you - your family, your home, and your belongings.</p>
       
-      <p>Unlike conventional facial recognition that relies solely on 2D image matching, our technology creates detailed 3D facial maps with over 200 unique identifying points. This approach dramatically improves accuracy and prevents spoofing attempts using photos or videos.</p>
+      <p>Our residential systems are designed specifically for home environments, with easy setup, intuitive controls, and seamless integration with your existing smart home ecosystem.</p>
       
-      <h3>Privacy-First Design:</h3>
-      <p>We understand the privacy concerns associated with facial recognition technology. That's why our systems are designed with strong privacy protections:</p>
+      <h3>Comprehensive Protection</h3>
+      <p>ZeexAI's residential security solution provides multi-layered protection:</p>
       <ul>
-        <li>All facial data is encrypted using military-grade encryption</li>
-        <li>Biometric templates cannot be reverse-engineered into recognizable images</li>
-        <li>Customizable retention policies to comply with local regulations</li>
-        <li>Comprehensive audit logs of all system access and usage</li>
+        <li><strong>Perimeter Security:</strong> Our AI-powered cameras monitor the exterior of your home, detecting and classifying potential threats before they reach your door.</li>
+        <li><strong>Entry Point Monitoring:</strong> Intelligent monitoring of doors and windows with advanced motion analytics that can distinguish between normal activity and potential break-ins.</li>
+        <li><strong>Indoor Security:</strong> Indoor cameras with privacy features that activate only when you're away or during security events.</li>
       </ul>
-      
-      <h2>Versatile Applications</h2>
-      <p>Our facial recognition technology can be deployed in various scenarios:</p>
-      
-      <h3>Access Control</h3>
-      <p>Replace or supplement traditional access cards and PIN codes with the most secure form of identification – your face. Our system integrates with existing access control systems to provide seamless, hands-free entry for authorized personnel while maintaining detailed access logs.</p>
-      
-      <h3>VIP Identification</h3>
-      <p>For retail and hospitality settings, our system can identify VIP customers as they enter your establishment, allowing staff to provide personalized service and enhance customer experience.</p>
-      
-      <h3>Watchlist Alerts</h3>
-      <p>Maintain customizable watchlists of individuals who warrant special attention, such as known shoplifters in retail settings or persons of interest for security operations.</p>
     `,
-    useCases: [
+    services: [
       {
-        title: 'Corporate Access Control',
-        description: 'Replace keycards with facial recognition for secure and convenient access to facilities, with detailed logs of all entry and exit events.',
-        image: 'https://images.unsplash.com/photo-1497215842964-222b430dc094'
+        id: 'advanced-threat-detection',
+        title: 'Advanced Threat Detection',
+        description: 'Our AI-powered threat detection system continuously monitors and identifies potential security risks before they become problems.',
+        icon: Shield
       },
       {
-        title: 'VIP Customer Recognition',
-        description: 'Identify important customers as they enter your establishment to provide personalized service and enhance customer experience.',
-        image: 'https://images.unsplash.com/photo-1552960562-daf630e9278b'
+        id: 'visual-surveillance-analytics',
+        title: 'AI-Visual Surveillance Analytics',
+        description: 'Intelligent video analysis detects unusual patterns while ensuring privacy and compliance.',
+        icon: Video
       },
       {
-        title: 'Secure Patient Identification',
-        description: 'Ensure the right patients receive the right care in healthcare settings with accurate biometric identification.',
-        image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef'
+        id: 'real-time-alerts',
+        title: 'Real-time Alerts',
+        description: 'Instant notifications with contextual information delivered to your preferred devices.',
+        icon: Bell
+      },
+      {
+        id: 'cctv-integration',
+        title: 'Seamless CCTV Integration',
+        description: 'Easy setup, multi-device support, and customizable dashboard for all your surveillance needs.',
+        icon: Cpu
+      },
+      {
+        id: 'data-protection',
+        title: 'Smart Data Protection',
+        description: 'Secure storage and encryption of all your surveillance data with advanced protection measures.',
+        icon: Database
+      },
+      {
+        id: 'access-control',
+        title: 'Remote Access Control',
+        description: 'Manage and control your security system from anywhere with our secure mobile platform.',
+        icon: Lock
+      }
+    ],
+    workflow: [
+      {
+        title: 'Comprehensive Monitoring',
+        description: 'AI-powered cameras continuously monitor your property, analyzing every movement and potential security event.'
+      },
+      {
+        title: 'Smart Event Classification',
+        description: 'Our AI distinguishes between routine activities (mail delivery, family returning home) and suspicious behavior.'
+      },
+      {
+        title: 'Instant Notifications',
+        description: 'When potential threats are detected, you receive immediate alerts on your smartphone with video verification.'
+      },
+      {
+        title: 'Response Options',
+        description: 'Respond directly through the app with two-way communication, contact authorities, or dispatch security services.'
       }
     ]
   },
-  'real-time-alerts': {
-    title: 'Real-time Alerts',
-    description: 'Receive instant notifications when security events are detected, allowing for immediate response to potential threats through our multi-channel alert system.',
-    icon: Bell,
-    image: 'https://images.unsplash.com/photo-1574269252556-89926e7c5805',
-    headerImage: 'https://images.unsplash.com/photo-1589652717521-10c0d092dea9',
-    features: [
-      'Multi-channel notifications (mobile, email, SMS)',
-      'Customizable alert thresholds',
-      'Video verification of alerts',
-      'Escalation protocols',
-      'AI-powered threat assessment'
+  'commercial': {
+    title: 'Commercial Surveillance',
+    description: 'Enterprise-grade security solutions designed for businesses of all sizes to protect assets, employees, and customers.',
+    icon: Building,
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab',
+    headerImage: 'https://images.unsplash.com/photo-1557804506-669a67965ba0',
+    benefits: [
+      'Multi-site monitoring and management',
+      'Employee access control',
+      'Theft prevention and inventory protection',
+      'Business intelligence analytics',
+      'Regulatory compliance features'
     ],
     content: `
-      <h2>Instant Awareness with Real-time Alerts</h2>
-      <p>When security incidents occur, every second counts. ZeexAI's real-time alert system ensures you're immediately informed about potential security threats, allowing for rapid response and mitigation.</p>
+      <h2>Enterprise Security Reinvented</h2>
+      <p>Modern businesses face complex security challenges, from protecting physical assets to securing sensitive areas and ensuring employee safety. ZeexAI's commercial surveillance solutions leverage artificial intelligence to transform traditional security into an intelligent system that both protects and provides valuable insights.</p>
       
-      <p>Our alert system is built on a multi-channel notification framework that delivers critical information through multiple pathways to ensure you never miss an important alert, regardless of where you are or what you're doing.</p>
+      <p>Our scalable platform is designed for businesses of all sizes, from single retail locations to multi-site enterprises with complex security requirements.</p>
       
-      <h3>Intelligent Alert Classification</h3>
-      <p>Not all security events are equal in urgency or importance. Our AI classifies alerts based on threat level, allowing you to set different notification protocols for different types of events:</p>
+      <h3>Comprehensive Business Protection</h3>
+      <p>ZeexAI's commercial solution addresses multiple security needs:</p>
       <ul>
-        <li><strong>Critical Alerts:</strong> Immediate notifications through all available channels for high-priority security threats</li>
-        <li><strong>Warning Alerts:</strong> Notifications for suspicious activities that warrant attention but may not require immediate action</li>
-        <li><strong>Informational Alerts:</strong> Updates on normal operations and system status</li>
+        <li><strong>Exterior Surveillance:</strong> AI-powered perimeter monitoring with advanced object detection and classification.</li>
+        <li><strong>Access Control:</strong> Facial recognition-based access management that eliminates the need for keycards and creates detailed access logs.</li>
+        <li><strong>Interior Monitoring:</strong> Smart cameras that can detect unusual behavior, restricted area violations, or safety incidents.</li>
       </ul>
-      
-      <h2>Comprehensive Notification Options</h2>
-      
-      <h3>Mobile App Notifications</h3>
-      <p>Our dedicated mobile app delivers push notifications with video verification capabilities. When an alert is triggered, you can immediately view the live video feed to assess the situation and determine the appropriate response.</p>
-      
-      <h3>SMS and Email Alerts</h3>
-      <p>For situations where you might not be actively using the mobile app, our system sends SMS text messages and emails with details about the security event, including time, location, and event type.</p>
-      
-      <h3>Emergency Contact Escalation</h3>
-      <p>If primary contacts don't acknowledge critical alerts within a specified timeframe, our system can automatically escalate to secondary contacts or security monitoring services to ensure a response.</p>
     `,
-    useCases: [
+    services: [
       {
-        title: 'After-Hours Business Monitoring',
-        description: 'Receive instant alerts when activity is detected at your business premises outside of normal operating hours.',
-        image: 'https://images.unsplash.com/photo-1556761175-4b46a572b786'
+        id: 'advanced-threat-detection',
+        title: 'Advanced Threat Detection',
+        description: 'Our AI-powered system continuously monitors your premises for potential security risks before they escalate.',
+        icon: Shield
       },
+      // Other services...
+    ],
+    workflow: [
       {
-        title: 'Home Security Management',
-        description: 'Stay informed about activity at your home while you\'re away, with video verification to distinguish between family members and unknown visitors.',
-        image: 'https://images.unsplash.com/photo-1558959356-2a58e342afef'
+        title: 'Multi-layer Surveillance',
+        description: 'Comprehensive monitoring of perimeter, entry points, and interior spaces with AI-powered cameras.'
       },
-      {
-        title: 'Critical Infrastructure Protection',
-        description: 'Monitor sensitive areas and receive immediate alerts if unauthorized access is detected, with automated escalation to security personnel.',
-        image: 'https://images.unsplash.com/photo-1453914098252-af111884c08f'
-      }
+      // Other workflow steps...
     ]
   },
-  'cloud-video-analytics': {
-    title: 'Cloud Video Analytics',
-    description: 'Process and analyze video data in the cloud with our scalable infrastructure, providing detailed insights and trend analysis for comprehensive security management.',
-    icon: Cloud,
-    image: 'https://images.unsplash.com/photo-1639322537504-6427a16b0a28',
-    headerImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa',
-    features: [
-      'Secure cloud storage',
-      'Advanced search capabilities',
-      'Event-based video indexing',
-      'Scalable storage options',
-      'Detailed analytics reports'
+  'public-safety': {
+    title: 'Public Safety',
+    description: 'Advanced surveillance solutions for public spaces that enhance safety while respecting privacy and civil liberties.',
+    icon: MapPin,
+    image: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205',
+    headerImage: 'https://images.unsplash.com/photo-1580977251946-3f8c48548cf6',
+    benefits: [
+      'Crowd behavior analysis',
+      'Privacy-preserving monitoring',
+      'Incident detection and prediction',
+      'Emergency response coordination',
+      'Scalable deployment options'
     ],
     content: `
-      <h2>Powerful Cloud-Based Video Analytics</h2>
-      <p>ZeexAI's cloud video analytics platform transforms raw surveillance footage into actionable intelligence. Our platform leverages the scalability and processing power of the cloud to analyze vast amounts of video data in real-time, extracting valuable insights without requiring expensive on-premises hardware.</p>
+      <h2>Enhancing Public Safety with Responsible AI</h2>
+      <p>Public spaces present unique security challenges that require balancing effective surveillance with respect for individual privacy and civil liberties. ZeexAI's public safety solutions are designed specifically for these environments, with privacy-preserving technology that enhances security without creating a surveillance state.</p>
       
-      <p>By moving video processing to the cloud, we enable advanced analytics capabilities that would be impossible with traditional DVR or NVR systems, while ensuring your data remains secure and accessible from anywhere.</p>
+      <p>Our systems help identify potential threats before they escalate, enabling proactive security measures and faster emergency response times.</p>
       
-      <h3>Smart Video Indexing and Search</h3>
-      <p>Our system automatically indexes video content based on objects, activities, and events detected in the footage. This creates a searchable database of video content that allows you to quickly find specific incidents without manually reviewing hours of footage.</p>
+      <h3>Smart Monitoring for Public Spaces</h3>
+      <p>ZeexAI's public safety solution includes specialized capabilities:</p>
       <ul>
-        <li><strong>Object-Based Search:</strong> Find footage containing specific objects like "red car" or "person with backpack"</li>
-        <li><strong>Event-Based Search:</strong> Locate incidents like "person entering restricted area" or "package delivery"</li>
-        <li><strong>Temporal Search:</strong> Quickly find events that occurred at specific times or date ranges</li>
+        <li><strong>Crowd Analysis:</strong> Monitor crowd density and movement patterns to identify potential safety issues or unusual behavior.</li>
+        <li><strong>Anomaly Detection:</strong> Identify unusual activities or behaviors that may indicate security threats or safety concerns.</li>
+        <li><strong>Emergency Situation Recognition:</strong> Automatically detect incidents such as fights, falls, or medical emergencies to enable rapid response.</li>
       </ul>
-      
-      <h2>Comprehensive Analytics Dashboard</h2>
-      
-      <h3>Activity Heatmaps</h3>
-      <p>Visualize patterns of movement throughout your property to identify high-traffic areas, potential security vulnerabilities, or opportunities to optimize space utilization.</p>
-      
-      <h3>Occupancy Tracking</h3>
-      <p>Monitor the number of people in different areas of your property in real-time, with historical reporting to identify usage patterns and trends.</p>
-      
-      <h3>Custom Analytics Reports</h3>
-      <p>Generate detailed reports on security events, occupancy levels, traffic patterns, and other metrics to inform security planning and operational decisions.</p>
     `,
-    useCases: [
+    services: [
       {
-        title: 'Retail Analytics',
-        description: 'Analyze customer flow patterns and dwell times to optimize store layouts and staffing while enhancing security monitoring.',
-        image: 'https://images.unsplash.com/photo-1481437156560-3205f6a55735'
+        id: 'advanced-threat-detection',
+        title: 'Advanced Threat Detection',
+        description: 'AI-powered system continuously monitors public spaces for potential security risks and threats.',
+        icon: Shield
       },
+      // Other services...
+    ],
+    workflow: [
       {
-        title: 'Multi-Site Security Management',
-        description: 'Centrally monitor and manage security across multiple locations with consistent policies and comprehensive reporting.',
-        image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab'
+        title: 'Wide-Area Monitoring',
+        description: 'AI-powered cameras monitor public spaces, focusing on behavioral patterns rather than individual identities.'
       },
-      {
-        title: 'Long-Term Trend Analysis',
-        description: 'Identify patterns in security events over time to proactively address vulnerabilities and optimize security protocols.',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71'
-      }
+      // Other workflow steps...
     ]
   }
 };
 
-const ServiceDetail = () => {
-  const { serviceId } = useParams<{ serviceId: string }>();
-  const service = serviceId ? servicesDetails[serviceId as keyof typeof servicesDetails] : null;
+const SolutionDetail = () => {
+  const { solutionId } = useParams();
+  const [solution, setSolution] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  
+  useEffect(() => {
+    console.log("Current solutionId param:", solutionId); // Debug log
+    
+    // Check if solutionId exists and is valid
+    if (solutionId && solutionsDetails[solutionId]) {
+      setSolution(solutionsDetails[solutionId]);
+    } else {
+      console.error(`Solution not found for ID: ${solutionId}`);
+    }
+    setIsLoading(false);
+  }, [solutionId]);
 
-  if (!service) {
+  if (isLoading) {
     return (
       <Layout>
-        <div className="container-default py-20 text-center">
-          <h1 className="text-3xl font-bold mb-6">Service Not Found</h1>
-          <p className="mb-8">Sorry, the service you're looking for doesn't exist or has been moved.</p>
-          <Link to="/services" className="btn-primary">
-            View All Services
-          </Link>
+        <div className="container py-20 text-center">
+          <h1 className="text-4xl font-bold mb-6 text-gray-900">Loading...</h1>
         </div>
       </Layout>
     );
   }
 
-  const ServiceIcon = service.icon;
+  if (!solution) {
+    return (
+      <Layout>
+        <div className="container py-20 text-center">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h1 className="text-4xl font-bold mb-6 text-gray-900">Solution Not Found</h1>
+            <p className="mb-8 text-lg text-gray-600">Sorry, the solution you're looking for doesn't exist or has been moved.</p>
+            <Link 
+              to="/solutions" 
+              className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              View All Solutions
+            </Link>
+          </motion.div>
+        </div>
+      </Layout>
+    );
+  }
+
+  const SolutionIcon = solution.icon;
 
   return (
     <Layout>
       <PageHeader 
-        title={service.title}
-        subtitle={service.description}
-        backgroundImage={service.headerImage}
+        title={solution.title}
+        subtitle={solution.description}
+        backgroundImage={solution.headerImage}
       />
       
-      <section className="py-16">
-        <div className="container-default">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <motion.section 
+        initial="hidden"
+        animate="visible"
+        variants={staggerContainer}
+        className="py-16 md:py-20"
+      >
+        <div className="container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             {/* Main content */}
-            <div className="lg:col-span-8">
-              <img 
-                src={service.image} 
-                alt={service.title}
-                className="w-full h-auto rounded-lg shadow-lg mb-10"
-              />
+            <motion.div 
+              variants={fadeInUp}
+              className="lg:col-span-8"
+            >
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="overflow-hidden rounded-2xl shadow-2xl mb-12"
+              >
+                <img 
+                  src={solution.image} 
+                  alt={solution.title}
+                  className="w-full h-auto object-cover aspect-video"
+                />
+              </motion.div>
               
-              <div className="prose prose-lg max-w-none">
-                <div dangerouslySetInnerHTML={{ __html: service.content }} />
+              <div className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-600 prose-li:text-gray-600 prose-strong:text-gray-900 prose-a:text-blue-600 hover:prose-a:text-blue-700">
+                <div dangerouslySetInnerHTML={{ __html: solution.content }} />
               </div>
-            </div>
+            </motion.div>
             
             {/* Sidebar */}
-            <div className="lg:col-span-4">
-              {/* Service features */}
-              <div className="bg-zeex-50 rounded-lg p-8 mb-10">
+            <motion.div 
+              variants={fadeInUp}
+              className="lg:col-span-4 space-y-8"
+            >
+              {/* Solution benefits */}
+              <motion.div 
+                whileHover={{ y: -5 }}
+                className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 shadow-sm"
+              >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm">
-                    <ServiceIcon className="h-6 w-6 text-zeex-600" />
+                  <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-md">
+                    <SolutionIcon className="h-6 w-6 text-blue-600" />
                   </div>
-                  <h3 className="text-xl font-bold text-zeex-800">{service.title}</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">{solution.title}</h3>
                 </div>
                 
-                <h4 className="font-semibold mb-4 text-zeex-700">Key Features</h4>
+                <h4 className="font-semibold mb-4 text-gray-700">Key Benefits</h4>
                 <ul className="space-y-3 mb-8">
-                  {service.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-zeex-500 mt-0.5 flex-shrink-0" />
-                      <span>{feature}</span>
-                    </li>
+                  {solution.benefits.map((benefit, i) => (
+                    <motion.li 
+                      key={i} 
+                      className="flex items-start gap-3"
+                      variants={fadeInUp}
+                    >
+                      <div className="flex-shrink-0 mt-0.5">
+                        <Check className="w-5 h-5 text-blue-500" />
+                      </div>
+                      <span className="text-gray-700">{benefit}</span>
+                    </motion.li>
                   ))}
                 </ul>
                 
-                <Link to="/contact" className="btn-primary w-full block text-center">
+                <Link 
+                  to="/contact" 
+                  className="w-full flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all shadow-md hover:shadow-lg"
+                >
                   Request a Demo
                 </Link>
-              </div>
+              </motion.div>
               
-              {/* Other services */}
-              <div className="bg-white border border-gray-200 rounded-lg p-8">
-                <h3 className="text-xl font-bold mb-6 text-zeex-800">Other Services</h3>
+              {/* Other solutions */}
+              <motion.div 
+                whileHover={{ y: -5 }}
+                className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100"
+              >
+                <h3 className="text-xl font-bold mb-6 text-gray-900">Explore Other Solutions</h3>
                 <div className="space-y-4">
-                  {Object.entries(servicesDetails)
-                    .filter(([key]) => key !== serviceId)
-                    .map(([key, otherService]) => {
-                      const OtherIcon = otherService.icon;
+                  {Object.entries(solutionsDetails)
+                    .filter(([key]) => key !== solutionId)
+                    .map(([key, otherSolution]) => {
+                      const OtherIcon = otherSolution.icon;
                       return (
-                        <Link 
-                          to={`/services/${key}`} 
-                          key={key} 
-                          className="flex items-center gap-4 p-3 rounded-lg hover:bg-zeex-50 transition-colors"
+                        <motion.div
+                          key={key}
+                          whileHover={{ x: 5 }}
                         >
-                          <div className="w-10 h-10 rounded-full bg-zeex-100 flex items-center justify-center">
-                            <OtherIcon className="h-5 w-5 text-zeex-600" />
-                          </div>
-                          <div>
-                            <h4 className="font-medium text-zeex-800">{otherService.title}</h4>
-                          </div>
-                          <ArrowRight className="w-4 h-4 text-zeex-500 ml-auto" />
-                        </Link>
+                          <Link 
+                            to={`/solutions/${key}`} 
+                            className="flex items-center gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors"
+                          >
+                            <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center">
+                              <OtherIcon className="h-5 w-5 text-blue-600" />
+                            </div>
+                            <div>
+                              <h4 className="font-medium text-gray-900">{otherSolution.title}</h4>
+                              <p className="text-sm text-gray-500">{otherSolution.description.substring(0, 60)}...</p>
+                            </div>
+                            <ArrowRight className="w-5 h-5 text-gray-400 ml-auto" />
+                          </Link>
+                        </motion.div>
                       );
                     })
                   }
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
       
-      {/* Use Cases Section */}
-      <section className="bg-zeex-50 py-16">
-        <div className="container-default">
-          <h2 className="text-3xl font-bold mb-12 text-center text-zeex-800">Use Cases</h2>
+      {/* Rest of your component... */}
+      {/* Recommended Services, Solution Workflow, and CTA sections */}
+      
+      {/* Recommended Services */}
+      <motion.section 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true, margin: "-100px" }}
+        className="bg-gradient-to-b from-blue-50 to-white py-16 md:py-24"
+      >
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Recommended Services</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Our AI-powered services that are most commonly deployed in {solution.title.toLowerCase()} applications:
+            </p>
+          </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {service.useCases.map((useCase, index) => (
-              <div key={index} className="bg-white rounded-xl overflow-hidden shadow-md">
-                <div className="h-48 overflow-hidden">
-                  <img 
-                    src={useCase.image} 
-                    alt={useCase.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-zeex-800">{useCase.title}</h3>
-                  <p className="text-gray-600">{useCase.description}</p>
-                </div>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {solution.services.map((service, index) => {
+              const ServiceIcon = service.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Link 
+                    to={`/services/${service.id}`}
+                    className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all h-full flex flex-col"
+                  >
+                    <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-6 group-hover:bg-blue-200 transition-colors">
+                      <ServiceIcon className="h-6 w-6 text-blue-600 group-hover:text-blue-700" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">{service.title}</h3>
+                    <p className="text-gray-600 mb-6 flex-grow">{service.description}</p>
+                    <div className="text-blue-600 font-medium flex items-center group-hover:text-blue-700 transition-colors">
+                      Learn more
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </div>
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </motion.section>
+      
+      {/* Solution Workflow */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">How It Works</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Our {solution.title.toLowerCase()} solution follows a streamlined workflow to ensure optimal security:
+            </p>
+          </motion.div>
+          
+          <div className="relative">
+            {/* Connector line */}
+            <div className="absolute top-16 left-[calc(50%-1px)] h-[calc(100%-80px)] w-0.5 bg-gradient-to-b from-blue-200 to-indigo-200 hidden md:block"></div>
+            
+            <motion.div 
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="space-y-16"
+            >
+              {solution.workflow.map((step, index) => (
+                <motion.div 
+                  key={index} 
+                  variants={fadeInUp}
+                  className="relative"
+                >
+                  <div className={`flex flex-col md:flex-row items-center gap-8 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+                    {/* Step number */}
+                    <div className="w-14 h-14 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center font-bold text-xl relative z-10 shadow-lg">
+                      {index + 1}
+                    </div>
+                    
+                    {/* Content */}
+                    <motion.div 
+                      whileHover={{ scale: 1.02 }}
+                      className="bg-white rounded-xl shadow-lg p-8 md:w-[calc(50%-40px)] relative border border-gray-100"
+                    >
+                      <h3 className="text-xl font-bold mb-3 text-gray-900">{step.title}</h3>
+                      <p className="text-gray-600">{step.description}</p>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>
       
       {/* CTA Section */}
-      <section className="gradient-bg py-20 text-white">
-        <div className="container-default text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to enhance your security with {service.title}?</h2>
+      <motion.section 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white"
+      >
+        <div className="container text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to implement {solution.title}?</h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto">
-            Our team is ready to help you implement the perfect solution for your needs.
+            Contact us today to learn how our AI-powered security solutions can be tailored to your specific needs.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/contact" className="btn-primary bg-white text-zeex-600 hover:bg-zeex-50">
-              Schedule a Demo
+            <Link 
+              to="/contact" 
+              className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-medium rounded-xl hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl"
+            >
+              Schedule a Consultation
             </Link>
-            <Link to="/services" className="btn-secondary text-white border-white hover:bg-white/10">
-              Explore Other Services
+            <Link 
+              to="/solutions" 
+              className="inline-flex items-center px-8 py-4 border-2 border-white text-white font-medium rounded-xl hover:bg-white/10 transition-all"
+            >
+              Explore Other Solutions
             </Link>
           </div>
         </div>
-      </section>
+      </motion.section>
     </Layout>
   );
 };
 
-export default ServiceDetail;
+export default SolutionDetail;
