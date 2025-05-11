@@ -60,12 +60,14 @@ const Hero = () => {
             <span className="text-sm font-medium text-blue-600"> Real-Time Intelligence. Real-World Impact</span>
           </div>
 
-          <h1 className="font-bold text-4xl md:text-6xl lg:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 gradient-text-safe hero-element">
-  AI-Powered Surveillance for Safety, Sustainability & Smart Management
-</h1>
-
+     <div className="overflow-visible">  {/* Prevents text clipping */}
+  <h1 className="font-bold text-4xl md:text-4xl lg:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 gradient-text-safe hero-element leading-[1.3] md:leading-[1.4] pb-2">
+    AI-Powered Surveillance for Safety, Sustainability & Smart Management
+  </h1>
+</div>
+<div className="my-8"></div>
 <p className="text-xl md:text-2xl mb-8 text-gray-700 max-w-3xl mx-auto hero-element pb-1" style={{ animationDelay: '0.3s' }}>
-  Zeex AI redefines how businesses, cities, and industries protect and manage their environments — using AI-driven surveillance to detect, respond, and prevent incidents before they escalate.
+  Zeex AI redefines how businesses, cities, and industries protect and manage their environments using AI-driven surveillance to detect, respond, and prevent incidents before they escalate.
 </p>
 
           {/* Video with modern border */}
