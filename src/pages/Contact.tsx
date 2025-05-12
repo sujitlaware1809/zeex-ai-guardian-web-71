@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '@/components/layout/Layout';
-import { Mail, Phone, MapPin, Clock, ChevronDown, ArrowRight, MessageSquare } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, ChevronDown, ArrowRight, MessageSquare, CheckCircle, AlertCircle } from 'lucide-react';
 import { motion, AnimatePresence } from "framer-motion";
 
 const Contact = () => {
@@ -9,10 +9,51 @@ const Contact = () => {
     email: '',
     message: ''
   });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submittedEmail, setSubmittedEmail] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
+    setIsLoading(true);
+    setError('');
+    setSubmittedEmail(formData.email);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || 'Failed to send message');
+      }
+
+      // Reset form on success
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      });
+      setIsSubmitted(true);
+      
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 5000);
+
+    } catch (err) {
+      console.error('Submission error:', err);
+      setError(err.message || 'Failed to send message. Please try again later.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const faqItems: { question: string; answer: string }[] = [
@@ -121,7 +162,7 @@ const Contact = () => {
   };
 
   return (
-    <Layout>
+    <Layout showFooter={false}>
       {/* Hero Section with Navy Blue Background and Animation */}
 <section className="relative min-h-[60vh] flex items-center justify-center bg-navy-900 overflow-hidden opacity-0 animate-fadeIn">
   <div className="absolute inset-0 overflow-hidden z-0">
@@ -171,7 +212,6 @@ const Contact = () => {
   `}</style>
 </section>
 
-      {/* Contact Form Section */}
       <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50/30">
         <div className="container-default">
           <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
@@ -198,52 +238,85 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-medium text-gray-900">Pre-sales Questions?</h4>
-                      <p className="text-gray-600">Contact our sales team for product inquiries</p>
+                      <p className="text-gray-600">Contact our sales team at admin@zeexai.com</p>
                     </div>
                   </div>
                 </div>
               </div>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
-                    placeholder="Your name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
-                    placeholder="your@email.com"
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
-                  <textarea
-                    id="message"
-                    rows={4}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
-                    placeholder="How can we help you?"
-                    value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium py-3 px-6 rounded-lg hover:shadow-lg transition-all hover:scale-[1.02]"
+              
+              {isSubmitted ? (
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="flex flex-col items-center justify-center text-center p-8 bg-gray-50 rounded-lg"
                 >
-                  Send Message
-                </button>
-              </form>
+                  <CheckCircle className="w-12 h-12 text-green-500 mb-4" />
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Message Sent Successfully!</h3>
+                  <p className="text-gray-600 mb-4">
+                    Thank you for contacting us. Our team will get back to you shortly at{' '}
+                    <span className="font-semibold text-blue-600">{submittedEmail || 'your provided email'}</span>.
+                  </p>
+                  <p className="text-gray-500 text-sm">
+                    For immediate assistance, you can also email us at admin@zeexai.com
+                  </p>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                      placeholder="Your name"
+                      value={formData.name}
+                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                    <input
+                      type="email"
+                      id="email"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                      placeholder="your@email.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
+                    <textarea
+                      id="message"
+                      rows={4}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                      placeholder="How can we help you?"
+                      value={formData.message}
+                      onChange={(e) => setFormData({...formData, message: e.target.value})}
+                      required
+                    ></textarea>
+                  </div>
+                  <button
+    type="submit"
+    className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium py-3 px-6 rounded-lg hover:shadow-lg transition-all hover:scale-[1.02] disabled:opacity-70"
+    disabled={isLoading}
+  >
+    {isLoading ? (
+      <span className="flex items-center justify-center">
+        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        Sending...
+      </span>
+    ) : (
+      'Send Message'
+    )}
+  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>

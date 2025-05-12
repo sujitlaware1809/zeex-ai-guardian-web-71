@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 const About = () => {
   return (
-    <Layout>
+    <Layout showFooter={false}>
       {/* Hero Section - Matching Contact Page Style */}
 <section className="relative min-h-[60vh] flex items-center justify-center bg-navy-900 overflow-hidden opacity-0 animate-fadeIn">
   {/* Background elements matching Contact page */}
@@ -102,12 +102,7 @@ const About = () => {
         </div>
       </section>
 
-      
-    {/* Timeline Section with modern style - Improved Responsive Version */}
-{/* Timeline Section with fixed overlapping */}
-{/* Timeline Section with guaranteed no-overlap */}
-{/* Fully Responsive Timeline Section */}
-{/* Timeline Section with mobile-optimized visibility */}
+  
 <section className="py-12 md:py-20 lg:py-32 bg-gray-50">
   <div className="container mx-auto px-4 sm:px-6 lg:px-8">
     <div className="max-w-4xl mx-auto">

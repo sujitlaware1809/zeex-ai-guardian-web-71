@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -6,15 +5,13 @@ import { useLocation } from 'react-router-dom';
 
 interface LayoutProps {
   children: React.ReactNode;
+  showFooter?: boolean; // Add this prop
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ children, showFooter = true }) => {
   const location = useLocation();
-  const isHomePage = location.pathname === '/';
 
-  // Force initial render to make all content visible
   useEffect(() => {
-    // Make sure all animation elements are visible on page load
     setTimeout(() => {
       document.querySelectorAll('.hero-element').forEach((el) => {
         el.classList.add('animate-fade-up');
@@ -28,14 +25,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     }, 100);
   }, []);
 
-  return (
-    <div className="min-h-screen flex flex-col">
+  return (    
+    <>
       <Navbar />
-      <main className="flex-grow">
+      <main className="min-h-screen">
         {children}
       </main>
-      <Footer />
-    </div>
+      {showFooter && <Footer />} {/* Conditionally render footer */}
+    </>
   );
 };
 

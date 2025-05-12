@@ -367,7 +367,7 @@ const SolutionDetail = () => {
 
   if (isLoading) {
     return (
-      <Layout>
+      <Layout showFooter={false}>
         <div className="container py-20 text-center">
           <h1 className="text-4xl font-bold mb-6 text-gray-900">Loading...</h1>
         </div>
@@ -377,7 +377,7 @@ const SolutionDetail = () => {
 
   if (!solution) {
     return (
-      <Layout>
+      <Layout showFooter={false}>
         <div className="container py-20 text-center">
           <motion.div
             initial={{ opacity: 0 }}
@@ -401,7 +401,7 @@ const SolutionDetail = () => {
   const SolutionIcon = solution.icon;
 
   return (
-    <Layout>
+    <Layout showFooter={false}>
       {/* Hero Section - Matching About Us Page Style */}
       <section className="relative min-h-[60vh] flex items-center justify-center bg-navy-900 overflow-hidden opacity-0 animate-fadeIn">
         {/* Background elements matching About page */}

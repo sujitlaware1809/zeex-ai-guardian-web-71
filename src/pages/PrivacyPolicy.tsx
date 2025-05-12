@@ -5,7 +5,7 @@ import PageHeader from '@/components/shared/PageHeader';
 
 const PrivacyPolicy = () => {
   return (
-    <Layout>
+    <Layout showFooter={false}>
       <PageHeader
         title="Privacy Policy"
         subtitle="Last updated: April 30, 2025"

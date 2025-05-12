@@ -138,7 +138,7 @@ const BlogPost = () => {
   }
 
   return (
-    <Layout>
+    <Layout showFooter={false}>
       {/* Blog post header */}
       <div 
         className="relative py-32"

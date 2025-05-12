@@ -91,7 +91,7 @@ const SolutionsPreview = () => {
             variants={fadeInUp}
             className="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-medium mb-4"
           >
-            Industry Solutions
+            Industry Services
           </motion.span>
           <motion.h2 
             variants={fadeInUp}

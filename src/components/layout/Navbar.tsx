@@ -26,13 +26,13 @@ const navItems: NavItem[] = [
     path: "/about"
   },
   {
-    title: "Services",
-    path: "/services",
+    title: "Solutions",
+    path: "/Solutions",
     
   },
   {
-    title: "Solutions",
-    path: "/solutions",
+    title: "Services",
+    path: "/services",
     dropdown: [
       { 
         title: "Supermarkets & Shops", 

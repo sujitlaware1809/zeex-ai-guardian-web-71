@@ -262,7 +262,7 @@ const SolutionDetail = () => {
 
   if (isLoading) {
     return (
-      <Layout>
+      <Layout showFooter={false}>
         <div className="container py-20 text-center">
           <h1 className="text-4xl font-bold mb-6 text-gray-900">Loading...</h1>
         </div>
@@ -272,7 +272,7 @@ const SolutionDetail = () => {
 
   if (!solution) {
     return (
-      <Layout>
+      <Layout showFooter={false}>
         <div className="container py-20 text-center">
           <motion.div
             initial={{ opacity: 0 }}
@@ -296,7 +296,7 @@ const SolutionDetail = () => {
   const SolutionIcon = solution.icon;
 
   return (
-    <Layout>
+    <Layout showFooter={false}>
       <PageHeader 
         title={solution.title}
         subtitle={solution.description}
@@ -391,7 +391,7 @@ const SolutionDetail = () => {
                           whileHover={{ x: 5 }}
                         >
                           <Link 
-                            to={`/solutions/${key}`} 
+                            to={`/services/${key}`} 
                             className="flex items-center gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors"
                           >
                             <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center">

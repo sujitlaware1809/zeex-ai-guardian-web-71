@@ -95,7 +95,7 @@ const Blog = () => {
   };
 
   return (
-    <Layout>
+    <Layout showFooter={false}>
       {/* Hero Section - Matching About Page Style */}
       <section className="relative min-h-[60vh] flex items-center justify-center bg-navy-900 overflow-hidden opacity-0 animate-fadeIn">
         {/* Background elements matching About page */}
