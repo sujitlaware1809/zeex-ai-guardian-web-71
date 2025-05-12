@@ -1,4 +1,9 @@
 {
-  "source": "/feedback/((?!general).*)",
-  "destination": "/api/feedback/general"
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "outputDirectory": "dist"
 }
