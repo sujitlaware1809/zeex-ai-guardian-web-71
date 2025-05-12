@@ -13,9 +13,8 @@ import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Services from "./pages/Services";
-import ServiceDetail from "./pages/ServiceDetail";
 import Solutions from "./pages/Solutions";
-import SolutionDetail from "./pages/SolutionDetail";
+import ServiceDetail from "./pages/SolutionDetail";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
@@ -38,9 +37,8 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:postId" element={<BlogPost />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/services/:serviceId" element={<ServiceDetail />} />
             <Route path="/solutions" element={<Solutions />} />
-            <Route path="/solutions/:solutionId" element={<SolutionDetail />} />
+            <Route path="/services/:serviceId" element={<ServiceDetail />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="*" element={<NotFound />} />

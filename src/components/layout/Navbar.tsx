@@ -36,25 +36,25 @@ const navItems: NavItem[] = [
     dropdown: [
       { 
         title: "Supermarkets & Shops", 
-        path: "/solutions/retail",
+        path: "/services/retail",
         description: "Retail security solutions",
         icon: <ShoppingCart size={16} />
       },
       { 
         title: "Residential Security", 
-        path: "/solutions/residential",
+        path: "/services/residential",
         description: "Smart home protection",
         icon: <Home size={16} />
       },
       { 
         title: "Commercial Surveillance", 
-        path: "/solutions/commercial",
+        path: "/services/commercial",
         description: "Business security solutions",
         icon: <Building size={16} />
       },
       { 
         title: "Public Safety", 
-        path: "/solutions/public-safety",
+        path: "/services/public-safety",
         description: "Community security systems",
         icon: <MapPin size={16} />
       }

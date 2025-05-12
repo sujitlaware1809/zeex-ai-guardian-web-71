@@ -21,11 +21,11 @@ const staggerContainer = {
   }
 };
 
-// Solution details data with enhanced design elements
-const solutionsDetails = {
+// Service details data with enhanced design elements
+const servicesDetails = {
   'residential': {
     title: 'Residential Security',
-    description: 'Comprehensive AI-powered security solutions designed specifically for homes to protect your family and property.',
+    description: 'Comprehensive AI-powered security services designed specifically for homes to protect your family and property.',
     icon: Home,
     image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa',
     headerImage: 'https://images.unsplash.com/photo-1516455590571-18256e5bb9ff',
@@ -38,14 +38,14 @@ const solutionsDetails = {
     ],
     content: `
       <h2 class="text-3xl font-bold mb-6">Smart Security for Your Home</h2>
-      <p class="mb-6">Your home is your sanctuary. Our residential security solutions use advanced artificial intelligence to protect what matters most to you - your family, your home, and your belongings.</p>
+      <p class="mb-6">Your home is your sanctuary. Our residential security services use advanced artificial intelligence to protect what matters most to you - your family, your home, and your belongings.</p>
       
       <div class="bg-blue-50 p-6 rounded-xl mb-8">
         <p class="font-medium text-blue-800">Our residential systems are designed specifically for home environments, with easy setup, intuitive controls, and seamless integration with your existing smart home ecosystem.</p>
       </div>
       
       <h3 class="text-2xl font-bold mb-4 mt-8">Comprehensive Protection</h3>
-      <p class="mb-4">Our residential security solution provides multi-layered protection:</p>
+      <p class="mb-4">Our residential security service provides multi-layered protection:</p>
       <ul class="space-y-3 mb-8">
         <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Perimeter Security:</strong> Our AI-powered cameras monitor the exterior of your home, detecting and classifying potential threats before they reach your door.</span></li>
         <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Entry Point Monitoring:</strong> Intelligent monitoring of doors and windows with advanced motion analytics that can distinguish between normal activity and potential break-ins.</span></li>
@@ -63,7 +63,7 @@ const solutionsDetails = {
         </div>
       </div>
     `,
-    services: [
+    features: [
       {
         id: 'advanced-threat-detection',
         title: 'Advanced Threat Detection',
@@ -107,7 +107,7 @@ const solutionsDetails = {
   },
   'commercial': {
     title: 'Commercial Surveillance',
-    description: 'Enterprise-grade security solutions designed for businesses of all sizes to protect assets, employees, and customers.',
+    description: 'Enterprise-grade security services designed for businesses of all sizes to protect assets, employees, and customers.',
     icon: Building,
     image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab',
     headerImage: 'https://images.unsplash.com/photo-1557804506-669a67965ba0',
@@ -120,14 +120,14 @@ const solutionsDetails = {
     ],
     content: `
       <h2 class="text-3xl font-bold mb-6">Enterprise Security Reinvented</h2>
-      <p class="mb-6">Modern businesses face complex security challenges, from protecting physical assets to securing sensitive areas and ensuring employee safety. Our commercial surveillance solutions leverage artificial intelligence to transform traditional security into an intelligent system that both protects and provides valuable insights.</p>
+      <p class="mb-6">Modern businesses face complex security challenges, from protecting physical assets to securing sensitive areas and ensuring employee safety. Our commercial surveillance services leverage artificial intelligence to transform traditional security into an intelligent system that both protects and provides valuable insights.</p>
       
       <div class="bg-blue-50 p-6 rounded-xl mb-8">
         <p class="font-medium text-blue-800">Our scalable platform is designed for businesses of all sizes, from single retail locations to multi-site enterprises with complex security requirements.</p>
       </div>
       
       <h3 class="text-2xl font-bold mb-4 mt-8">Comprehensive Business Protection</h3>
-      <p class="mb-4">Our commercial solution addresses multiple security needs:</p>
+      <p class="mb-4">Our commercial service addresses multiple security needs:</p>
       <ul class="space-y-3 mb-8">
         <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Exterior Surveillance:</strong> AI-powered perimeter monitoring with advanced object detection and classification.</span></li>
         <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Access Control:</strong> Facial recognition-based access management that eliminates the need for keycards and creates detailed access logs.</span></li>
@@ -145,7 +145,7 @@ const solutionsDetails = {
         </div>
       </div>
     `,
-    services: [
+    features: [
       {
         id: 'advanced-threat-detection',
         title: 'Advanced Threat Detection',
@@ -189,7 +189,7 @@ const solutionsDetails = {
   },
   'public-safety': {
     title: 'Public Safety',
-    description: 'Advanced surveillance solutions for public spaces that enhance safety while respecting privacy and civil liberties.',
+    description: 'Advanced surveillance services for public spaces that enhance safety while respecting privacy and civil liberties.',
     icon: MapPin,
     image: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205',
     headerImage: 'https://images.unsplash.com/photo-1580977251946-3f8c48548cf6',
@@ -202,14 +202,14 @@ const solutionsDetails = {
     ],
     content: `
       <h2 class="text-3xl font-bold mb-6">Enhancing Public Safety with Responsible AI</h2>
-      <p class="mb-6">Public spaces present unique security challenges that require balancing effective surveillance with respect for individual privacy and civil liberties. Our public safety solutions are designed specifically for these environments, with privacy-preserving technology that enhances security without creating a surveillance state.</p>
+      <p class="mb-6">Public spaces present unique security challenges that require balancing effective surveillance with respect for individual privacy and civil liberties. Our public safety services are designed specifically for these environments, with privacy-preserving technology that enhances security without creating a surveillance state.</p>
       
       <div class="bg-blue-50 p-6 rounded-xl mb-8">
         <p class="font-medium text-blue-800">Our systems help identify potential threats before they escalate, enabling proactive security measures and faster emergency response times.</p>
       </div>
       
       <h3 class="text-2xl font-bold mb-4 mt-8">Smart Monitoring for Public Spaces</h3>
-      <p class="mb-4">Our public safety solution includes specialized capabilities:</p>
+      <p class="mb-4">Our public safety service includes specialized capabilities:</p>
       <ul class="space-y-3 mb-8">
         <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Crowd Analysis:</strong> Monitor crowd density and movement patterns to identify potential safety issues or unusual behavior.</span></li>
         <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Anomaly Detection:</strong> Identify unusual activities or behaviors that may indicate security threats or safety concerns.</span></li>
@@ -227,7 +227,7 @@ const solutionsDetails = {
         </div>
       </div>
     `,
-    services: [
+    features: [
       {
         id: 'advanced-threat-detection',
         title: 'Advanced Threat Detection',
@@ -271,7 +271,7 @@ const solutionsDetails = {
   },
   'retail': {
     title: 'Retail Security',
-    description: 'Specialized security solutions for supermarkets, shops, and retail spaces to prevent theft and enhance safety.',
+    description: 'Specialized security services for supermarkets, shops, and retail spaces to prevent theft and enhance safety.',
     icon: ShoppingCart,
     image: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da',
     headerImage: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df',
@@ -284,14 +284,14 @@ const solutionsDetails = {
     ],
     content: `
       <h2 class="text-3xl font-bold mb-6">Retail Security Reinvented</h2>
-      <p class="mb-6">Retail environments face unique security challenges, from shoplifting to employee safety and inventory management. Our retail security solutions combine advanced AI surveillance with business intelligence to protect your assets while improving operations.</p>
+      <p class="mb-6">Retail environments face unique security challenges, from shoplifting to employee safety and inventory management. Our retail security services combine advanced AI surveillance with business intelligence to protect your assets while improving operations.</p>
       
       <div class="bg-blue-50 p-6 rounded-xl mb-8">
         <p class="font-medium text-blue-800">Specifically designed for supermarkets, convenience stores, and retail shops, our systems help reduce shrinkage while enhancing the shopping experience.</p>
       </div>
       
       <h3 class="text-2xl font-bold mb-4 mt-8">Comprehensive Retail Protection</h3>
-      <p class="mb-4">Our retail solution provides specialized features:</p>
+      <p class="mb-4">Our retail service provides specialized features:</p>
       <ul class="space-y-3 mb-8">
         <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Theft Prevention:</strong> AI-powered cameras detect suspicious behavior patterns and potential shoplifting in real-time.</span></li>
         <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>POS Monitoring:</strong> Automated monitoring of point-of-sale systems to detect fraudulent transactions or employee theft.</span></li>
@@ -309,7 +309,7 @@ const solutionsDetails = {
         </div>
       </div>
     `,
-    services: [
+    features: [
       {
         id: 'visual-surveillance-analytics',
         title: 'AI-Visual Surveillance Analytics',
@@ -353,17 +353,17 @@ const solutionsDetails = {
   }
 };
 
-const SolutionDetail = () => {
-  const { solutionId } = useParams();
-  const [solution, setSolution] = useState(null);
+const ServiceDetail = () => {
+  const { serviceId } = useParams();
+  const [service, setService] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
-    if (solutionId && solutionsDetails[solutionId]) {
-      setSolution(solutionsDetails[solutionId]);
+    if (serviceId && servicesDetails[serviceId]) {
+      setService(servicesDetails[serviceId]);
     }
     setIsLoading(false);
-  }, [solutionId]);
+  }, [serviceId]);
 
   if (isLoading) {
     return (
@@ -375,7 +375,7 @@ const SolutionDetail = () => {
     );
   }
 
-  if (!solution) {
+  if (!service) {
     return (
       <Layout showFooter={false}>
         <div className="container py-20 text-center">
@@ -384,13 +384,13 @@ const SolutionDetail = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-4xl font-bold mb-6 text-gray-900">Solution Not Found</h1>
-            <p className="mb-8 text-lg text-gray-600">Sorry, the solution you're looking for doesn't exist or has been moved.</p>
+            <h1 className="text-4xl font-bold mb-6 text-gray-900">Service Not Found</h1>
+            <p className="mb-8 text-lg text-gray-600">Sorry, the service you're looking for doesn't exist or has been moved.</p>
             <Link 
-              to="/solutions" 
+              to="/services" 
               className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all"
             >
-              View All Solutions
+              View All Services
             </Link>
           </motion.div>
         </div>
@@ -398,7 +398,7 @@ const SolutionDetail = () => {
     );
   }
 
-  const SolutionIcon = solution.icon;
+  const ServiceIcon = service.icon;
 
   return (
     <Layout showFooter={false}>
@@ -413,13 +413,13 @@ const SolutionDetail = () => {
         <div className="container-default relative z-10 transform translate-y-4 animate-slideUp">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 rounded-full bg-blue-500/20 px-4 py-1.5 text-sm font-medium text-blue-200 backdrop-blur-sm mb-6">
-              <SolutionIcon className="w-4 h-4" /> AI Security Solutions
+              <ServiceIcon className="w-4 h-4" /> AI Security Services
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">
-              {solution.title} <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Solutions</span>
+              {service.title} <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Services</span>
             </h1>
             <p className="text-xl text-gray-300 mb-8 animate-fadeInDelay">
-              {solution.description}
+              {service.description}
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link 
@@ -473,7 +473,7 @@ const SolutionDetail = () => {
       >
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {solution.stats.map((stat, index) => (
+            {service.stats.map((stat, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -512,15 +512,15 @@ const SolutionDetail = () => {
                 className="overflow-hidden rounded-2xl shadow-2xl mb-12 border border-gray-200"
               >
                 <img 
-                  src={solution.image} 
-                  alt={solution.title}
+                  src={service.image} 
+                  alt={service.title}
                   className="w-full h-auto object-cover aspect-video"
                 />
               </motion.div>
               
               <div 
                 className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-600 prose-li:text-gray-600 prose-strong:text-gray-900 prose-a:text-blue-600 hover:prose-a:text-blue-700"
-                dangerouslySetInnerHTML={{ __html: solution.content }} 
+                dangerouslySetInnerHTML={{ __html: service.content }} 
               />
             </motion.div>
             
@@ -529,21 +529,21 @@ const SolutionDetail = () => {
               variants={fadeInUp}
               className="lg:col-span-4 space-y-8"
             >
-              {/* Solution benefits */}
+              {/* Service benefits */}
               <motion.div 
                 whileHover={{ y: -5 }}
                 className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 shadow-sm border border-blue-100"
               >
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-md">
-                    <SolutionIcon className="h-6 w-6 text-blue-600" />
+                    <ServiceIcon className="h-6 w-6 text-blue-600" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">{solution.title}</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">{service.title}</h3>
                 </div>
                 
                 <h4 className="font-semibold mb-4 text-gray-700">Key Benefits</h4>
                 <ul className="space-y-3 mb-8">
-                  {solution.benefits.map((benefit, i) => (
+                  {service.benefits.map((benefit, i) => (
                     <motion.li 
                       key={i} 
                       className="flex items-start gap-3"
@@ -565,32 +565,32 @@ const SolutionDetail = () => {
                 </Link>
               </motion.div>
               
-              {/* Other solutions */}
+              {/* Other services */}
               <motion.div 
                 whileHover={{ y: -5 }}
                 className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100"
               >
-                <h3 className="text-xl font-bold mb-6 text-gray-900">Explore Other Solutions</h3>
+                <h3 className="text-xl font-bold mb-6 text-gray-900">Explore Other Services</h3>
                 <div className="space-y-4">
-                  {Object.entries(solutionsDetails)
-                    .filter(([key]) => key !== solutionId)
-                    .map(([key, otherSolution]) => {
-                      const OtherIcon = otherSolution.icon;
+                  {Object.entries(servicesDetails)
+                    .filter(([key]) => key !== serviceId)
+                    .map(([key, otherService]) => {
+                      const OtherIcon = otherService.icon;
                       return (
                         <motion.div
                           key={key}
                           whileHover={{ x: 5 }}
                         >
                           <Link 
-                            to={`/solutions/${key}`} 
+                            to={`/services/${key}`} 
                             className="flex items-center gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors"
                           >
                             <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center">
                               <OtherIcon className="h-5 w-5 text-blue-600" />
                             </div>
                             <div>
-                              <h4 className="font-medium text-gray-900">{otherSolution.title}</h4>
-                              <p className="text-sm text-gray-500">{otherSolution.description.substring(0, 60)}...</p>
+                              <h4 className="font-medium text-gray-900">{otherService.title}</h4>
+                              <p className="text-sm text-gray-500">{otherService.description.substring(0, 60)}...</p>
                             </div>
                             <ArrowRight className="w-5 h-5 text-gray-400 ml-auto" />
                           </Link>
@@ -605,7 +605,7 @@ const SolutionDetail = () => {
         </div>
       </motion.section>
       
-      {/* Recommended Services Section */}
+      {/* Features Section */}
       <motion.section 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -621,15 +621,15 @@ const SolutionDetail = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Recommended Services</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Key Features</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our AI-powered services that are most commonly deployed in {solution.title.toLowerCase()} applications:
+              Our AI-powered features that are most commonly included in {service.title.toLowerCase()} packages:
             </p>
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {solution.services.map((service, index) => {
-              const ServiceIcon = service.icon;
+            {service.features.map((feature, index) => {
+              const FeatureIcon = feature.icon;
               return (
                 <motion.div
                   key={index}
@@ -640,12 +640,12 @@ const SolutionDetail = () => {
                 >
                   <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all h-full flex flex-col border border-gray-100">
                     <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-6 group-hover:bg-blue-200 transition-colors">
-                      <ServiceIcon className="h-6 w-6 text-blue-600 group-hover:text-blue-700" />
+                      <FeatureIcon className="h-6 w-6 text-blue-600 group-hover:text-blue-700" />
                     </div>
-                    <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">{service.title}</h3>
-                    <p className="text-gray-600 mb-6 flex-grow">{service.description}</p>
+                    <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">{feature.title}</h3>
+                    <p className="text-gray-600 mb-6 flex-grow">{feature.description}</p>
                     <Link 
-                      to={`/services/${service.id}`}
+                      to={`/features/${feature.id}`}
                       className="text-blue-600 font-medium flex items-center group-hover:text-blue-700 transition-colors"
                     >
                       Learn more
@@ -659,7 +659,7 @@ const SolutionDetail = () => {
         </div>
       </motion.section>
       
-      {/* Solution Workflow Section */}
+      {/* Service Workflow Section */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container">
           <motion.div
@@ -671,7 +671,7 @@ const SolutionDetail = () => {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">How It Works</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our {solution.title.toLowerCase()} solution follows a streamlined workflow to ensure optimal security:
+              Our {service.title.toLowerCase()} service follows a streamlined workflow to ensure optimal security:
             </p>
           </motion.div>
           
@@ -686,7 +686,7 @@ const SolutionDetail = () => {
               viewport={{ once: true }}
               className="space-y-16"
             >
-              {solution.workflow.map((step, index) => (
+              {service.workflow.map((step, index) => (
                 <motion.div 
                   key={index} 
                   variants={fadeInUp}
@@ -723,9 +723,9 @@ const SolutionDetail = () => {
         className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white"
       >
         <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to implement {solution.title}?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to implement {service.title}?</h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto">
-            Contact us today to learn how our AI-powered security solutions can be tailored to your specific needs.
+            Contact us today to learn how our AI-powered security services can be tailored to your specific needs.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link 
@@ -735,10 +735,10 @@ const SolutionDetail = () => {
               Schedule a Consultation
             </Link>
             <Link 
-              to="/solutions" 
+              to="/services" 
               className="inline-flex items-center px-8 py-4 border-2 border-white text-white font-medium rounded-xl hover:bg-white/10 transition-all"
             >
-              Explore Other Solutions
+              Explore Other Services
             </Link>
           </div>
         </div>
@@ -747,4 +747,4 @@ const SolutionDetail = () => {
   );
 };
 
-export default SolutionDetail;
+export default ServiceDetail;
