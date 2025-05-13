@@ -68,6 +68,69 @@ const services = [
       'School and campus security',
       'Emergency response coordination'
     ]
+  },
+  {
+    id: 'public-safety',
+    title: 'Public Safety',
+    description: 'Advanced surveillance solutions for public spaces that enhance safety while respecting privacy. Our public safety systems help identify potential threats before they escalate, enabling proactive security measures.',
+    icon: MapPin,
+    image: '/api/placeholder/800/500',
+    benefits: [
+      'Crowd anomaly detection',
+      'Privacy-focused monitoring',
+      'Emergency situation recognition',
+      'Integration with emergency services',
+      'Scalable deployment options'
+    ],
+    useCases: [
+      'Transportation hub security',
+      'Public event monitoring',
+      'Parks and recreation area safety',
+      'School and campus security',
+      'Emergency response coordination'
+    ]
+  },
+  {
+    id: 'public-safety',
+    title: 'Public Safety',
+    description: 'Advanced surveillance solutions for public spaces that enhance safety while respecting privacy. Our public safety systems help identify potential threats before they escalate, enabling proactive security measures.',
+    icon: MapPin,
+    image: '/api/placeholder/800/500',
+    benefits: [
+      'Crowd anomaly detection',
+      'Privacy-focused monitoring',
+      'Emergency situation recognition',
+      'Integration with emergency services',
+      'Scalable deployment options'
+    ],
+    useCases: [
+      'Transportation hub security',
+      'Public event monitoring',
+      'Parks and recreation area safety',
+      'School and campus security',
+      'Emergency response coordination'
+    ]
+  },
+  {
+    id: 'public-safety',
+    title: 'Public Safety',
+    description: 'Advanced surveillance solutions for public spaces that enhance safety while respecting privacy. Our public safety systems help identify potential threats before they escalate, enabling proactive security measures.',
+    icon: MapPin,
+    image: '/api/placeholder/800/500',
+    benefits: [
+      'Crowd anomaly detection',
+      'Privacy-focused monitoring',
+      'Emergency situation recognition',
+      'Integration with emergency services',
+      'Scalable deployment options'
+    ],
+    useCases: [
+      'Transportation hub security',
+      'Public event monitoring',
+      'Parks and recreation area safety',
+      'School and campus security',
+      'Emergency response coordination'
+    ]
   }
 ];
 

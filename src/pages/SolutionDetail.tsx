@@ -19,7 +19,11 @@ import {
   Banknote,
   Factory,
   TrafficCone,
-  Globe
+  Globe,
+  Calendar,
+  Bus,
+  Wrench,
+  Smartphone
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -42,7 +46,7 @@ const staggerContainer = {
 // Service details data with all 6 services
 const servicesDetails = {
   'retail-wholesale-high-risk': {
-    title: 'Retail, Wholesale & High Risk Shop Security',
+    title: 'Retail,Supermarkets & High Risk Shop Security',
     description: 'Comprehensive AI-powered security solutions for retail stores, wholesale markets, and high-risk shops to prevent theft and enhance safety.',
     icon: ShoppingCart,
     image: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da',
@@ -57,18 +61,6 @@ const servicesDetails = {
     content: `
       <h2 class="text-3xl font-bold mb-6">Retail & High-Risk Shop Security Reinvented</h2>
       <p class="mb-6">Retail environments and high-risk shops require specialized security solutions that address both theft prevention and employee safety. Our advanced AI surveillance systems are tailored to meet these unique challenges while providing business intelligence to improve operations.</p>
-      
-      <div class="bg-blue-50 p-6 rounded-xl mb-8">
-        <p class="font-medium text-blue-800">Our systems help reduce shrinkage in retail environments while providing enhanced protection for high-risk shops like jewelry stores, pharmacies, and electronics retailers.</p>
-      </div>
-      
-      <h3 class="text-2xl font-bold mb-4 mt-8">Comprehensive Protection</h3>
-      <p class="mb-4">Our retail security service includes specialized capabilities:</p>
-      <ul class="space-y-3 mb-8">
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>AI Theft Detection:</strong> Real-time identification of shoplifting behaviors and suspicious activities with high accuracy.</span></li>
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>High-Risk Area Monitoring:</strong> Specialized protection for high-value merchandise areas with enhanced analytics.</span></li>
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Employee Safety:</strong> Panic buttons and incident detection help protect staff during robberies or difficult situations.</span></li>
-      </ul>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
@@ -105,6 +97,50 @@ const servicesDetails = {
         title: 'High-Risk Protection',
         description: 'Specialized monitoring for high-value merchandise areas.',
         image: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da'
+      },
+      {
+        id: 'inventory-tracking',
+        title: 'Inventory Tracking',
+        description: 'Automated monitoring of inventory movement and stock levels.',
+        image: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df'
+      },
+      {
+        id: 'customer-analytics',
+        title: 'Customer Analytics',
+        description: 'Behavior analysis to improve store layout and customer experience.',
+        image: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f'
+      }
+    ],
+    recommendedServices: [
+      {
+        title: 'POS Fraud Detection',
+        description: 'Advanced monitoring of point-of-sale systems to prevent employee theft.',
+        icon: ShoppingCart
+      },
+      {
+        title: 'Inventory Protection',
+        description: 'Real-time tracking of high-value merchandise movement.',
+        icon: Shield
+      },
+      {
+        title: 'Staff Safety',
+        description: 'Emergency alert systems for employee protection.',
+        icon: Bell
+      },
+      {
+        title: 'Customer Flow',
+        description: 'Analytics to optimize store layout and reduce theft opportunities.',
+        icon: MapPin
+      },
+      {
+        title: 'After-Hours',
+        description: '24/7 monitoring when the store is closed.',
+        icon: Lock
+      },
+      {
+        title: 'Integration',
+        description: 'Seamless connection with existing retail systems.',
+        icon: Cpu
       }
     ],
     workflow: [
@@ -152,17 +188,16 @@ const servicesDetails = {
       <h2 class="text-3xl font-bold mb-6">Financial Institution Security Solutions</h2>
       <p class="mb-6">Banks, ATMs, and financial institutions require the highest level of security to protect assets, customers, and sensitive data. Our specialized solutions combine physical security with digital monitoring to create comprehensive protection.</p>
       
-      <div class="bg-blue-50 p-6 rounded-xl mb-8">
-        <p class="font-medium text-blue-800">Our financial security systems are designed to meet strict compliance requirements while providing real-time threat detection and prevention.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+          <h4 class="font-bold text-lg mb-3">ATM Protection</h4>
+          <p>Advanced anti-skimming technology and behavior monitoring at all ATM locations.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+          <h4 class="font-bold text-lg mb-3">Transaction Security</h4>
+          <p>Real-time analysis of transactions to detect fraudulent activity.</p>
+        </div>
       </div>
-      
-      <h3 class="text-2xl font-bold mb-4 mt-8">Multi-Layered Security</h3>
-      <p class="mb-4">Our financial security service provides comprehensive protection:</p>
-      <ul class="space-y-3 mb-8">
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>ATM Protection:</strong> Advanced anti-skimming technology and behavior monitoring at all ATM locations.</span></li>
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Transaction Monitoring:</strong> Real-time analysis of transactions to detect fraudulent activity.</span></li>
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Vault Security:</strong> Multi-factor authentication and 24/7 monitoring of secure areas.</span></li>
-      </ul>
     `,
     features: [
       {
@@ -188,6 +223,50 @@ const servicesDetails = {
         title: 'Customer Verification',
         description: 'Advanced facial recognition for customer identification and fraud prevention.',
         image: 'https://images.unsplash.com/photo-1601760561441-16420502c7e0'
+      },
+      {
+        id: 'cyber-security',
+        title: 'Cyber Security',
+        description: 'Integrated digital protection for online banking systems.',
+        image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b'
+      },
+      {
+        id: 'emergency-response',
+        title: 'Emergency Response',
+        description: 'Instant lockdown and alert systems for security incidents.',
+        image: 'https://images.unsplash.com/photo-1581093057305-263bd975ae4a'
+      }
+    ],
+    recommendedServices: [
+      {
+        title: 'Digital Fraud Prevention',
+        description: 'Protection against online banking fraud and cyber threats.',
+        icon: Lock
+      },
+      {
+        title: 'Cash Handling',
+        description: 'Monitoring of cash movement and handling procedures.',
+        icon: Banknote
+      },
+      {
+        title: 'VIP Protection',
+        description: 'Enhanced security for high-net-worth individuals.',
+        icon: Shield
+      },
+      {
+        title: 'Compliance Monitoring',
+        description: 'Automated tracking of regulatory compliance procedures.',
+        icon: Check
+      },
+      {
+        title: 'Branch Analytics',
+        description: 'Customer behavior analysis for branch optimization.',
+        icon: Database
+      },
+      {
+        title: 'Mobile Security',
+        description: 'Protection for mobile banking applications.',
+        icon: Cloud
       }
     ],
     workflow: [
@@ -235,17 +314,16 @@ const servicesDetails = {
       <h2 class="text-3xl font-bold mb-6">Industrial Safety & Smart Factory Solutions</h2>
       <p class="mb-6">Modern industrial facilities require integrated security and safety systems that protect both assets and personnel while maintaining operational efficiency. Our solutions combine AI-powered monitoring with industrial IoT integration for comprehensive protection.</p>
       
-      <div class="bg-blue-50 p-6 rounded-xl mb-8">
-        <p class="font-medium text-blue-800">Our industrial systems are designed to meet strict safety regulations while providing real-time monitoring of equipment and personnel.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+          <h4 class="font-bold text-lg mb-3">Equipment Monitoring</h4>
+          <p>24/7 monitoring of critical machinery for operational anomalies and security threats.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+          <h4 class="font-bold text-lg mb-3">Worker Safety</h4>
+          <p>AI-powered detection of safety violations or hazardous situations.</p>
+        </div>
       </div>
-      
-      <h3 class="text-2xl font-bold mb-4 mt-8">Industrial-Grade Protection</h3>
-      <p class="mb-4">Our industrial security service includes:</p>
-      <ul class="space-y-3 mb-8">
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Equipment Monitoring:</strong> 24/7 monitoring of critical machinery for operational anomalies and security threats.</span></li>
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Worker Safety:</strong> AI-powered detection of safety violations or hazardous situations.</span></li>
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Restricted Area Protection:</strong> Facial recognition-based access control for sensitive areas.</span></li>
-      </ul>
     `,
     features: [
       {
@@ -271,6 +349,50 @@ const servicesDetails = {
         title: 'IoT Integration',
         description: 'Seamless integration with industrial IoT systems for unified monitoring.',
         image: 'https://images.unsplash.com/photo-1518770660439-4636190af475'
+      },
+      {
+        id: 'hazard-detection',
+        title: 'Hazard Detection',
+        description: 'Early warning systems for chemical leaks or environmental dangers.',
+        image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70'
+      },
+      {
+        id: 'supply-chain',
+        title: 'Supply Chain Security',
+        description: 'Monitoring of goods movement and inventory security.',
+        image: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df'
+      }
+    ],
+    recommendedServices: [
+      {
+        title: 'Worker Safety',
+        description: 'Real-time monitoring of personnel safety compliance.',
+        icon: Shield
+      },
+      {
+        title: 'Equipment Analytics',
+        description: 'Predictive maintenance through equipment monitoring.',
+        icon: Cpu
+      },
+      {
+        title: 'Environmental Monitoring',
+        description: 'Detection of hazardous conditions in the workplace.',
+        icon: Cloud
+      },
+      {
+        title: 'Inventory Tracking',
+        description: 'Automated monitoring of raw materials and finished goods.',
+        icon: Database
+      },
+      {
+        title: 'Access Management',
+        description: 'Secure control of restricted area access.',
+        icon: Lock
+      },
+      {
+        title: 'Process Optimization',
+        description: 'AI-driven efficiency improvements in production lines.',
+        icon: Factory
       }
     ],
     workflow: [
@@ -318,17 +440,16 @@ const servicesDetails = {
       <h2 class="text-3xl font-bold mb-6">Traffic & Public Safety Solutions</h2>
       <p class="mb-6">Modern cities require intelligent traffic management systems that improve safety while reducing congestion. Our AI-powered solutions provide real-time monitoring and analysis of traffic conditions, accidents, and public safety concerns.</p>
       
-      <div class="bg-blue-50 p-6 rounded-xl mb-8">
-        <p class="font-medium text-blue-800">Our traffic management systems reduce congestion while improving response times to accidents and emergencies.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+          <h4 class="font-bold text-lg mb-3">Traffic Optimization</h4>
+          <p>AI-powered analysis of traffic patterns to reduce congestion and improve flow.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+          <h4 class="font-bold text-lg mb-3">Accident Response</h4>
+          <p>Immediate identification of accidents and automatic alerting of emergency services.</p>
+        </div>
       </div>
-      
-      <h3 class="text-2xl font-bold mb-4 mt-8">Comprehensive Traffic Management</h3>
-      <p class="mb-4">Our traffic and public safety service includes:</p>
-      <ul class="space-y-3 mb-8">
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Traffic Flow Optimization:</strong> AI-powered analysis of traffic patterns to reduce congestion and improve flow.</span></li>
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Accident Detection:</strong> Immediate identification of accidents and automatic alerting of emergency services.</span></li>
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Pedestrian Safety:</strong> Monitoring of crosswalks and high-traffic pedestrian areas to prevent accidents.</span></li>
-      </ul>
     `,
     features: [
       {
@@ -354,6 +475,50 @@ const servicesDetails = {
         title: 'Emergency Routing',
         description: 'Priority routing for emergency vehicles through smart traffic light control.',
         image: 'https://images.unsplash.com/photo-1583511655826-05700442b31b'
+      },
+      {
+        id: 'pedestrian-safety',
+        title: 'Pedestrian Safety',
+        description: 'Monitoring of crosswalks and high-traffic pedestrian areas.',
+        image: 'https://images.unsplash.com/photo-1509822929063-6b6cfc9b42f2'
+      },
+      {
+        id: 'public-transport',
+        title: 'Public Transport',
+        description: 'Optimization of bus and tram schedules based on traffic conditions.',
+        image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957'
+      }
+    ],
+    recommendedServices: [
+      {
+        title: 'Smart Parking',
+        description: 'Automated monitoring and management of parking spaces.',
+        icon: MapPin
+      },
+      {
+        title: 'Violation Detection',
+        description: 'Automated identification of traffic violations.',
+        icon: TrafficCone
+      },
+      {
+        title: 'Public Transport',
+        description: 'Security and optimization for buses and trams.',
+        icon: Bus
+      },
+      {
+        title: 'Urban Planning',
+        description: 'Data-driven insights for city infrastructure development.',
+        icon: Globe
+      },
+      {
+        title: 'Event Management',
+        description: 'Traffic control for large public events.',
+        icon: Calendar
+      },
+      {
+        title: 'Air Quality',
+        description: 'Monitoring of emissions and environmental impact.',
+        icon: Cloud
       }
     ],
     workflow: [
@@ -368,6 +533,16 @@ const servicesDetails = {
         icon: '⚠️'
       },
       {
+        title: 'Emergency Response',
+        description: 'Automatic alerting of appropriate emergency services.',
+        icon: '🚨'
+      },
+      {
+        title: 'Traffic Optimization',
+        description: 'Dynamic adjustment of traffic signals to improve flow and safety.',
+        icon: '🔄'
+      },
+       {
         title: 'Emergency Response',
         description: 'Automatic alerting of appropriate emergency services.',
         icon: '🚨'
@@ -401,17 +576,16 @@ const servicesDetails = {
       <h2 class="text-3xl font-bold mb-6">Smart City & Infrastructure Solutions</h2>
       <p class="mb-6">Modern cities require integrated security solutions that protect critical infrastructure while enhancing quality of life for residents. Our smart city systems provide comprehensive monitoring and management of public spaces, utilities, and government facilities.</p>
       
-      <div class="bg-blue-50 p-6 rounded-xl mb-8">
-        <p class="font-medium text-blue-800">Our smart city platform integrates with existing municipal systems to provide unified monitoring and management of city infrastructure.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+          <h4 class="font-bold text-lg mb-3">Infrastructure Monitoring</h4>
+          <p>24/7 monitoring of critical utilities, transportation systems, and public facilities.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+          <h4 class="font-bold text-lg mb-3">Public Safety</h4>
+          <p>AI-powered surveillance of parks, plazas, and other public areas with privacy protections.</p>
+        </div>
       </div>
-      
-      <h3 class="text-2xl font-bold mb-4 mt-8">Integrated City Management</h3>
-      <p class="mb-4">Our smart city service includes:</p>
-      <ul class="space-y-3 mb-8">
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Infrastructure Monitoring:</strong> 24/7 monitoring of critical utilities, transportation systems, and public facilities.</span></li>
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Public Space Security:</strong> AI-powered surveillance of parks, plazas, and other public areas with privacy protections.</span></li>
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Emergency Coordination:</strong> Integrated systems for rapid response to security incidents or natural disasters.</span></li>
-      </ul>
     `,
     features: [
       {
@@ -437,6 +611,50 @@ const servicesDetails = {
         title: 'Data Analytics',
         description: 'Comprehensive data collection and analysis for urban planning.',
         image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40'
+      },
+      {
+        id: 'utility-management',
+        title: 'Utility Management',
+        description: 'Monitoring and optimization of water, electricity, and gas systems.',
+        image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d'
+      },
+      {
+        id: 'environmental-monitoring',
+        title: 'Environmental Monitoring',
+        description: 'Air quality, noise pollution, and other environmental factors tracking.',
+        image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef'
+      }
+    ],
+    recommendedServices: [
+      {
+        title: 'Urban Analytics',
+        description: 'Data-driven insights for city planning and development.',
+        icon: Database
+      },
+      {
+        title: 'Public Transport',
+        description: 'Security and optimization for city transportation systems.',
+        icon: Bus
+      },
+      {
+        title: 'Emergency Systems',
+        description: 'Integrated response coordination for city-wide incidents.',
+        icon: Bell
+      },
+      {
+        title: 'Utility Protection',
+        description: 'Security for water, power, and other critical infrastructure.',
+        icon: Cpu
+      },
+      {
+        title: 'Tourist Safety',
+        description: 'Enhanced security in high-traffic tourist areas.',
+        icon: MapPin
+      },
+      {
+        title: 'Event Security',
+        description: 'Management of large public gatherings and events.',
+        icon: Calendar
       }
     ],
     workflow: [
@@ -484,17 +702,16 @@ const servicesDetails = {
       <h2 class="text-3xl font-bold mb-6">Corporate & Residential Security Solutions</h2>
       <p class="mb-6">Office buildings and residential complexes require security solutions that protect occupants while maintaining convenience and quality of life. Our integrated systems provide comprehensive protection for both corporate and residential environments.</p>
       
-      <div class="bg-blue-50 p-6 rounded-xl mb-8">
-        <p class="font-medium text-blue-800">Our corporate and residential security systems are designed to be unobtrusive while providing maximum protection for occupants and assets.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+          <h4 class="font-bold text-lg mb-3">Visitor Management</h4>
+          <p>Advanced check-in systems with facial recognition and automated access control.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+          <h4 class="font-bold text-lg mb-3">Common Area Security</h4>
+          <p>24/7 monitoring of lobbies, hallways, and other shared spaces.</p>
+        </div>
       </div>
-      
-      <h3 class="text-2xl font-bold mb-4 mt-8">Comprehensive Property Protection</h3>
-      <p class="mb-4">Our service includes:</p>
-      <ul class="space-y-3 mb-8">
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Visitor Management:</strong> Advanced check-in systems with facial recognition and automated access control.</span></li>
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Common Area Security:</strong> 24/7 monitoring of lobbies, hallways, and other shared spaces.</span></li>
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Parking Protection:</strong> Comprehensive surveillance of parking areas with license plate recognition.</span></li>
-      </ul>
     `,
     features: [
       {
@@ -520,6 +737,50 @@ const servicesDetails = {
         title: 'Emergency Systems',
         description: 'Integrated emergency response and evacuation management.',
         image: 'https://images.unsplash.com/photo-1583511655826-05700442b31b'
+      },
+      {
+        id: 'access-control',
+        title: 'Access Control',
+        description: 'Secure entry systems with multi-factor authentication.',
+        image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf'
+      },
+      {
+        id: 'resident-services',
+        title: 'Resident Services',
+        description: 'Convenience features for residents including package tracking.',
+        image: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df'
+      }
+    ],
+    recommendedServices: [
+      {
+        title: 'Smart Locks',
+        description: 'Keyless entry systems with advanced security features.',
+        icon: Lock
+      },
+      {
+        title: 'Package Management',
+        description: 'Secure handling and tracking of deliveries.',
+        icon: ShoppingCart
+      },
+      {
+        title: 'Facility Booking',
+        description: 'Reservation systems for shared amenities.',
+        icon: Calendar
+      },
+      {
+        title: 'Energy Management',
+        description: 'Smart systems to optimize building energy usage.',
+        icon: Cloud
+      },
+      {
+        title: 'Maintenance Tracking',
+        description: 'Automated monitoring of building maintenance needs.',
+        icon: Wrench
+      },
+      {
+        title: 'Community App',
+        description: 'Integrated platform for resident communication.',
+        icon: Smartphone
       }
     ],
     workflow: [
@@ -551,7 +812,6 @@ const servicesDetails = {
     ]
   }
 };
-
 const ServiceDetail = () => {
   const { serviceId } = useParams();
   const [service, setService] = useState(null);
@@ -770,13 +1030,11 @@ const ServiceDetail = () => {
                 <div className="space-y-4">
                   {Object.entries(servicesDetails)
                     .filter(([key]) => key !== serviceId)
+                    .slice(0, 3) // Limit to 3 services
                     .map(([key, otherService]) => {
                       const OtherIcon = otherService.icon;
                       return (
-                        <motion.div
-                          key={key}
-                          whileHover={{ x: 5 }}
-                        >
+                        <motion.div key={key} whileHover={{ x: 5 }}>
                           <Link 
                             to={`/services/${key}`} 
                             className="flex items-center gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors"
@@ -792,14 +1050,14 @@ const ServiceDetail = () => {
                           </Link>
                         </motion.div>
                       );
-                    })
-                  }
+                    })}
                 </div>
               </motion.div>
             </motion.div>
           </div>
         </div>
       </motion.section>
+
       
       {/* Features Section */}
       <motion.section 
@@ -849,6 +1107,59 @@ const ServiceDetail = () => {
         </div>
       </motion.section>
       
+      {/* Recommended Services Section */}
+      <motion.section 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true, margin: "-100px" }}
+        className="bg-gradient-to-b from-white to-blue-50 py-16 md:py-24"
+      >
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Recommended Services</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Complementary services that work well with our {service.title.toLowerCase()} solution:
+            </p>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {service.recommendedServices.map((recService, index) => {
+              const RecIcon = recService.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all h-full flex flex-col border border-gray-100">
+                    <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center mb-6">
+                      <RecIcon className="h-6 w-6 text-blue-600" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">{recService.title}</h3>
+                    <p className="text-gray-600 mb-6 flex-grow">{recService.description}</p>
+                    <Link 
+                      to="/contact" 
+                      className="inline-flex items-center text-blue-600 font-medium hover:text-blue-800 transition-colors"
+                    >
+                      Learn more
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Link>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </motion.section>
       {/* Service Workflow Section */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container">

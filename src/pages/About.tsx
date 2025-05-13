@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@/components/layout/Layout';
 import { ArrowRight, Shield, Users, Award, Globe, TrendingUp, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const About = () => {
@@ -349,8 +350,8 @@ const About = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
                     <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className="text-2xl font-bold mb-1 text-white">Sarah Johnson</h3>
-                      <p className="text-blue-200 font-medium">CTO</p>
+                      <h3 className="text-2xl font-bold mb-1 text-white">Sanidhya</h3>
+                      <p className="text-blue-200 font-medium">Bussiness Analyst</p>
                     </div>
                   </div>
                   <div className="p-6">
@@ -531,38 +532,38 @@ const About = () => {
       </section>
 
 
-      {/* CTA Section with glassmorphism */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-indigo-700">
-          <div className="absolute inset-0 bg-[url('/assets/grid-pattern.svg')] bg-center opacity-10"></div>
-        </div>
-        {/* Abstract shapes */}
-        <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-blue-400/20 blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-indigo-400/20 blur-3xl"></div>
-        
-        <div className="container-default relative z-10 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Join Us in Creating a Safer Tomorrow</h2>
-          <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
-            Partner with ZeexAI and experience the future of security technology today.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a 
-              href="/contact" 
-              className="px-8 py-4 bg-white text-blue-600 font-medium rounded-xl shadow-lg hover:shadow-xl hover:bg-gray-50 transition-all flex items-center"
-            >
-              Contact Us
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </a>
-            <a 
-              href="/solutions" 
-              className="px-8 py-4 text-white font-medium rounded-xl border-2 border-white/80 hover:bg-white/10 transition-all flex items-center backdrop-blur-sm"
-            >
-              Explore Solutions
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </a>
-          </div>
-        </div>
-      </section>
+      {/* CTA Section */}
+            <section className="py-24 bg-gradient-to-br from-blue-800 to-indigo-900 text-white relative overflow-hidden">
+              {/* Background decoration */}
+              <div className="absolute inset-0 overflow-hidden">
+                <div className="absolute -right-20 -top-20 w-64 h-64 rounded-full bg-white opacity-10"></div>
+                <div className="absolute -left-20 -bottom-20 w-96 h-96 rounded-full bg-blue-500 opacity-10"></div>
+              </div>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="container-default text-center relative z-10"
+              >
+                <div className="max-w-4xl mx-auto">
+                  <h2 className="text-5xl font-bold mb-6">Join Us in Creating a Safer Tomorrow</h2>
+                  <p className="text-xl mb-10 text-blue-100">
+                    Parter with ZeexAI and experience the future of security technology.
+                  </p>
+                  <div className="flex flex-col sm:flex-row justify-center gap-4">
+                    <Link 
+                      to="/contact" 
+                      className="px-8 py-4 bg-white text-blue-800 font-semibold rounded-lg hover:bg-blue-50 transition-all hover:shadow-xl"
+                    >
+                      Request a Consultation
+                    </Link>
+                   
+                  </div>
+                </div>
+              </motion.div>
+            </section>
     </Layout>
   );
 };

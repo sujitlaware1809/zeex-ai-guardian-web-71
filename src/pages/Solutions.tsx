@@ -217,7 +217,7 @@ const Solutions = () => {
             </motion.div>
             
             {/* Title - identical sizing and gradient */}
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-white mb-5 leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-5xl lg:text-[3rem] font-bold text-white mb-5 leading-tight tracking-tight">
               Advanced <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Security Solutions</span>
             </h1>
             
@@ -247,12 +247,7 @@ const Solutions = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                 </svg>
               </Link>
-              <Link 
-                to="/pricing" 
-                className="inline-flex items-center justify-center px-6 py-3.5 sm:px-8 sm:py-4 border-2 border-white/80 text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 hover:shadow-lg text-sm sm:text-base"
-              >
-                View Pricing
-              </Link>
+          
             </motion.div>
           </div>
         </div>
@@ -466,12 +461,7 @@ const Solutions = () => {
               >
                 Request a Consultation
               </Link>
-              <Link 
-                to="/pricing" 
-                className="px-8 py-4 border-2 border-white/80 text-white font-semibold rounded-lg hover:bg-white/10 transition-all hover:shadow-xl"
-              >
-                View Package Options
-              </Link>
+              
             </div>
           </div>
         </motion.div>
