@@ -145,24 +145,34 @@ const servicesDetails = {
     ],
     workflow: [
       {
-        title: 'Perimeter Monitoring',
-        description: 'AI-powered cameras monitor all entry and exit points for suspicious activity.',
+        title: 'Site Assessment',
+        description: 'Comprehensive evaluation of your retail space to identify high-risk areas and security needs.',
+        icon: '🔍'
+      },
+      {
+        title: 'System Design',
+        description: 'Customized security system design tailored to your store layout and merchandise value.',
+        icon: '📐'
+      },
+      {
+        title: 'AI Camera Installation',
+        description: 'Strategic placement of smart cameras with behavior analysis capabilities.',
+        icon: '📷'
+      },
+      {
+        title: 'POS Integration',
+        description: 'Connection with point-of-sale systems to monitor for fraudulent transactions.',
+        icon: '💳'
+      },
+      {
+        title: 'Staff Training',
+        description: 'Comprehensive training for your team on using the security system effectively.',
+        icon: '👨‍🏫'
+      },
+      {
+        title: 'Ongoing Monitoring',
+        description: '24/7 surveillance with real-time alerts and periodic system optimization.',
         icon: '👁️'
-      },
-      {
-        title: 'Behavior Analysis',
-        description: 'Our AI distinguishes between normal shopping behavior and potential theft indicators.',
-        icon: '🤖'
-      },
-      {
-        title: 'Instant Alerts',
-        description: 'Staff receive immediate notifications with video verification when threats are detected.',
-        icon: '📱'
-      },
-      {
-        title: 'Response Coordination',
-        description: 'Integrated systems notify security personnel or authorities based on threat level.',
-        icon: '🛡️'
       }
     ],
     stats: [
@@ -271,23 +281,33 @@ const servicesDetails = {
     ],
     workflow: [
       {
-        title: 'Customer Verification',
-        description: 'AI-powered identification of customers entering the facility.',
-        icon: '👤'
+        title: 'Risk Analysis',
+        description: 'Detailed assessment of vulnerabilities in your financial institution\'s security.',
+        icon: '📊'
       },
       {
-        title: 'Transaction Monitoring',
-        description: 'Real-time analysis of all financial transactions for anomalies.',
-        icon: '💳'
+        title: 'Multi-Layer Design',
+        description: 'Creation of a defense-in-depth security strategy for all access points.',
+        icon: '🛡️'
       },
       {
-        title: 'Threat Detection',
-        description: 'Immediate identification of suspicious behavior or security breaches.',
-        icon: '⚠️'
+        title: 'ATM Hardening',
+        description: 'Implementation of anti-skimming and tamper-proof technologies.',
+        icon: '🏧'
       },
       {
-        title: 'Emergency Response',
-        description: 'Automated lockdown and alert systems activated during incidents.',
+        title: 'Vault Security',
+        description: 'Installation of advanced monitoring systems for high-security areas.',
+        icon: '🔐'
+      },
+      {
+        title: 'Cyber Integration',
+        description: 'Linking physical security with digital protection systems.',
+        icon: '💻'
+      },
+      {
+        title: 'Response Protocols',
+        description: 'Establishment of emergency procedures and staff training.',
         icon: '🚨'
       }
     ],
@@ -397,24 +417,34 @@ const servicesDetails = {
     ],
     workflow: [
       {
-        title: 'Perimeter Security',
-        description: 'Monitoring of all facility entry points with AI-powered detection.',
-        icon: '🏭'
+        title: 'Safety Audit',
+        description: 'Comprehensive evaluation of current safety measures and potential hazards.',
+        icon: '🛠️'
+      },
+      {
+        title: 'IoT Integration Plan',
+        description: 'Design for connecting security systems with existing industrial equipment.',
+        icon: '📶'
       },
       {
         title: 'Equipment Monitoring',
-        description: 'Continuous analysis of machinery operation and performance.',
+        description: 'Installation of sensors and cameras for machinery surveillance.',
         icon: '⚙️'
       },
       {
-        title: 'Safety Compliance',
-        description: 'Real-time detection of safety violations or hazardous situations.',
-        icon: '⚠️'
+        title: 'Access Control',
+        description: 'Implementation of restricted area protection systems.',
+        icon: '🔑'
       },
       {
-        title: 'Incident Response',
-        description: 'Automated alerts and shutdown procedures when threats are detected.',
-        icon: '🚨'
+        title: 'Environmental Sensors',
+        description: 'Deployment of hazard detection for leaks, fires, and air quality.',
+        icon: '🌡️'
+      },
+      {
+        title: 'Maintenance Integration',
+        description: 'Linking security data with predictive maintenance systems.',
+        icon: '🔧'
       }
     ],
     stats: [
@@ -523,34 +553,34 @@ const servicesDetails = {
     ],
     workflow: [
       {
-        title: 'Traffic Monitoring',
-        description: 'Continuous analysis of vehicle and pedestrian movement patterns.',
+        title: 'Traffic Flow Study',
+        description: 'Analysis of current traffic patterns and congestion points.',
+        icon: '🚗'
+      },
+      {
+        title: 'Camera Network Design',
+        description: 'Strategic planning of surveillance camera placement.',
+        icon: '🎥'
+      },
+      {
+        title: 'AI System Installation',
+        description: 'Deployment of smart detection systems for incidents and violations.',
+        icon: '🤖'
+      },
+      {
+        title: 'Signal Integration',
+        description: 'Connection with traffic light systems for adaptive control.',
         icon: '🚦'
       },
       {
-        title: 'Incident Detection',
-        description: 'Immediate identification of accidents or safety violations.',
-        icon: '⚠️'
+        title: 'Emergency Coordination',
+        description: 'Integration with police, fire, and ambulance services.',
+        icon: '🚔'
       },
       {
-        title: 'Emergency Response',
-        description: 'Automatic alerting of appropriate emergency services.',
-        icon: '🚨'
-      },
-      {
-        title: 'Traffic Optimization',
-        description: 'Dynamic adjustment of traffic signals to improve flow and safety.',
-        icon: '🔄'
-      },
-       {
-        title: 'Emergency Response',
-        description: 'Automatic alerting of appropriate emergency services.',
-        icon: '🚨'
-      },
-      {
-        title: 'Traffic Optimization',
-        description: 'Dynamic adjustment of traffic signals to improve flow and safety.',
-        icon: '🔄'
+        title: 'Public Dashboard',
+        description: 'Creation of real-time traffic monitoring interfaces.',
+        icon: '📱'
       }
     ],
     stats: [
@@ -657,26 +687,36 @@ const servicesDetails = {
         icon: Calendar
       }
     ],
-    workflow: [
+   workflow: [
       {
-        title: 'City-wide Monitoring',
-        description: 'Integrated surveillance of all critical city infrastructure.',
+        title: 'City Assessment',
+        description: 'Comprehensive evaluation of current infrastructure and security needs.',
         icon: '🏙️'
       },
       {
-        title: 'Threat Detection',
-        description: 'AI-powered analysis of potential security or safety threats.',
-        icon: '🤖'
+        title: 'System Architecture',
+        description: 'Design of integrated smart city security network.',
+        icon: '📡'
       },
       {
-        title: 'Resource Allocation',
-        description: 'Data-driven deployment of emergency and maintenance resources.',
-        icon: '📊'
+        title: 'Sensor Deployment',
+        description: 'Installation of IoT devices across municipal areas.',
+        icon: '📶'
       },
       {
-        title: 'Citizen Services',
-        description: 'Improved public services through data analysis and automation.',
-        icon: '🏛️'
+        title: 'Data Integration',
+        description: 'Connection of various city systems into unified platform.',
+        icon: '💾'
+      },
+      {
+        title: 'Department Training',
+        description: 'Education for city staff on system operation and maintenance.',
+        icon: '👨‍💼'
+      },
+      {
+        title: 'Public Interface',
+        description: 'Development of citizen-facing applications and alerts.',
+        icon: '📱'
       }
     ],
     stats: [
@@ -785,26 +825,35 @@ const servicesDetails = {
     ],
     workflow: [
       {
-        title: 'Access Control',
-        description: 'Secure entry systems with multi-factor authentication.',
-        icon: '🔒'
+        title: 'Security Audit',
+        description: 'Thorough assessment of current vulnerabilities and protection needs.',
+        icon: '🔎'
       },
       {
-        title: 'Perimeter Security',
-        description: 'Continuous monitoring of all building entry points.',
-        icon: '🏢'
+        title: 'Access System Design',
+        description: 'Customized plan for visitor and resident access management.',
+        icon: '📝'
       },
       {
-        title: 'Occupant Safety',
-        description: 'Real-time detection of safety incidents or security breaches.',
+        title: 'Camera Installation',
+        description: 'Strategic placement of surveillance cameras in all critical areas.',
+        icon: '📹'
+      },
+      {
+        title: 'Emergency System Setup',
+        description: 'Implementation of alarms, lockdown procedures, and evacuation plans.',
+        icon: '🚨'
+      },
+      {
+        title: 'Resident Onboarding',
+        description: 'Registration of residents and setup of access credentials.',
         icon: '👥'
       },
       {
-        title: 'Emergency Response',
-        description: 'Integrated systems for rapid response to incidents.',
-        icon: '🚨'
-      }
-    ],
+        title: 'Monitoring Center',
+        description: '24/7 surveillance operations with trained security personnel.',
+        icon: '🖥️'
+      }],
     stats: [
       { value: '99%', label: 'Access control accuracy' },
       { value: '40%', label: 'Security incidents reduced' },
@@ -861,63 +910,57 @@ const ServiceDetail = () => {
 
   return (
     <Layout showFooter={false}>
-      {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center bg-navy-900 overflow-hidden opacity-0 animate-fadeIn">
-        <div className="absolute inset-0 overflow-hidden z-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent opacity-20"></div>
-        </div>
-        
-        <div className="container-default relative z-10 transform translate-y-4 animate-slideUp">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 rounded-full bg-blue-500/20 px-4 py-1.5 text-sm font-medium text-blue-200 backdrop-blur-sm mb-6">
-              <ServiceIcon className="w-4 h-4" /> AI Security Services
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">
-              {service.title} <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Services</span>
-            </h1>
-            <p className="text-xl text-gray-300 mb-8 animate-fadeInDelay">
-              {service.description}
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link 
-                to="/contact" 
-                className="inline-flex items-center justify-center px-6 py-3.5 sm:px-8 sm:py-4 bg-white text-blue-900 font-semibold rounded-lg hover:bg-blue-50 transition-all duration-300 hover:shadow-lg"
-              >
-                Request a Demo
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                </svg>
-              </Link>
-              <Link 
-                to="/pricing" 
-                className="inline-flex items-center justify-center px-6 py-3.5 sm:px-8 sm:py-4 border-2 border-white/80 text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 hover:shadow-lg"
-              >
-                View Pricing
-              </Link>
-            </div>
-          </div>
-        </div>
+     {/* Hero Section */}
+<section className="relative min-h-[80vh] md:min-h-[70vh] flex items-center justify-center bg-navy-900 overflow-hidden opacity-0 animate-fadeIn">
+  <div className="absolute inset-0 overflow-hidden z-0">
+    <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent opacity-20"></div>
+  </div>
+  
+  <div className="container-default relative z-10 transform translate-y-4 animate-slideUp px-4">
+    <div className="max-w-4xl mx-auto text-center">
+      <div className="inline-flex items-center gap-2 rounded-full bg-blue-500/20 px-4 py-1.5 text-sm font-medium text-blue-200 backdrop-blur-sm mb-6">
+        <ServiceIcon className="w-4 h-4" /> AI Security Services
+      </div>
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">
+        {service.title} <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Services</span>
+      </h1>
+      <p className="text-xl text-gray-300 mb-8 animate-fadeInDelay max-w-3xl mx-auto">
+        {service.description}
+      </p>
+      <div className="flex flex-col sm:flex-row justify-center gap-4">
+        <Link 
+          to="/contact" 
+          className="inline-flex items-center justify-center px-6 py-3.5 sm:px-8 sm:py-4 bg-white text-blue-900 font-semibold rounded-lg hover:bg-blue-50 transition-all duration-300 hover:shadow-lg"
+        >
+          Request a Demo
+          <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </Link>
+      </div>
+    </div>
+  </div>
 
-        <style>{`
-          @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-          }
-          @keyframes slideUp {
-            from { transform: translateY(40px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-          }
-          .animate-fadeIn {
-            animation: fadeIn 1s ease-out forwards;
-          }
-          .animate-slideUp {
-            animation: slideUp 1.2s ease-out forwards;
-          }
-          .animate-fadeInDelay {
-            animation: fadeIn 1s ease-out 0.6s forwards;
-          }
-        `}</style>
-      </section>
+  <style>{`
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 1s ease-out forwards;
+    }
+    .animate-slideUp {
+      animation: slideUp 1.2s ease-out forwards;
+    }
+    .animate-fadeInDelay {
+      animation: fadeIn 1s ease-out 0.6s forwards;
+    }
+  `}</style>
+</section>
 
       {/* Stats Section */}
       <motion.section 
@@ -1160,60 +1203,62 @@ const ServiceDetail = () => {
           </div>
         </div>
       </motion.section>
-      {/* Service Workflow Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+    {/* Service Workflow Section */}
+<section className="py-16 md:py-24 bg-white">
+  <div className="container">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+      className="text-center mb-16"
+    >
+      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">How It Works</h2>
+      <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+        Our {service.title.toLowerCase()} service follows a streamlined workflow to ensure optimal security:
+      </p>
+    </motion.div>
+
+    <div className="relative">
+      {/* Vertical connector line */}
+      <div className="absolute top-16 left-[calc(50%-1px)] h-[calc(100%-80px)] w-0.5 bg-gradient-to-b from-blue-200 to-indigo-200 hidden md:block"></div>
+
+      <motion.div 
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="space-y-16"
+      >
+        {service.workflow.slice(0, 6).map((step, index) => (
+          <motion.div 
+            key={index} 
+            variants={fadeInUp}
+            className="relative"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">How It Works</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our {service.title.toLowerCase()} service follows a streamlined workflow to ensure optimal security:
-            </p>
+            <div className={`flex flex-col md:flex-row items-center gap-8 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+              {/* Step Icon / Number */}
+              <div className="w-14 h-14 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center font-bold text-xl relative z-10 shadow-lg">
+                <span className="text-2xl">{step.icon}</span>
+              </div>
+
+              {/* Step Content */}
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                className="bg-white rounded-xl shadow-lg p-8 md:w-[calc(50%-40px)] relative border border-gray-100"
+              >
+                <h3 className="text-xl font-bold mb-3 text-gray-900">{step.title}</h3>
+                <p className="text-gray-600">{step.description}</p>
+              </motion.div>
+            </div>
           </motion.div>
-          
-          <div className="relative">
-            {/* Connector line */}
-            <div className="absolute top-16 left-[calc(50%-1px)] h-[calc(100%-80px)] w-0.5 bg-gradient-to-b from-blue-200 to-indigo-200 hidden md:block"></div>
-            
-            <motion.div 
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="space-y-16"
-            >
-              {service.workflow.map((step, index) => (
-                <motion.div 
-                  key={index} 
-                  variants={fadeInUp}
-                  className="relative"
-                >
-                  <div className={`flex flex-col md:flex-row items-center gap-8 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-                    {/* Step number */}
-                    <div className="w-14 h-14 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center font-bold text-xl relative z-10 shadow-lg">
-                      <span className="text-2xl">{step.icon}</span>
-                    </div>
-                    
-                    {/* Content */}
-                    <motion.div 
-                      whileHover={{ scale: 1.02 }}
-                      className="bg-white rounded-xl shadow-lg p-8 md:w-[calc(50%-40px)] relative border border-gray-100"
-                    >
-                      <h3 className="text-xl font-bold mb-3 text-gray-900">{step.title}</h3>
-                      <p className="text-gray-600">{step.description}</p>
-                    </motion.div>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </section>
+        ))}
+      </motion.div>
+    </div>
+  </div>
+</section>
+
+
       
       {/* CTA Section */}
       <motion.section 
