@@ -1189,13 +1189,7 @@ const ServiceDetail = () => {
                     </div>
                     <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">{recService.title}</h3>
                     <p className="text-gray-600 mb-6 flex-grow">{recService.description}</p>
-                    <Link 
-                      to="/contact" 
-                      className="inline-flex items-center text-blue-600 font-medium hover:text-blue-800 transition-colors"
-                    >
-                      Learn more
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Link>
+                    
                   </div>
                 </motion.div>
               );

@@ -346,16 +346,6 @@ const Index = () => {
                 </FadeInSection>
               ))}
             </div>
-
-            <FadeInSection className="mt-16 text-center" delay={500}>
-              <Link 
-                to="/implementation" 
-                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium rounded-xl hover:shadow-lg transition-all duration-300 group"
-              >
-                <span>Request Implementation Plan</span>
-                <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </Link>
-            </FadeInSection>
           </div>
         </div>
       </section>
@@ -376,8 +366,8 @@ const Index = () => {
           viewport={{ once: true }}
           className="container-default text-center relative z-10"
         >
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-5xl font-bold mb-6">Ready to Enhance Your Security?</h2>
+          <div className="max-w-4xl mx-auto">
+                  <h2 className="text-5xl font-bold mb-6">Ready to Enhance Your Security?</h2>
             <p className="text-xl mb-10 text-blue-100">
               Our team is ready to help you implement the perfect security solution for your needs.
             </p>
@@ -388,12 +378,7 @@ const Index = () => {
               >
                 Request a Consultation
               </Link>
-              <Link 
-                to="/pricing" 
-                className="px-8 py-4 border-2 border-white/80 text-white font-semibold rounded-lg hover:bg-white/10 transition-all hover:shadow-xl"
-              >
-                View Package Options
-              </Link>
+        
             </div>
           </div>
         </motion.div>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
@@ -48,14 +47,14 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Services - Updated with SEO-friendly options */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Our Services</h3>
             <ul className="space-y-2">
-              <li><Link to="/services/intrusion-detection" className="text-zeex-100 hover:text-white transition-colors">Intrusion Detection</Link></li>
-              <li><Link to="/services/facial-recognition" className="text-zeex-100 hover:text-white transition-colors">Facial Recognition</Link></li>
-              <li><Link to="/services/real-time-alerts" className="text-zeex-100 hover:text-white transition-colors">Real-time Alerts</Link></li>
-              <li><Link to="/services/cloud-video-analytics" className="text-zeex-100 hover:text-white transition-colors">Cloud Video Analytics</Link></li>
+              <li><Link to="/services/retail-wholesale-high-risk" className="text-zeex-100 hover:text-white transition-colors">Retail & High-Risk Shop Security</Link></li>
+              <li><Link to="/services/banks-atms-financial" className="text-zeex-100 hover:text-white transition-colors">Bank & ATM Security Solutions</Link></li>
+              <li><Link to="/services/industry-smart-factories" className="text-zeex-100 hover:text-white transition-colors">Industrial Safety Monitoring</Link></li>
+              <li><Link to="/services/smart-cities-infrastructure" className="text-zeex-100 hover:text-white transition-colors">Smart City Surveillance</Link></li>
             </ul>
           </div>
 
@@ -65,8 +64,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex gap-3">
                 <Phone size={20} className="flex-shrink-0 text-zeex-300" />
-                <span className="text-zeex-100">+91 8709221636
-                </span>
+                <span className="text-zeex-100">+91 8709221636</span>
               </li>
               <li className="flex gap-3">
                 <Mail size={20} className="flex-shrink-0 text-zeex-300" />
@@ -74,7 +72,7 @@ const Footer = () => {
               </li>
               <li className="flex gap-3">
                 <MapPin size={20} className="flex-shrink-0 text-zeex-300" />
-                <span className="text-zeex-100">Nirmaan, CFI, IIT Madras               </span>
+                <span className="text-zeex-100">Nirmaan, CFI, IIT Madras</span>
               </li>
             </ul>
           </div>

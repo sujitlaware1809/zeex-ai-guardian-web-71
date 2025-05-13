@@ -62,7 +62,7 @@ const Hero = () => {
 
      <div className="overflow-visible">  {/* Prevents text clipping */}
   <h1 className="font-bold text-4xl md:text-4xl lg:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 gradient-text-safe hero-element leading-[1.3] md:leading-[1.4] pb-2">
-    AI-Powered Surveillance for Safety, Sustainability & Smart Management
+    AI-Powered Surveillance for Safety & Smart Management
   </h1>
 </div>
 <div className="my-8"></div>
