@@ -317,7 +317,7 @@ const About = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
                     <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className="text-2xl font-bold mb-1 text-white">Sarah Johnson</h3>
+                      <h3 className="text-2xl font-bold mb-1 text-white">Sujit Laware</h3>
                       <p className="text-blue-200 font-medium">CTO</p>
                     </div>
                   </div>

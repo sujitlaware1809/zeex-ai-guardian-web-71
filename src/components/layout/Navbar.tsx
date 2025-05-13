@@ -1,6 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronDown, Menu, X, ArrowRight, Shield, Video, Bell, Cloud, Cpu, Database, Lock, Home, Building, MapPin, ShoppingCart } from 'lucide-react';
+import { 
+  ChevronDown, 
+  Menu, 
+  X, 
+  ShoppingCart, 
+  Banknote, 
+  Factory, 
+  TrafficCone, 
+  Globe, 
+  Building
+} from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface DropdownItem {
@@ -27,36 +37,47 @@ const navItems: NavItem[] = [
   },
   {
     title: "Solutions",
-    path: "/Solutions",
-    
+    path: "/solutions",
   },
   {
     title: "Services",
     path: "/services",
     dropdown: [
       { 
-        title: "Supermarkets & Shops", 
-        path: "/services/retail",
-        description: "Retail security solutions",
+        title: "Retail Security", 
+        path: "/services/retail-wholesale-high-risk",
+        description: "Shop & wholesale security",
         icon: <ShoppingCart size={16} />
       },
       { 
-        title: "Residential Security", 
-        path: "/services/residential",
-        description: "Smart home protection",
-        icon: <Home size={16} />
+        title: "Bank Security", 
+        path: "/services/banks-atms-financial",
+        description: "Financial institutions",
+        icon: <Banknote size={16} />
       },
       { 
-        title: "Commercial Surveillance", 
-        path: "/services/commercial",
-        description: "Business security solutions",
+        title: "Industry Safety", 
+        path: "/services/industry-smart-factories",
+        description: "Smart factories",
+        icon: <Factory size={16} />
+      },
+      { 
+        title: "Traffic Safety", 
+        path: "/services/traffic-public-safety",
+        description: "Public safety",
+        icon: <TrafficCone size={16} />
+      },
+      { 
+        title: "Smart Cities", 
+        path: "/services/smart-cities-infrastructure",
+        description: "Government infrastructure",
+        icon: <Globe size={16} />
+      },
+      { 
+        title: "Corporate Security", 
+        path: "/services/corporate-residential",
+        description: "Offices & residential",
         icon: <Building size={16} />
-      },
-      { 
-        title: "Public Safety", 
-        path: "/services/public-safety",
-        description: "Community security systems",
-        icon: <MapPin size={16} />
       }
     ]
   },
@@ -104,16 +125,15 @@ const Navbar = () => {
       <div className="container-default flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="relative z-50 group">
-  <div className="flex items-center gap-3">
-    <div className="w-9 h-9 rounded-full overflow-hidden bg-gradient-to-br from-navy-600 to-navy-800 flex items-center justify-center group-hover:rotate-12 transition-transform">
-      <img src="https://i.ibb.co/hJqt2xCz/zeex-ai-logo.png" alt="ZeexAI Logo" className="w-full h-full object-cover" />
-    </div>
-    <span className="font-bold text-2xl text-navy-800">
-      Zeex<span className="text-navy-600"> AI</span>
-    </span>
-  </div>
-</Link>
-
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-full overflow-hidden bg-gradient-to-br from-navy-600 to-navy-800 flex items-center justify-center group-hover:rotate-12 transition-transform">
+              <img src="https://i.ibb.co/hJqt2xCz/zeex-ai-logo.png" alt="ZeexAI Logo" className="w-full h-full object-cover" />
+            </div>
+            <span className="font-bold text-2xl text-navy-800">
+              Zeex<span className="text-navy-600">AI</span>
+            </span>
+          </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-8">
@@ -136,26 +156,28 @@ const Navbar = () => {
               </div>
 
               {item.dropdown && (
-                <div className="absolute left-0 top-full mt-1 w-64 origin-top-right rounded-lg bg-white shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <div className="p-2">
-                    {item.dropdown.map((dropdownItem) => (
-                      <Link
-                        key={dropdownItem.path}
-                        to={dropdownItem.path}
-                        className="flex items-start gap-3 rounded-lg p-3 hover:bg-gray-50 transition-colors"
-                      >
-                        <div className="p-1.5 rounded-md bg-navy-50 border border-navy-100">
-                          {React.cloneElement(dropdownItem.icon as React.ReactElement, { 
-                            className: "text-navy-600",
-                            size: 16 
-                          })}
-                        </div>
-                        <div>
-                          <div className="font-medium text-navy-800">{dropdownItem.title}</div>
-                          <p className="text-xs text-navy-500 mt-1">{dropdownItem.description}</p>
-                        </div>
-                      </Link>
-                    ))}
+                <div className="absolute left-1/2 transform -translate-x-1/2 top-full mt-1 w-screen max-w-6xl px-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  <div className="bg-white rounded-xl shadow-xl border border-gray-200 p-4">
+                    <div className="grid grid-cols-3 gap-4">
+                      {item.dropdown.map((dropdownItem) => (
+                        <Link
+                          key={dropdownItem.path}
+                          to={dropdownItem.path}
+                          className="flex items-start gap-3 rounded-lg p-3 hover:bg-gray-50 transition-colors"
+                        >
+                          <div className="p-1.5 rounded-md bg-navy-50 border border-navy-100">
+                            {React.cloneElement(dropdownItem.icon as React.ReactElement, { 
+                              className: "text-navy-600",
+                              size: 16 
+                            })}
+                          </div>
+                          <div>
+                            <div className="font-medium text-navy-800">{dropdownItem.title}</div>
+                            <p className="text-xs text-navy-500 mt-1">{dropdownItem.description}</p>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
               )}
@@ -188,7 +210,7 @@ const Navbar = () => {
           "fixed inset-0 bg-white z-40 pt-24 px-6 lg:hidden overflow-y-auto transition-all duration-300",
           mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         )}>
-          <nav className="flex flex-col space-y-2">
+          <nav className="flex flex-col space-y-2 pb-8">
             {navItems.map((item) => (
               <div key={item.title} className="border-b border-gray-100 last:border-0">
                 {item.dropdown ? (
@@ -205,23 +227,23 @@ const Navbar = () => {
                     </button>
                     
                     <div className={cn(
-                      "pl-4 space-y-2 overflow-hidden transition-all",
-                      openDropdown === item.title ? "max-h-96 pb-4" : "max-h-0"
+                      "pl-4 space-y-3 overflow-hidden transition-all",
+                      openDropdown === item.title ? "max-h-[500px] pb-4" : "max-h-0"
                     )}>
                       {item.dropdown.map((dropdownItem) => (
                         <Link
                           key={dropdownItem.path}
                           to={dropdownItem.path}
-                          className="flex items-center gap-3 py-3 text-navy-700 hover:text-navy-900 transition-colors"
+                          className="flex items-center gap-3 py-2.5 text-navy-700 hover:text-navy-900 transition-colors"
                         >
                           {dropdownItem.icon && (
                             <div className="w-8 h-8 rounded-lg bg-navy-50 flex items-center justify-center text-navy-600 border border-navy-100">
                               {dropdownItem.icon}
                             </div>
                           )}
-                          <div>
-                            <div className="font-medium">{dropdownItem.title}</div>
-                            <div className="text-xs text-navy-500 mt-1">{dropdownItem.description}</div>
+                          <div className="flex-1 min-w-0">
+                            <div className="font-medium truncate">{dropdownItem.title}</div>
+                            <div className="text-xs text-navy-500 mt-1 truncate">{dropdownItem.description}</div>
                           </div>
                         </Link>
                       ))}

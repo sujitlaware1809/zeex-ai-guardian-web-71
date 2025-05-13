@@ -1,8 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import Layout from '@/components/layout/Layout';
-import PageHeader from '@/components/shared/PageHeader';
 import { Link, useParams } from 'react-router-dom';
-import { Home, Building, MapPin, ShoppingCart, ArrowRight, Check, Shield, Video, Bell, Cloud, Cpu, Database, Lock, Wifi } from 'lucide-react';
+import { 
+  Home, 
+  Building, 
+  MapPin, 
+  ShoppingCart, 
+  ArrowRight, 
+  Check, 
+  Shield, 
+  Video, 
+  Bell, 
+  Cloud, 
+  Cpu, 
+  Database, 
+  Lock, 
+  Wifi,
+  Banknote,
+  Factory,
+  TrafficCone,
+  Globe
+} from 'lucide-react';
 import { motion } from 'framer-motion';
 
 // Animation variants
@@ -21,117 +39,35 @@ const staggerContainer = {
   }
 };
 
-// Service details data with enhanced design elements
+// Service details data with all 6 services
 const servicesDetails = {
-  'residential': {
-    title: 'Residential Security',
-    description: 'Comprehensive AI-powered security services designed specifically for homes to protect your family and property.',
-    icon: Home,
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa',
-    headerImage: 'https://images.unsplash.com/photo-1516455590571-18256e5bb9ff',
+  'retail-wholesale-high-risk': {
+    title: 'Retail, Wholesale & High Risk Shop Security',
+    description: 'Comprehensive AI-powered security solutions for retail stores, wholesale markets, and high-risk shops to prevent theft and enhance safety.',
+    icon: ShoppingCart,
+    image: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da',
+    headerImage: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df',
     benefits: [
-      'Intelligent perimeter protection',
-      'Family member recognition',
-      'Mobile app control and monitoring',
-      'Integration with smart home systems',
-      'Customizable alert settings'
+      'Shoplifting prevention with AI behavior analysis',
+      'POS monitoring for fraud detection',
+      'High-risk item protection',
+      'Employee safety features',
+      'Inventory protection and tracking'
     ],
     content: `
-      <h2 class="text-3xl font-bold mb-6">Smart Security for Your Home</h2>
-      <p class="mb-6">Your home is your sanctuary. Our residential security services use advanced artificial intelligence to protect what matters most to you - your family, your home, and your belongings.</p>
+      <h2 class="text-3xl font-bold mb-6">Retail & High-Risk Shop Security Reinvented</h2>
+      <p class="mb-6">Retail environments and high-risk shops require specialized security solutions that address both theft prevention and employee safety. Our advanced AI surveillance systems are tailored to meet these unique challenges while providing business intelligence to improve operations.</p>
       
       <div class="bg-blue-50 p-6 rounded-xl mb-8">
-        <p class="font-medium text-blue-800">Our residential systems are designed specifically for home environments, with easy setup, intuitive controls, and seamless integration with your existing smart home ecosystem.</p>
+        <p class="font-medium text-blue-800">Our systems help reduce shrinkage in retail environments while providing enhanced protection for high-risk shops like jewelry stores, pharmacies, and electronics retailers.</p>
       </div>
       
       <h3 class="text-2xl font-bold mb-4 mt-8">Comprehensive Protection</h3>
-      <p class="mb-4">Our residential security service provides multi-layered protection:</p>
+      <p class="mb-4">Our retail security service includes specialized capabilities:</p>
       <ul class="space-y-3 mb-8">
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Perimeter Security:</strong> Our AI-powered cameras monitor the exterior of your home, detecting and classifying potential threats before they reach your door.</span></li>
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Entry Point Monitoring:</strong> Intelligent monitoring of doors and windows with advanced motion analytics that can distinguish between normal activity and potential break-ins.</span></li>
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Indoor Security:</strong> Indoor cameras with privacy features that activate only when you're away or during security events.</span></li>
-      </ul>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-          <h4 class="font-bold text-lg mb-3">Smart Home Integration</h4>
-          <p>Works seamlessly with Alexa, Google Home, and other smart home platforms for unified control.</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-          <h4 class="font-bold text-lg mb-3">Privacy First</h4>
-          <p>Our systems are designed to protect your privacy while providing maximum security.</p>
-        </div>
-      </div>
-    `,
-    features: [
-      {
-        id: 'advanced-threat-detection',
-        title: 'Advanced Threat Detection',
-        description: 'Our AI-powered threat detection system continuously monitors and identifies potential security risks before they become problems.',
-        icon: Shield
-      },
-      {
-        id: 'visual-surveillance-analytics',
-        title: 'AI-Visual Surveillance Analytics',
-        description: 'Intelligent video analysis detects unusual patterns while ensuring privacy and compliance.',
-        icon: Video
-      }
-    ],
-    workflow: [
-      {
-        title: 'Comprehensive Monitoring',
-        description: 'AI-powered cameras continuously monitor your property, analyzing every movement and potential security event.',
-        icon: '👁️'
-      },
-      {
-        title: 'Smart Event Classification',
-        description: 'Our AI distinguishes between routine activities (mail delivery, family returning home) and suspicious behavior.',
-        icon: '🤖'
-      },
-      {
-        title: 'Instant Notifications',
-        description: 'When potential threats are detected, you receive immediate alerts on your smartphone with video verification.',
-        icon: '📱'
-      },
-      {
-        title: 'Response Options',
-        description: 'Respond directly through the app with two-way communication, contact authorities, or dispatch security services.',
-        icon: '🛡️'
-      }
-    ],
-    stats: [
-      { value: '24/7', label: 'Monitoring' },
-      { value: '99.9%', label: 'Accuracy' },
-      { value: '2s', label: 'Alert Time' }
-    ]
-  },
-  'commercial': {
-    title: 'Commercial Surveillance',
-    description: 'Enterprise-grade security services designed for businesses of all sizes to protect assets, employees, and customers.',
-    icon: Building,
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab',
-    headerImage: 'https://images.unsplash.com/photo-1557804506-669a67965ba0',
-    benefits: [
-      'Multi-site monitoring and management',
-      'Employee access control',
-      'Theft prevention and inventory protection',
-      'Business intelligence analytics',
-      'Regulatory compliance features'
-    ],
-    content: `
-      <h2 class="text-3xl font-bold mb-6">Enterprise Security Reinvented</h2>
-      <p class="mb-6">Modern businesses face complex security challenges, from protecting physical assets to securing sensitive areas and ensuring employee safety. Our commercial surveillance services leverage artificial intelligence to transform traditional security into an intelligent system that both protects and provides valuable insights.</p>
-      
-      <div class="bg-blue-50 p-6 rounded-xl mb-8">
-        <p class="font-medium text-blue-800">Our scalable platform is designed for businesses of all sizes, from single retail locations to multi-site enterprises with complex security requirements.</p>
-      </div>
-      
-      <h3 class="text-2xl font-bold mb-4 mt-8">Comprehensive Business Protection</h3>
-      <p class="mb-4">Our commercial service addresses multiple security needs:</p>
-      <ul class="space-y-3 mb-8">
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Exterior Surveillance:</strong> AI-powered perimeter monitoring with advanced object detection and classification.</span></li>
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Access Control:</strong> Facial recognition-based access management that eliminates the need for keycards and creates detailed access logs.</span></li>
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Interior Monitoring:</strong> Smart cameras that can detect unusual behavior, restricted area violations, or safety incidents.</span></li>
+        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>AI Theft Detection:</strong> Real-time identification of shoplifting behaviors and suspicious activities with high accuracy.</span></li>
+        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>High-Risk Area Monitoring:</strong> Specialized protection for high-value merchandise areas with enhanced analytics.</span></li>
+        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Employee Safety:</strong> Panic buttons and incident detection help protect staff during robberies or difficult situations.</span></li>
       </ul>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -140,215 +76,478 @@ const servicesDetails = {
           <p>Advanced analytics detect suspicious behavior patterns that may indicate theft or fraud.</p>
         </div>
         <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-          <h4 class="font-bold text-lg mb-3">Employee Safety</h4>
-          <p>Monitor for safety incidents and ensure compliance with workplace safety protocols.</p>
+          <h4 class="font-bold text-lg mb-3">Staff Protection</h4>
+          <p>Monitor for safety incidents and ensure staff security during late hours.</p>
         </div>
       </div>
     `,
     features: [
       {
-        id: 'advanced-threat-detection',
-        title: 'Advanced Threat Detection',
-        description: 'Our AI-powered system continuously monitors your premises for potential security risks before they escalate.',
-        icon: Shield
+        id: 'smart-camera-integration',
+        title: 'Smart Camera Integration',
+        description: 'Comprehensive visual coverage of all retail areas with strategically placed AI cameras.',
+        image: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f'
       },
       {
-        id: 'data-protection',
-        title: 'Smart Data Protection',
-        description: 'Secure storage and encryption of all your surveillance data with advanced protection measures.',
-        icon: Database
+        id: 'ai-theft-detection',
+        title: 'AI Theft Detection',
+        description: 'Real-time identification of shoplifting behaviors and suspicious activities.',
+        image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3'
+      },
+      {
+        id: 'pos-fraud-monitoring',
+        title: 'POS Fraud Monitoring',
+        description: 'Automated detection of transactional anomalies and employee theft patterns.',
+        image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d'
+      },
+      {
+        id: 'high-risk-protection',
+        title: 'High-Risk Protection',
+        description: 'Specialized monitoring for high-value merchandise areas.',
+        image: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da'
       }
     ],
     workflow: [
       {
-        title: 'Multi-layer Surveillance',
-        description: 'Comprehensive monitoring of perimeter, entry points, and interior spaces with AI-powered cameras.',
-        icon: '📹'
+        title: 'Perimeter Monitoring',
+        description: 'AI-powered cameras monitor all entry and exit points for suspicious activity.',
+        icon: '👁️'
       },
       {
         title: 'Behavior Analysis',
-        description: 'AI identifies unusual patterns that may indicate security threats or safety concerns.',
-        icon: '🔍'
+        description: 'Our AI distinguishes between normal shopping behavior and potential theft indicators.',
+        icon: '🤖'
       },
       {
-        title: 'Integrated Alerts',
-        description: 'Security teams receive prioritized alerts with contextual information for rapid response.',
-        icon: '🚨'
+        title: 'Instant Alerts',
+        description: 'Staff receive immediate notifications with video verification when threats are detected.',
+        icon: '📱'
       },
       {
-        title: 'Detailed Reporting',
-        description: 'Generate compliance reports and security audits with just a few clicks.',
-        icon: '📊'
+        title: 'Response Coordination',
+        description: 'Integrated systems notify security personnel or authorities based on threat level.',
+        icon: '🛡️'
       }
     ],
     stats: [
-      { value: '30%', label: 'Reduction in theft' },
-      { value: '50%', label: 'Faster response' },
-      { value: '24/7', label: 'Protection' }
+      { value: '35%', label: 'Reduction in theft' },
+      { value: '90%', label: 'Detection accuracy' },
+      { value: '24/7', label: 'Monitoring' }
     ]
   },
-  'public-safety': {
-    title: 'Public Safety',
-    description: 'Advanced surveillance services for public spaces that enhance safety while respecting privacy and civil liberties.',
-    icon: MapPin,
-    image: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205',
-    headerImage: 'https://images.unsplash.com/photo-1580977251946-3f8c48548cf6',
+  'banks-atms-financial': {
+    title: 'Banks, ATMs & Financial Institutions Security',
+    description: 'Advanced security solutions for financial institutions including banks, ATMs, and other monetary facilities with high-level protection.',
+    icon: Banknote,
+    image: 'https://images.unsplash.com/photo-1601597111151-8b15e4e0cb4d',
+    headerImage: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d',
     benefits: [
-      'Crowd behavior analysis',
-      'Privacy-preserving monitoring',
-      'Incident detection and prediction',
-      'Emergency response coordination',
-      'Scalable deployment options'
+      'Fraud detection and prevention',
+      'ATM skimming protection',
+      'Vault monitoring',
+      'Customer identification verification',
+      '24/7 transaction monitoring'
     ],
     content: `
-      <h2 class="text-3xl font-bold mb-6">Enhancing Public Safety with Responsible AI</h2>
-      <p class="mb-6">Public spaces present unique security challenges that require balancing effective surveillance with respect for individual privacy and civil liberties. Our public safety services are designed specifically for these environments, with privacy-preserving technology that enhances security without creating a surveillance state.</p>
+      <h2 class="text-3xl font-bold mb-6">Financial Institution Security Solutions</h2>
+      <p class="mb-6">Banks, ATMs, and financial institutions require the highest level of security to protect assets, customers, and sensitive data. Our specialized solutions combine physical security with digital monitoring to create comprehensive protection.</p>
       
       <div class="bg-blue-50 p-6 rounded-xl mb-8">
-        <p class="font-medium text-blue-800">Our systems help identify potential threats before they escalate, enabling proactive security measures and faster emergency response times.</p>
+        <p class="font-medium text-blue-800">Our financial security systems are designed to meet strict compliance requirements while providing real-time threat detection and prevention.</p>
       </div>
       
-      <h3 class="text-2xl font-bold mb-4 mt-8">Smart Monitoring for Public Spaces</h3>
-      <p class="mb-4">Our public safety service includes specialized capabilities:</p>
+      <h3 class="text-2xl font-bold mb-4 mt-8">Multi-Layered Security</h3>
+      <p class="mb-4">Our financial security service provides comprehensive protection:</p>
       <ul class="space-y-3 mb-8">
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Crowd Analysis:</strong> Monitor crowd density and movement patterns to identify potential safety issues or unusual behavior.</span></li>
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Anomaly Detection:</strong> Identify unusual activities or behaviors that may indicate security threats or safety concerns.</span></li>
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Emergency Situation Recognition:</strong> Automatically detect incidents such as fights, falls, or medical emergencies to enable rapid response.</span></li>
+        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>ATM Protection:</strong> Advanced anti-skimming technology and behavior monitoring at all ATM locations.</span></li>
+        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Transaction Monitoring:</strong> Real-time analysis of transactions to detect fraudulent activity.</span></li>
+        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Vault Security:</strong> Multi-factor authentication and 24/7 monitoring of secure areas.</span></li>
       </ul>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-          <h4 class="font-bold text-lg mb-3">Privacy Protection</h4>
-          <p>Our systems are designed to focus on behavior patterns rather than individual identification.</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-          <h4 class="font-bold text-lg mb-3">Scalable Solutions</h4>
-          <p>From small community areas to large city-wide deployments, our systems scale to meet your needs.</p>
-        </div>
-      </div>
     `,
     features: [
       {
-        id: 'advanced-threat-detection',
-        title: 'Advanced Threat Detection',
-        description: 'AI-powered system continuously monitors public spaces for potential security risks and threats.',
-        icon: Shield
+        id: 'atm-protection',
+        title: 'ATM Protection',
+        description: 'Anti-skimming technology and behavior monitoring at all ATM locations.',
+        image: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d'
       },
       {
-        id: 'real-time-alerts',
-        title: 'Real-time Alerts',
-        description: 'Instant notifications with contextual information delivered to your preferred devices.',
-        icon: Bell
+        id: 'transaction-monitoring',
+        title: 'Transaction Monitoring',
+        description: 'Real-time analysis of transactions to detect fraudulent activity.',
+        image: 'https://images.unsplash.com/photo-1601597111151-8b15e4e0cb4d'
+      },
+      {
+        id: 'vault-security',
+        title: 'Vault Security',
+        description: 'Multi-factor authentication and 24/7 monitoring of secure areas.',
+        image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf'
+      },
+      {
+        id: 'customer-verification',
+        title: 'Customer Verification',
+        description: 'Advanced facial recognition for customer identification and fraud prevention.',
+        image: 'https://images.unsplash.com/photo-1601760561441-16420502c7e0'
       }
     ],
     workflow: [
       {
-        title: 'Wide-Area Monitoring',
-        description: 'AI-powered cameras monitor public spaces, focusing on behavioral patterns rather than individual identities.',
-        icon: '🌆'
+        title: 'Customer Verification',
+        description: 'AI-powered identification of customers entering the facility.',
+        icon: '👤'
+      },
+      {
+        title: 'Transaction Monitoring',
+        description: 'Real-time analysis of all financial transactions for anomalies.',
+        icon: '💳'
       },
       {
         title: 'Threat Detection',
-        description: 'Advanced algorithms identify potential security incidents in real-time.',
+        description: 'Immediate identification of suspicious behavior or security breaches.',
         icon: '⚠️'
       },
       {
-        title: 'Alert Coordination',
-        description: 'Integrated systems notify appropriate responders based on incident type and location.',
-        icon: '📞'
-      },
-      {
-        title: 'Post-Incident Analysis',
-        description: 'Detailed reporting helps improve future response and identify patterns.',
-        icon: '🔎'
+        title: 'Emergency Response',
+        description: 'Automated lockdown and alert systems activated during incidents.',
+        icon: '🚨'
       }
     ],
     stats: [
-      { value: '60%', label: 'Faster response' },
-      { value: '40%', label: 'Crime reduction' },
-      { value: '100%', label: 'Privacy compliant' }
+      { value: '99.9%', label: 'Detection accuracy' },
+      { value: '60%', label: 'Fraud reduction' },
+      { value: '2s', label: 'Alert time' }
     ]
   },
-  'retail': {
-    title: 'Retail Security',
-    description: 'Specialized security services for supermarkets, shops, and retail spaces to prevent theft and enhance safety.',
-    icon: ShoppingCart,
-    image: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da',
-    headerImage: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df',
+  'industry-smart-factories': {
+    title: 'Industry Safety & Smart Factories',
+    description: 'Integrated security and safety solutions for industrial environments and smart factory implementations.',
+    icon: Factory,
+    image: 'https://images.unsplash.com/photo-1513828583688-c52646db42da',
+    headerImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475',
     benefits: [
-      'Shoplifting prevention',
-      'POS monitoring',
-      'Customer flow analytics',
-      'Employee safety features',
-      'Inventory protection'
+      'Equipment monitoring and protection',
+      'Worker safety compliance',
+      'Hazard detection',
+      'Access control for restricted areas',
+      'Integration with industrial IoT systems'
     ],
     content: `
-      <h2 class="text-3xl font-bold mb-6">Retail Security Reinvented</h2>
-      <p class="mb-6">Retail environments face unique security challenges, from shoplifting to employee safety and inventory management. Our retail security services combine advanced AI surveillance with business intelligence to protect your assets while improving operations.</p>
+      <h2 class="text-3xl font-bold mb-6">Industrial Safety & Smart Factory Solutions</h2>
+      <p class="mb-6">Modern industrial facilities require integrated security and safety systems that protect both assets and personnel while maintaining operational efficiency. Our solutions combine AI-powered monitoring with industrial IoT integration for comprehensive protection.</p>
       
       <div class="bg-blue-50 p-6 rounded-xl mb-8">
-        <p class="font-medium text-blue-800">Specifically designed for supermarkets, convenience stores, and retail shops, our systems help reduce shrinkage while enhancing the shopping experience.</p>
+        <p class="font-medium text-blue-800">Our industrial systems are designed to meet strict safety regulations while providing real-time monitoring of equipment and personnel.</p>
       </div>
       
-      <h3 class="text-2xl font-bold mb-4 mt-8">Comprehensive Retail Protection</h3>
-      <p class="mb-4">Our retail service provides specialized features:</p>
+      <h3 class="text-2xl font-bold mb-4 mt-8">Industrial-Grade Protection</h3>
+      <p class="mb-4">Our industrial security service includes:</p>
       <ul class="space-y-3 mb-8">
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Theft Prevention:</strong> AI-powered cameras detect suspicious behavior patterns and potential shoplifting in real-time.</span></li>
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>POS Monitoring:</strong> Automated monitoring of point-of-sale systems to detect fraudulent transactions or employee theft.</span></li>
-        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Customer Analytics:</strong> Track customer flow and behavior to optimize store layout and staffing.</span></li>
+        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Equipment Monitoring:</strong> 24/7 monitoring of critical machinery for operational anomalies and security threats.</span></li>
+        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Worker Safety:</strong> AI-powered detection of safety violations or hazardous situations.</span></li>
+        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Restricted Area Protection:</strong> Facial recognition-based access control for sensitive areas.</span></li>
       </ul>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-          <h4 class="font-bold text-lg mb-3">Inventory Protection</h4>
-          <p>Monitor high-theft areas and receive alerts when inventory handling patterns deviate from normal.</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-          <h4 class="font-bold text-lg mb-3">Employee Safety</h4>
-          <p>Panic buttons and incident detection help protect staff during late hours or difficult situations.</p>
-        </div>
-      </div>
     `,
     features: [
       {
-        id: 'visual-surveillance-analytics',
-        title: 'AI-Visual Surveillance Analytics',
-        description: 'Intelligent video analysis detects unusual patterns while ensuring privacy and compliance.',
-        icon: Video
+        id: 'equipment-monitoring',
+        title: 'Equipment Monitoring',
+        description: '24/7 monitoring of critical machinery for operational anomalies.',
+        image: 'https://images.unsplash.com/photo-1513828583688-c52646db42da'
       },
       {
-        id: 'real-time-alerts',
-        title: 'Real-time Alerts',
-        description: 'Instant notifications with contextual information delivered to your preferred devices.',
-        icon: Bell
+        id: 'safety-compliance',
+        title: 'Safety Compliance',
+        description: 'AI-powered detection of safety violations or hazardous situations.',
+        image: 'https://images.unsplash.com/photo-1581093057305-263bd975ae4a'
+      },
+      {
+        id: 'access-control',
+        title: 'Access Control',
+        description: 'Facial recognition-based access for sensitive industrial areas.',
+        image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf'
+      },
+      {
+        id: 'iot-integration',
+        title: 'IoT Integration',
+        description: 'Seamless integration with industrial IoT systems for unified monitoring.',
+        image: 'https://images.unsplash.com/photo-1518770660439-4636190af475'
       }
     ],
     workflow: [
       {
-        title: 'Behavior Monitoring',
-        description: 'AI analyzes customer and employee behavior to identify potential security issues.',
-        icon: '👀'
+        title: 'Perimeter Security',
+        description: 'Monitoring of all facility entry points with AI-powered detection.',
+        icon: '🏭'
       },
       {
-        title: 'Theft Detection',
-        description: 'Automated detection of shoplifting behaviors and suspicious activities.',
-        icon: '🛒'
+        title: 'Equipment Monitoring',
+        description: 'Continuous analysis of machinery operation and performance.',
+        icon: '⚙️'
       },
       {
-        title: 'Staff Alerts',
-        description: 'Discreet notifications to staff when potential theft is detected.',
-        icon: '📲'
+        title: 'Safety Compliance',
+        description: 'Real-time detection of safety violations or hazardous situations.',
+        icon: '⚠️'
       },
       {
-        title: 'Analytics Reporting',
-        description: 'Detailed reports help identify loss patterns and improve security measures.',
-        icon: '📈'
+        title: 'Incident Response',
+        description: 'Automated alerts and shutdown procedures when threats are detected.',
+        icon: '🚨'
       }
     ],
     stats: [
-      { value: '35%', label: 'Theft reduction' },
-      { value: '20%', label: 'Staff efficiency' },
-      { value: '90%', label: 'Detection accuracy' }
+      { value: '50%', label: 'Safety incidents reduced' },
+      { value: '30%', label: 'Equipment downtime' },
+      { value: '24/7', label: 'Monitoring' }
+    ]
+  },
+  'traffic-public-safety': {
+    title: 'Traffic & Public Safety Management',
+    description: 'AI-powered solutions for traffic monitoring, accident prevention, and overall public safety enhancement.',
+    icon: TrafficCone,
+    image: 'https://images.unsplash.com/photo-1500380804539-4e1e8c1e7118',
+    headerImage: 'https://images.unsplash.com/photo-1580977251946-3f8c48548cf6',
+    benefits: [
+      'Traffic flow optimization',
+      'Accident detection and response',
+      'License plate recognition',
+      'Pedestrian safety monitoring',
+      'Emergency vehicle routing'
+    ],
+    content: `
+      <h2 class="text-3xl font-bold mb-6">Traffic & Public Safety Solutions</h2>
+      <p class="mb-6">Modern cities require intelligent traffic management systems that improve safety while reducing congestion. Our AI-powered solutions provide real-time monitoring and analysis of traffic conditions, accidents, and public safety concerns.</p>
+      
+      <div class="bg-blue-50 p-6 rounded-xl mb-8">
+        <p class="font-medium text-blue-800">Our traffic management systems reduce congestion while improving response times to accidents and emergencies.</p>
+      </div>
+      
+      <h3 class="text-2xl font-bold mb-4 mt-8">Comprehensive Traffic Management</h3>
+      <p class="mb-4">Our traffic and public safety service includes:</p>
+      <ul class="space-y-3 mb-8">
+        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Traffic Flow Optimization:</strong> AI-powered analysis of traffic patterns to reduce congestion and improve flow.</span></li>
+        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Accident Detection:</strong> Immediate identification of accidents and automatic alerting of emergency services.</span></li>
+        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Pedestrian Safety:</strong> Monitoring of crosswalks and high-traffic pedestrian areas to prevent accidents.</span></li>
+      </ul>
+    `,
+    features: [
+      {
+        id: 'traffic-monitoring',
+        title: 'Traffic Monitoring',
+        description: 'Real-time analysis of traffic flow and congestion patterns.',
+        image: 'https://images.unsplash.com/photo-1500380804539-4e1e8c1e7118'
+      },
+      {
+        id: 'accident-detection',
+        title: 'Accident Detection',
+        description: 'Immediate identification of accidents and automatic emergency alerts.',
+        image: 'https://images.unsplash.com/photo-1581093057305-263bd975ae4a'
+      },
+      {
+        id: 'license-plate-recognition',
+        title: 'License Plate Recognition',
+        description: 'Automated vehicle identification for security and traffic management.',
+        image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70'
+      },
+      {
+        id: 'emergency-routing',
+        title: 'Emergency Routing',
+        description: 'Priority routing for emergency vehicles through smart traffic light control.',
+        image: 'https://images.unsplash.com/photo-1583511655826-05700442b31b'
+      }
+    ],
+    workflow: [
+      {
+        title: 'Traffic Monitoring',
+        description: 'Continuous analysis of vehicle and pedestrian movement patterns.',
+        icon: '🚦'
+      },
+      {
+        title: 'Incident Detection',
+        description: 'Immediate identification of accidents or safety violations.',
+        icon: '⚠️'
+      },
+      {
+        title: 'Emergency Response',
+        description: 'Automatic alerting of appropriate emergency services.',
+        icon: '🚨'
+      },
+      {
+        title: 'Traffic Optimization',
+        description: 'Dynamic adjustment of traffic signals to improve flow and safety.',
+        icon: '🔄'
+      }
+    ],
+    stats: [
+      { value: '40%', label: 'Faster emergency response' },
+      { value: '25%', label: 'Traffic reduction' },
+      { value: '30%', label: 'Accident reduction' }
+    ]
+  },
+  'smart-cities-infrastructure': {
+    title: 'Smart Cities & Government Infrastructure',
+    description: 'Comprehensive security and monitoring solutions for smart city implementations and government infrastructure.',
+    icon: Globe,
+    image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df',
+    headerImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab',
+    benefits: [
+      'City-wide monitoring integration',
+      'Critical infrastructure protection',
+      'Public space surveillance',
+      'Emergency response coordination',
+      'Data-driven urban planning'
+    ],
+    content: `
+      <h2 class="text-3xl font-bold mb-6">Smart City & Infrastructure Solutions</h2>
+      <p class="mb-6">Modern cities require integrated security solutions that protect critical infrastructure while enhancing quality of life for residents. Our smart city systems provide comprehensive monitoring and management of public spaces, utilities, and government facilities.</p>
+      
+      <div class="bg-blue-50 p-6 rounded-xl mb-8">
+        <p class="font-medium text-blue-800">Our smart city platform integrates with existing municipal systems to provide unified monitoring and management of city infrastructure.</p>
+      </div>
+      
+      <h3 class="text-2xl font-bold mb-4 mt-8">Integrated City Management</h3>
+      <p class="mb-4">Our smart city service includes:</p>
+      <ul class="space-y-3 mb-8">
+        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Infrastructure Monitoring:</strong> 24/7 monitoring of critical utilities, transportation systems, and public facilities.</span></li>
+        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Public Space Security:</strong> AI-powered surveillance of parks, plazas, and other public areas with privacy protections.</span></li>
+        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Emergency Coordination:</strong> Integrated systems for rapid response to security incidents or natural disasters.</span></li>
+      </ul>
+    `,
+    features: [
+      {
+        id: 'infrastructure-monitoring',
+        title: 'Infrastructure Monitoring',
+        description: '24/7 monitoring of critical utilities and transportation systems.',
+        image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab'
+      },
+      {
+        id: 'public-space-security',
+        title: 'Public Space Security',
+        description: 'AI-powered surveillance of parks, plazas, and public areas.',
+        image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df'
+      },
+      {
+        id: 'emergency-coordination',
+        title: 'Emergency Coordination',
+        description: 'Integrated systems for rapid response to incidents or disasters.',
+        image: 'https://images.unsplash.com/photo-1583511655826-05700442b31b'
+      },
+      {
+        id: 'data-analytics',
+        title: 'Data Analytics',
+        description: 'Comprehensive data collection and analysis for urban planning.',
+        image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40'
+      }
+    ],
+    workflow: [
+      {
+        title: 'City-wide Monitoring',
+        description: 'Integrated surveillance of all critical city infrastructure.',
+        icon: '🏙️'
+      },
+      {
+        title: 'Threat Detection',
+        description: 'AI-powered analysis of potential security or safety threats.',
+        icon: '🤖'
+      },
+      {
+        title: 'Resource Allocation',
+        description: 'Data-driven deployment of emergency and maintenance resources.',
+        icon: '📊'
+      },
+      {
+        title: 'Citizen Services',
+        description: 'Improved public services through data analysis and automation.',
+        icon: '🏛️'
+      }
+    ],
+    stats: [
+      { value: '50%', label: 'Faster response' },
+      { value: '30%', label: 'Cost savings' },
+      { value: '24/7', label: 'Monitoring' }
+    ]
+  },
+  'corporate-residential': {
+    title: 'Corporate Offices, Residential Complexes & Societies',
+    description: 'Integrated security solutions for corporate environments, residential buildings, and housing societies.',
+    icon: Building,
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab',
+    headerImage: 'https://images.unsplash.com/photo-1557804506-669a67965ba0',
+    benefits: [
+      'Visitor management systems',
+      'Perimeter protection',
+      'Common area monitoring',
+      'Parking security',
+      'Emergency response integration'
+    ],
+    content: `
+      <h2 class="text-3xl font-bold mb-6">Corporate & Residential Security Solutions</h2>
+      <p class="mb-6">Office buildings and residential complexes require security solutions that protect occupants while maintaining convenience and quality of life. Our integrated systems provide comprehensive protection for both corporate and residential environments.</p>
+      
+      <div class="bg-blue-50 p-6 rounded-xl mb-8">
+        <p class="font-medium text-blue-800">Our corporate and residential security systems are designed to be unobtrusive while providing maximum protection for occupants and assets.</p>
+      </div>
+      
+      <h3 class="text-2xl font-bold mb-4 mt-8">Comprehensive Property Protection</h3>
+      <p class="mb-4">Our service includes:</p>
+      <ul class="space-y-3 mb-8">
+        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Visitor Management:</strong> Advanced check-in systems with facial recognition and automated access control.</span></li>
+        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Common Area Security:</strong> 24/7 monitoring of lobbies, hallways, and other shared spaces.</span></li>
+        <li class="flex items-start gap-3"><span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">✓</span><span><strong>Parking Protection:</strong> Comprehensive surveillance of parking areas with license plate recognition.</span></li>
+      </ul>
+    `,
+    features: [
+      {
+        id: 'visitor-management',
+        title: 'Visitor Management',
+        description: 'Advanced check-in systems with facial recognition and access control.',
+        image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf'
+      },
+      {
+        id: 'common-area-security',
+        title: 'Common Area Security',
+        description: '24/7 monitoring of lobbies, hallways, and shared spaces.',
+        image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0'
+      },
+      {
+        id: 'parking-protection',
+        title: 'Parking Protection',
+        description: 'Comprehensive surveillance of parking areas with license plate recognition.',
+        image: 'https://images.unsplash.com/photo-1486401899868-0e435ed85128'
+      },
+      {
+        id: 'emergency-systems',
+        title: 'Emergency Systems',
+        description: 'Integrated emergency response and evacuation management.',
+        image: 'https://images.unsplash.com/photo-1583511655826-05700442b31b'
+      }
+    ],
+    workflow: [
+      {
+        title: 'Access Control',
+        description: 'Secure entry systems with multi-factor authentication.',
+        icon: '🔒'
+      },
+      {
+        title: 'Perimeter Security',
+        description: 'Continuous monitoring of all building entry points.',
+        icon: '🏢'
+      },
+      {
+        title: 'Occupant Safety',
+        description: 'Real-time detection of safety incidents or security breaches.',
+        icon: '👥'
+      },
+      {
+        title: 'Emergency Response',
+        description: 'Integrated systems for rapid response to incidents.',
+        icon: '🚨'
+      }
+    ],
+    stats: [
+      { value: '99%', label: 'Access control accuracy' },
+      { value: '40%', label: 'Security incidents reduced' },
+      { value: '24/7', label: 'Monitoring' }
     ]
   }
 };
@@ -402,14 +601,12 @@ const ServiceDetail = () => {
 
   return (
     <Layout showFooter={false}>
-      {/* Hero Section - Matching About Us Page Style */}
+      {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center bg-navy-900 overflow-hidden opacity-0 animate-fadeIn">
-        {/* Background elements matching About page */}
         <div className="absolute inset-0 overflow-hidden z-0">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent opacity-20"></div>
         </div>
         
-        {/* Centered content container with matching animation */}
         <div className="container-default relative z-10 transform translate-y-4 animate-slideUp">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 rounded-full bg-blue-500/20 px-4 py-1.5 text-sm font-medium text-blue-200 backdrop-blur-sm mb-6">
@@ -441,7 +638,6 @@ const ServiceDetail = () => {
           </div>
         </div>
 
-        {/* Custom Animations Defined Inline - Matching About page */}
         <style>{`
           @keyframes fadeIn {
             from { opacity: 0; }
@@ -628,33 +824,27 @@ const ServiceDetail = () => {
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {service.features.map((feature, index) => {
-              const FeatureIcon = feature.icon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all h-full flex flex-col border border-gray-100">
-                    <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-6 group-hover:bg-blue-200 transition-colors">
-                      <FeatureIcon className="h-6 w-6 text-blue-600 group-hover:text-blue-700" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">{feature.title}</h3>
-                    <p className="text-gray-600 mb-6 flex-grow">{feature.description}</p>
-                    <Link 
-                      to={`/features/${feature.id}`}
-                      className="text-blue-600 font-medium flex items-center group-hover:text-blue-700 transition-colors"
-                    >
-                      Learn more
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Link>
+            {service.features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all h-full flex flex-col border border-gray-100">
+                  <div className="w-full h-48 rounded-xl overflow-hidden mb-6">
+                    <img 
+                      src={feature.image} 
+                      alt={feature.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
-                </motion.div>
-              );
-            })}
+                  <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">{feature.title}</h3>
+                  <p className="text-gray-600 mb-6 flex-grow">{feature.description}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </motion.section>
