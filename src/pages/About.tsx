@@ -86,7 +86,7 @@ const About = () => {
                 {/* Main image with frosted glass effect border */}
                 <div className="rounded-2xl overflow-hidden shadow-2xl relative z-10 backdrop-blur-sm border border-white/30 bg-gradient-to-br from-white/5 to-white/20">
                   <img 
-                    src="/api/placeholder/800/640" 
+                    src="https://i.ibb.co/vxbq8fkG/Whats-App-Image-2025-05-11-at-21-29-01-7dd79601-1.jpg" 
                     alt="Zeex AI Team Working" 
                     className="w-full h-auto object-cover"
                   />
@@ -259,283 +259,251 @@ const About = () => {
   </div>
 </section>
       {/* Team Section with modern cards */}
-      <section className="py-20 md:py-32 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white"></div>
-        <div className="container-default relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center px-3 py-1.5 bg-indigo-50 rounded-full text-indigo-600 text-sm font-medium mb-4">
-              <Users className="w-4 h-4 mr-2" /> Our People
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Meet Our Leadership</h2>
-            <p className="text-lg text-gray-600">
-              A team of visionaries and experts driving innovation in AI security
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-            {/* Team Member 1 */}
-            <div className="group">
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-1.5 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                <div className="bg-white rounded-xl overflow-hidden">
-                  <div className="relative overflow-hidden aspect-[4/5]">
-                    <img 
-                      src="https://i.ibb.co/9HM6KKrB/gaurav.jpg"
-                      alt="John Smith" 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className="text-2xl font-bold mb-1 text-white">Gaurav Yadav</h3>
-                      <p className="text-blue-200 font-medium">CEO & Founder</p>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <p className="text-gray-600 mb-4">
-                      20+ years in technology and security. Founded ZeexAI to bring AI innovation to surveillance systems.
-                    </p>
-                    <div className="flex space-x-3">
-                      <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
-                        <span className="sr-only">LinkedIn</span>
-                        <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+{/* Team Section with modern cards */}
+<section className="py-20 md:py-32 bg-white relative overflow-hidden">
+<div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white"></div>
+<div className="container-default relative z-10">
+<div className="text-center max-w-3xl mx-auto mb-16">
+<div className="inline-flex items-center px-3 py-1.5 bg-indigo-50 rounded-full text-indigo-600 text-sm font-medium mb-4">
+<Users className="w-4 h-4 mr-2" /> Our People
+</div>
+<h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Meet Our Leadership</h2>
+<p className="text-lg text-gray-600">
+A team of visionaries and experts driving innovation in AI security
+</p>
+</div>
 
-            {/* Team Member 2 */}
-            <div className="group">
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-1.5 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                <div className="bg-white rounded-xl overflow-hidden">
-                  <div className="relative overflow-hidden aspect-[4/5]">
-                    <img 
-                      src="https://i.ibb.co/xSqvrQ8s/1732205528576.jpg"
-                      alt="Sarah Johnson" 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className="text-2xl font-bold mb-1 text-white">Sujit Laware</h3>
-                      <p className="text-blue-200 font-medium">CTO</p>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <p className="text-gray-600 mb-4">
-                      PhD in Computer Vision. 15 years developing AI systems for security applications.
-                    </p>
-                    <div className="flex space-x-3">
-                      <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
-                        <span className="sr-only">LinkedIn</span>
-                        <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+<div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+{/* Team Member 1 - Founder */}
+<div className="group">
+<div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-1.5 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+<div className="bg-white rounded-xl overflow-hidden">
+<div className="relative overflow-hidden aspect-[4/5]">
+<img
+src="https://i.ibb.co/9HM6KKrB/gaurav.jpg"
+alt="Gaurav Yadav"
+className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+/>
+<div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
+<div className="absolute bottom-0 left-0 right-0 p-6">
+<h3 className="text-2xl font-bold mb-1 text-white">Gaurav Yadav</h3>
+<p className="text-blue-200 font-medium">CEO & Founder</p>
+</div>
+</div>
+<div className="p-6">
+<div className="flex flex-col space-y-4">
+<div className="flex justify-center">
+<a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
+<svg className="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-            <div className="group">
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-1.5 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                <div className="bg-white rounded-xl overflow-hidden">
-                  <div className="relative overflow-hidden aspect-[4/5]">
-                    <img 
-                      src="https://i.ibb.co/n8cWLpQy/sanidhya.jpg"
-                      alt="Sarah Johnson" 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className="text-2xl font-bold mb-1 text-white">Sanidhya</h3>
-                      <p className="text-blue-200 font-medium">Bussiness Analyst</p>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <p className="text-gray-600 mb-4">
-                      PhD in Computer Vision. 15 years developing AI systems for security applications.
-                    </p>
-                    <div className="flex space-x-3">
-                      <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
-                        <span className="sr-only">LinkedIn</span>
-                        <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
+      {/* Team Member 2 */}
+      <div className="group">
+        <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-1.5 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div className="bg-white rounded-xl overflow-hidden">
+            <div className="relative overflow-hidden aspect-[4/5]">
+              <img 
+                src="https://i.ibb.co/xSqvrQ8s/1732205528576.jpg"
+                alt="Sujit Laware" 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-2xl font-bold mb-1 text-white">Sujit Laware</h3>
+                <p className="text-blue-200 font-medium">CTO</p>
               </div>
             </div>
-            <div className="group">
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-1.5 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                <div className="bg-white rounded-xl overflow-hidden">
-                  <div className="relative overflow-hidden aspect-[4/5]">
-                    <img 
-                      src="https://i.ibb.co/7x7rnTD5/Whats-App-Image-2025-05-03-at-11-45-19-bb3b16e3.jpg"
-                      alt="Sarah Johnson" 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className="text-2xl font-bold mb-1 text-white">Sarah Johnson</h3>
-                      <p className="text-blue-200 font-medium">CTO</p>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <p className="text-gray-600 mb-4">
-                      PhD in Computer Vision. 15 years developing AI systems for security applications.
-                    </p>
-                    <div className="flex space-x-3">
-                      <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
-                        <span className="sr-only">LinkedIn</span>
-                        <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="group">
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-1.5 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                <div className="bg-white rounded-xl overflow-hidden">
-                  <div className="relative overflow-hidden aspect-[4/5]">
-                    <img 
-                      src="https://i.ibb.co/s96Ghq5q/bhanu.jpg"
-                      alt="Sarah Johnson" 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className="text-2xl font-bold mb-1 text-white">Sarah Johnson</h3>
-                      <p className="text-blue-200 font-medium">CTO</p>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <p className="text-gray-600 mb-4">
-                      PhD in Computer Vision. 15 years developing AI systems for security applications.
-                    </p>
-                    <div className="flex space-x-3">
-                      <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
-                        <span className="sr-only">LinkedIn</span>
-                        <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="group">
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-1.5 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                <div className="bg-white rounded-xl overflow-hidden">
-                  <div className="relative overflow-hidden aspect-[4/5]">
-                    <img 
-                      src="https://i.ibb.co/GQGXk81d/anshu01.jpg"
-                      alt="Sarah Johnson" 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className="text-2xl font-bold mb-1 text-white">Sarah Johnson</h3>
-                      <p className="text-blue-200 font-medium">CTO</p>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <p className="text-gray-600 mb-4">
-                      PhD in Computer Vision. 15 years developing AI systems for security applications.
-                    </p>
-                    <div className="flex space-x-3">
-                      <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
-                        <span className="sr-only">LinkedIn</span>
-                        <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="group">
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-1.5 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                <div className="bg-white rounded-xl overflow-hidden">
-                  <div className="relative overflow-hidden aspect-[4/5]">
-                    <img 
-                      src="https://i.ibb.co/b5yvQM2W/harsh.jpg"
-                      alt="Sarah Johnson" 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className="text-2xl font-bold mb-1 text-white">Sarah Johnson</h3>
-                      <p className="text-blue-200 font-medium">CTO</p>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <p className="text-gray-600 mb-4">
-                      PhD in Computer Vision. 15 years developing AI systems for security applications.
-                    </p>
-                    <div className="flex space-x-3">
-                      <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
-                        <span className="sr-only">LinkedIn</span>
-                        <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Team Member 3 */}
-            <div className="group">
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-1.5 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                <div className="bg-white rounded-xl overflow-hidden">
-                  <div className="relative overflow-hidden aspect-[4/5]">
-                    <img 
-                      src="https://i.ibb.co/2YWrv45N/jeevan.jpg"
-                      alt="Michael Chen" 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className="text-2xl font-bold mb-1 text-white">Michael Chen</h3>
-                      <p className="text-blue-200 font-medium">COO</p>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <p className="text-gray-600 mb-4">
-                      Expert in scaling tech startups and implementing enterprise security solutions globally.
-                    </p>
-                    <div className="flex space-x-3">
-                      <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
-                        <span className="sr-only">LinkedIn</span>
-                        <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="p-6 flex justify-center">
+              <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
+                <svg className="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      {/* Team Member 3 */}
+      <div className="group">
+        <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-1.5 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div className="bg-white rounded-xl overflow-hidden">
+            <div className="relative overflow-hidden aspect-[4/5]">
+              <img 
+                src="https://i.ibb.co/n8cWLpQy/sanidhya.jpg"
+                alt="Sanidhya Kanhere" 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-2xl font-bold mb-1 text-white">Sanidhya Kanhere</h3>
+                <p className="text-blue-200 font-medium">Business Officer</p>
+              </div>
+            </div>
+            <div className="p-6 flex justify-center">
+              <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
+                <svg className="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Team Member 4 */}
+      <div className="group">
+        <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-1.5 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div className="bg-white rounded-xl overflow-hidden">
+            <div className="relative overflow-hidden aspect-[4/5]">
+              <img 
+                src="https://i.ibb.co/7x7rnTD5/Whats-App-Image-2025-05-03-at-11-45-19-bb3b16e3.jpg"
+                alt="Mayank Kumar" 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-2xl font-bold mb-1 text-white">Mayank Kumar</h3>
+                <p className="text-blue-200 font-medium">AI Engineer</p>
+              </div>
+            </div>
+            <div className="p-6 flex justify-center">
+              <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
+                <svg className="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Team Member 5 */}
+      <div className="group">
+        <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-1.5 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div className="bg-white rounded-xl overflow-hidden">
+            <div className="relative overflow-hidden aspect-[4/5]">
+              <img 
+                src="https://i.ibb.co/s96Ghq5q/bhanu.jpg"
+                alt="Bhanu Kumar" 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-2xl font-bold mb-1 text-white">Bhanu Kumar</h3>
+                <p className="text-blue-200 font-medium">AI Engineer</p>
+              </div>
+            </div>
+            <div className="p-6 flex justify-center">
+              <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
+                <svg className="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Team Member 6 */}
+      <div className="group">
+        <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-1.5 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div className="bg-white rounded-xl overflow-hidden">
+            <div className="relative overflow-hidden aspect-[4/5]">
+              <img 
+                src="https://i.ibb.co/GQGXk81d/anshu01.jpg"
+                alt="Anshu Saini" 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-2xl font-bold mb-1 text-white">Anshu Saini</h3>
+                <p className="text-blue-200 font-medium">AI Engineer</p>
+              </div>
+            </div>
+            <div className="p-6 flex justify-center">
+              <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
+                <svg className="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Team Member 7 */}
+      <div className="group">
+        <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-1.5 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div className="bg-white rounded-xl overflow-hidden">
+            <div className="relative overflow-hidden aspect-[4/5]">
+              <img 
+                src="https://i.ibb.co/b5yvQM2W/harsh.jpg"
+                alt="Harsh Patle" 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-2xl font-bold mb-1 text-white">Harsh Patle</h3>
+                <p className="text-blue-200 font-medium">Web Developer</p>
+              </div>
+            </div>
+            <div className="p-6 flex justify-center">
+              <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
+                <svg className="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Team Member 8 */}
+      <div className="group">
+        <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-1.5 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div className="bg-white rounded-xl overflow-hidden">
+            <div className="relative overflow-hidden aspect-[4/5]">
+              <img 
+                src="https://i.ibb.co/2YWrv45N/jeevan.jpg"
+                alt="Jeevan Sendur Giri" 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-2xl font-bold mb-1 text-white">Jeevan Sendur Giri</h3>
+                <p className="text-blue-200 font-medium">AI Engineer</p>
+              </div>
+            </div>
+            <div className="p-6 flex justify-center">
+              <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
+                <svg className="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+      
 
 
       {/* CTA Section */}
             <section className="py-24 bg-gradient-to-br from-blue-800 to-indigo-900 text-white relative overflow-hidden">
               {/* Background decoration */}
-              <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute inset-0
+               overflow-hidden">
                 <div className="absolute -right-20 -top-20 w-64 h-64 rounded-full bg-white opacity-10"></div>
                 <div className="absolute -left-20 -bottom-20 w-96 h-96 rounded-full bg-blue-500 opacity-10"></div>
               </div>

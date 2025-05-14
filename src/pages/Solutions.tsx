@@ -11,7 +11,7 @@ const solutions = [
     title: 'Advanced Threat Detection',
     description: 'Our AI-powered threat detection system continuously monitors and identifies potential security risks before they become problems.',
     icon: Shield,
-    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485',
+    image: 'https://i.ibb.co/fzVMPrbJ/a6993bc4-9261-4f71-a131-b07b5049cec5-1.png',
     features: [
       '24/7 continuous monitoring',
       'AI-powered anomaly detection',
@@ -25,7 +25,7 @@ const solutions = [
     title: 'AI-Visual Surveillance Analytics',
     description: 'Intelligent video analysis detects unusual patterns while ensuring privacy and compliance.',
     icon: Video,
-    image: 'https://images.unsplash.com/photo-1620712943543-bebda4e38f71',
+    image: 'https://i.ibb.co/spm2G7g9/5c92a250-b494-45c4-8859-49a854098999-1.png',
     features: [
       'Real-time video processing',
       'Privacy-preserving analytics',
@@ -39,7 +39,7 @@ const solutions = [
     title: 'Multi-Layered Smart Alert System',
     description: 'Configure alert priorities and customize who gets notified—ensuring the right people respond at the right time.',
     icon: Bell,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
+    image: 'https://i.ibb.co/nqWX0h64/e29f07c7-f73b-49c0-aee9-9b8c2170ede8-1.png',
     features: [
       'Add multiple notification recipients (family, staff, law enforcement)',
       'Multi-channel alerts via SMS, WhatsApp, Email, and Dashboard',
@@ -53,7 +53,7 @@ const solutions = [
     title: 'Mobile-Based App Services',
     description: 'Access and control your security ecosystem from anywhere.',
     icon: Smartphone,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
+    image: 'https://i.ibb.co/Jj9fpXFj/26204326-fd4c-4380-92f5-e042d6b9371d-1.png',
     features: [
       'Real-time security alerts',
       'Live camera feed access',
@@ -67,7 +67,7 @@ const solutions = [
     title: 'Web-Based AI Dashboard',
     description: 'Monitor, manage, and analyze operations through our AI-powered control center.',
     icon: Monitor,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
+    image: 'https://i.ibb.co/6cpxL5XM/84510116-7cd3-4a1e-b191-2e87184e570d-1.png',
     features: [
       'Real-time activity tracking',
       'AI model control panel',
@@ -81,7 +81,7 @@ const solutions = [
     title: 'Integrated Device Health Check',
     description: 'Stay informed with automated hardware diagnostics and alerts.',
     icon: Activity,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
+    image: 'https://i.ibb.co/JRvXfL31/bedf5cd9-4580-4a6f-870c-1b3256cd89e5-1.png',
     features: [
       'Offline device detection',
       'Thermal & battery diagnostics',
@@ -95,7 +95,7 @@ const solutions = [
     title: 'Cloud & On-Premise Deployment',
     description: 'Choose the infrastructure that fits your enterprise—flexible and secure.',
     icon: Server,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
+    image: 'https://i.ibb.co/NgYW9J4q/71fe4e0b-776a-4592-9b28-6887518d9314-1.png',
     features: [
       'Scalable cloud hosting',
       'On-premise AI integration',
@@ -109,7 +109,7 @@ const solutions = [
     title: 'Custom AI Model Allocation per Camera',
     description: 'Deploy and manage different AI models for specific camera locations—tailored to your security priorities.',
     icon: Box,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
+    image: 'https://i.ibb.co/ZRS59sQ6/74b47f80-b038-4ac8-88c8-6c948bbd7ee6-1.png',
     features: [
       'Assign AI models per camera',
       'Location-specific intelligence',
@@ -123,7 +123,7 @@ const solutions = [
     title: 'Real-Time Activity Analytics Dashboard',
     description: 'Visualize and compare AI insights across customer behavior, employee activity, safety events, and operational metrics—all in one unified dashboard.',
     icon: Activity,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
+    image: 'https://i.ibb.co/ZRYJQTXN/4ae8fd9a-763d-44e5-ac7f-660411ab178d-1.png',
     features: [
       'Real-time graphs for customer flow',
       'Timeline-based activity heatmaps',
@@ -137,7 +137,7 @@ const solutions = [
     title: 'Smart Data Protection',
     description: 'Secure storage and encryption of all your surveillance data with advanced protection measures.',
     icon: Database,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
+    image: 'https://i.ibb.co/v6NZSDZS/Chat-GPT-Image-May-14-2025-11-42-22-AM-1.png',
     features: [
       'Military-grade encryption',
       'Role-based access controls',

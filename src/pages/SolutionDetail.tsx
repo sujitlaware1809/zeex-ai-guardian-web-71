@@ -84,7 +84,7 @@ const servicesDetails = {
         id: 'ai-theft-detection',
         title: 'AI Theft Detection',
         description: 'Real-time identification of shoplifting behaviors and suspicious activities.',
-        image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3'
+        image: 'https://i.ibb.co/qFVFQfHd/Whats-App-Image-2025-05-11-at-16-34-40-55f09077-1.jpg'
       },
       {
         id: 'pos-fraud-monitoring',
