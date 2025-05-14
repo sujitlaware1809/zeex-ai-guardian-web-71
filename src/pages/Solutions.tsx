@@ -151,7 +151,7 @@ const solutions = [
     title: 'Remote Access Control',
     description: 'Manage and control your security system from anywhere with our secure mobile platform.',
     icon: Lock,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
+    image: 'https://i.ibb.co/5hV9qZQD/94d5cc0e-35f5-43bb-a29d-1f12f825d863-1.png',
     features: [
       'Mobile app control',
       'Biometric authentication',
@@ -165,7 +165,7 @@ const solutions = [
     title: 'Network Security',
     description: 'Protect your surveillance network from cyber threats with our advanced security measures.',
     icon: Wifi,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
+    image: 'https://i.ibb.co/679BRfLp/4c28a068-e2d4-42c6-be10-65b5387cc720-1.png',
     features: [
       'Intrusion prevention',
       'Device authentication',
