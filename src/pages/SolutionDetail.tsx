@@ -49,7 +49,7 @@ const servicesDetails = {
     title: 'Retail,Supermarkets & High Risk Shop Security',
     description: 'Comprehensive AI-powered security solutions for retail stores, wholesale markets, and high-risk shops to prevent theft and enhance safety.',
     icon: ShoppingCart,
-    image: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da',
+    image: 'https://i.postimg.cc/7ZmGf9gq/bf33befc-36ac-46cf-b7e9-aa88ad14adfb-1-1-1.png',
     headerImage: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df',
     benefits: [
       'Shoplifting prevention with AI behavior analysis',
@@ -78,7 +78,7 @@ const servicesDetails = {
         id: 'smart-camera-integration',
         title: 'Smart Camera Integration',
         description: 'Comprehensive visual coverage of all retail areas with strategically placed AI cameras.',
-        image: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f'
+        image: 'https://i.postimg.cc/k5QHQVgM/67611659-15e0-4ba4-abec-7ad895e47fc5.png'
       },
       {
         id: 'ai-theft-detection',

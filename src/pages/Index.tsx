@@ -117,6 +117,11 @@ const Index = () => {
       name: "AWS for Startups",
       logo: "https://pages.awscloud.com/rs/112-TZM-766/images/SU%20Programs%402x.png",
       url: "https://aws.amazon.com/startups"
+    },
+    {
+      name: "NVIDIA Inception",
+      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQyI3Qf_YPBBh5ZVZxIg3YpbKpQYuIdZfg9A&s",
+      url: "https://www.nvidia.com/en-in/startups/"
     }
   ];
 
@@ -216,7 +221,7 @@ const Index = () => {
             </p>
           </FadeInSection>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {supportedBy.map((partner, index) => (
               <FadeInSection key={index} delay={index * 100}>
                 <a
