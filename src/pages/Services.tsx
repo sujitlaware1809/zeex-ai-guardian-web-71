@@ -1,8 +1,9 @@
 import React from 'react';
 import Layout from '@/components/layout/Layout';
-import { Home, Building, MapPin, Check, ArrowRight, Shield } from 'lucide-react';
+import { Home, Building, MapPin, Check, ArrowRight, Shield, ShoppingCart, Factory, TrafficCone } from 'lucide-react';
 import { motion, } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import OptimizedImage from '@/components/ui/OptimizedImage';
 
 // Service data
 const services = [
@@ -11,7 +12,7 @@ const services = [
     title: 'Residential Security',
     description: 'Comprehensive AI-powered security systems designed specifically for homes and residential properties. Our service integrates seamlessly with your existing smart home setup, providing unparalleled protection for your family and property.',
     icon: Home,
-    image: '/api/placeholder/800/500',
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=500&fit=crop&auto=format&q=80',
     benefits: [
       'Smart perimeter protection',
       'Family facial recognition',
@@ -32,7 +33,7 @@ const services = [
     title: 'Commercial Surveillance',
     description: 'Enterprise-grade security solutions designed for businesses of all sizes. Our commercial surveillance system combines AI analytics with scalable infrastructure to protect your assets, employees, and customers around the clock.',
     icon: Building,
-    image: '/api/placeholder/800/500',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=500&fit=crop&auto=format&q=80',
     benefits: [
       'Multi-site monitoring',
       'Employee access management',
@@ -53,7 +54,7 @@ const services = [
     title: 'Public Safety',
     description: 'Advanced surveillance solutions for public spaces that enhance safety while respecting privacy. Our public safety systems help identify potential threats before they escalate, enabling proactive security measures.',
     icon: MapPin,
-    image: '/api/placeholder/800/500',
+    image: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800&h=500&fit=crop&auto=format&q=80',
     benefits: [
       'Crowd anomaly detection',
       'Privacy-focused monitoring',
@@ -70,71 +71,84 @@ const services = [
     ]
   },
   {
-    id: 'public-safety',
-    title: 'Public Safety',
-    description: 'Advanced surveillance solutions for public spaces that enhance safety while respecting privacy. Our public safety systems help identify potential threats before they escalate, enabling proactive security measures.',
-    icon: MapPin,
-    image: '/api/placeholder/800/500',
+    id: 'retail',
+    title: 'Retail Security',
+    description: 'Specialized AI surveillance for retail environments that prevents theft while enhancing customer experience. Our retail security solutions provide real-time analytics and automated threat detection.',
+    icon: ShoppingCart,
+    image: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=800&h=500&fit=crop&auto=format&q=80',
     benefits: [
-      'Crowd anomaly detection',
-      'Privacy-focused monitoring',
-      'Emergency situation recognition',
-      'Integration with emergency services',
-      'Scalable deployment options'
+      'Theft prevention and detection',
+      'Customer behavior analytics',
+      'Inventory monitoring',
+      'Queue management',
+      'Loss prevention reporting'
     ],
     useCases: [
-      'Transportation hub security',
-      'Public event monitoring',
-      'Parks and recreation area safety',
-      'School and campus security',
-      'Emergency response coordination'
+      'Shoplifting detection and prevention',
+      'Customer flow analysis',
+      'Employee theft monitoring',
+      'Queue length optimization',
+      'Product placement insights'
     ]
   },
   {
-    id: 'public-safety',
-    title: 'Public Safety',
-    description: 'Advanced surveillance solutions for public spaces that enhance safety while respecting privacy. Our public safety systems help identify potential threats before they escalate, enabling proactive security measures.',
-    icon: MapPin,
-    image: '/api/placeholder/800/500',
+    id: 'industrial',
+    title: 'Industrial Security',
+    description: 'Robust security solutions for industrial facilities and manufacturing plants. Our industrial security systems ensure worker safety and protect valuable equipment and processes.',
+    icon: Factory,
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=500&fit=crop&auto=format&q=80',
     benefits: [
-      'Crowd anomaly detection',
-      'Privacy-focused monitoring',
-      'Emergency situation recognition',
-      'Integration with emergency services',
-      'Scalable deployment options'
+      'Worker safety monitoring',
+      'Equipment protection',
+      'Process compliance',
+      'Hazard detection',
+      '24/7 facility monitoring'
     ],
     useCases: [
-      'Transportation hub security',
-      'Public event monitoring',
-      'Parks and recreation area safety',
-      'School and campus security',
-      'Emergency response coordination'
+      'Safety protocol compliance monitoring',
+      'Equipment malfunction detection',
+      'Unauthorized access prevention',
+      'Emergency evacuation coordination',
+      'Quality control monitoring'
     ]
   },
   {
-    id: 'public-safety',
-    title: 'Public Safety',
-    description: 'Advanced surveillance solutions for public spaces that enhance safety while respecting privacy. Our public safety systems help identify potential threats before they escalate, enabling proactive security measures.',
-    icon: MapPin,
-    image: '/api/placeholder/800/500',
+    id: 'traffic',
+    title: 'Traffic Management',
+    description: 'Intelligent traffic monitoring and management systems for cities and highways. Our traffic solutions reduce congestion, improve safety, and provide real-time traffic analytics.',
+    icon: TrafficCone,
+    image: 'https://images.unsplash.com/photo-1545459720-aac8509eb02c?w=800&h=500&fit=crop&auto=format&q=80',
     benefits: [
-      'Crowd anomaly detection',
-      'Privacy-focused monitoring',
-      'Emergency situation recognition',
-      'Integration with emergency services',
-      'Scalable deployment options'
+      'Traffic flow optimization',
+      'Accident detection',
+      'Congestion monitoring',
+      'Signal timing optimization',
+      'Traffic pattern analysis'
     ],
     useCases: [
-      'Transportation hub security',
-      'Public event monitoring',
-      'Parks and recreation area safety',
-      'School and campus security',
-      'Emergency response coordination'
+      'Real-time traffic monitoring',
+      'Accident detection and response',
+      'Traffic signal optimization',
+      'Congestion prediction',
+      'Emergency vehicle routing'
     ]
   }
 ];
 
 const Services = () => {
+  // Preload critical images for better performance
+  React.useEffect(() => {
+    // Preload first 3 images for better perceived performance
+    const criticalImages = services.slice(0, 3).map(service => service.image);
+    criticalImages.forEach(src => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = src;
+      document.head.appendChild(link);
+    });
+  }, []);
+
   return (
     <Layout showFooter={false}>
       {/* Hero Section - Matching Blog Page Style */}
@@ -232,16 +246,19 @@ const Services = () => {
           
           {/* Services Cards Preview */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-            {services.map((service) => (
+            {services.map((service, index) => (
               <div 
                 key={service.id}
                 className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
               >
                 <div className="h-48 overflow-hidden relative">
-                  <img 
+                  <OptimizedImage 
                     src={service.image} 
                     alt={service.title} 
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    width={400}
+                    height={240}
+                    priority={index < 3}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
                     <div className="p-6">
@@ -289,10 +306,12 @@ const Services = () => {
                   {/* Image column with enhanced styling */}
                   <div className={index % 2 === 0 ? 'order-none' : 'order-none lg:order-last'}>
                     <div className="rounded-2xl overflow-hidden shadow-xl relative group">
-                      <img 
+                      <OptimizedImage 
                         src={service.image} 
                         alt={service.title} 
                         className="w-full h-auto transform transition-transform duration-700 group-hover:scale-105"
+                        width={600}
+                        height={400}
                       />
                       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/30 to-indigo-600/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>

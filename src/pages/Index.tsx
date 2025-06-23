@@ -4,6 +4,7 @@ import Features from '@/components/home/Features';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import OptimizedImage from '@/components/ui/OptimizedImage';
 
 // Remove motion imports and use more efficient IntersectionObserver directly
 const useIntersectionObserver = (options = {}) => {
@@ -53,12 +54,10 @@ const BlogPostCard: React.FC<{ post: BlogPost }> = React.memo(({ post }) => (
   <div className="group">
     <Link to={post.link} className="block h-full">
       <div className="overflow-hidden rounded-t-2xl">
-        <img 
+        <OptimizedImage 
           src={post.image} 
           alt={post.title} 
           className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
-          decoding="async"
           width={500}
           height={300}
         />
@@ -101,49 +100,67 @@ const FadeInSection = ({ children, delay = 0, className = "" }) => {
 };
 
 const Index = () => {
-  // Supported by logos data - preloaded as constants
+  // Preload critical images for better performance
+  React.useEffect(() => {
+    // Preload critical images
+    const criticalImages = [
+      'https://images.unsplash.com/photo-1488229297570-58520851e868?w=500&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1563790617029-80a94f39b35e?w=500&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?w=500&auto=format&fit=crop&q=80'
+    ];
+    
+    criticalImages.forEach(src => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = src;
+      document.head.appendChild(link);
+    });
+  }, []);
+
+  // Supported by logos data - optimized versions
   const supportedBy = [
     {
       name: "IIT Madras",
-      logo: "https://upload.wikimedia.org/wikipedia/en/thumb/6/69/IIT_Madras_Logo.svg/1200px-IIT_Madras_Logo.svg.png",
+      logo: "https://upload.wikimedia.org/wikipedia/en/thumb/6/69/IIT_Madras_Logo.svg/400px-IIT_Madras_Logo.svg.png",
       url: "https://www.iitm.ac.in"
     },
     {
       name: "Nirmaan",
-      logo: "https://nirmaan.iitm.ac.in/static/media/nirmaan%20logo.8b8518964b925a2a2d57.png",
+      logo: "https://nirmaan.iitm.ac.in/static/media/nirmaan%20logo.8b8518964b925a2a2d57.png?w=200&h=80&fit=contain&q=80",
       url: "https://nirmaan.iitm.ac.in"
     },
     {
       name: "AWS for Startups",
-      logo: "https://pages.awscloud.com/rs/112-TZM-766/images/SU%20Programs%402x.png",
+      logo: "https://pages.awscloud.com/rs/112-TZM-766/images/SU%20Programs%402x.png?w=200&h=80&fit=contain&q=80",
       url: "https://aws.amazon.com/startups"
     },
     {
       name: "NVIDIA Inception",
-      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQyI3Qf_YPBBh5ZVZxIg3YpbKpQYuIdZfg9A&s",
+      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQyI3Qf_YPBBh5ZVZxIg3YpbKpQYuIdZfg9A&s&w=200&h=80&fit=contain&q=80",
       url: "https://www.nvidia.com/en-in/startups/"
     }
   ];
 
-  // Blog posts data
+  // Blog posts data - optimized images
   const blogPosts = [
     {
       link: "/blog/ai-advancements",
-      image: "https://images.unsplash.com/photo-1488229297570-58520851e868?w=500&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1488229297570-58520851e868?w=500&h=300&fit=crop&auto=format&q=80",
       title: "AI Advancements in Modern Surveillance",
       date: "April 15, 2025",
       description: "Explore how artificial intelligence is revolutionizing surveillance systems and improving security outcomes."
     },
     {
       link: "/blog/privacy-security",
-      image: "https://images.unsplash.com/photo-1563790617029-80a94f39b35e?w=500&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1563790617029-80a94f39b35e?w=500&h=300&fit=crop&auto=format&q=80",
       title: "Balancing Privacy with Security in AI Surveillance",
       date: "April 8, 2025",
       description: "How modern AI-powered security systems protect privacy while enhancing safety measures."
     },
     {
       link: "/blog/future-trends",
-      image: "https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?w=500&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?w=500&h=300&fit=crop&auto=format&q=80",
       title: "5 Future Trends in AI Security for 2025",
       date: "April 1, 2025",
       description: "Discover emerging trends in AI security technology and how they will shape the future of surveillance."
@@ -232,14 +249,13 @@ const Index = () => {
                 >
                   <div className="bg-white rounded-2xl p-6 h-full flex flex-col items-center border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:border-blue-100 transform hover:-translate-y-1">
                     <div className="mb-6 w-full h-24 flex items-center justify-center p-4">
-                      <img 
+                      <OptimizedImage 
                         src={partner.logo} 
                         alt={partner.name} 
                         className="max-h-full max-w-full object-contain transition-all duration-300 group-hover:scale-105"
-                        loading="lazy"
-                        decoding="async"
                         width={200}
                         height={80}
+                        priority={index < 2}
                       />
                     </div>
                     <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">

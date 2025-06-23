@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { toast } from '@/components/ui/sonner';
 import { Mail, Phone, MapPin } from 'lucide-react';
@@ -21,23 +20,30 @@ const ContactForm = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      toast.success('Message sent successfully!', {
-        description: "Thank you for your message. We'll get back to you soon.",
+    try {
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       });
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        message: '',
-      });
-      setIsSubmitting(false);
-    }, 1000);
+
+      if (response.ok) {
+        toast.success('Message sent successfully!', {
+          description: "Thank you for your message. We'll get back to you soon.",
+        });
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        const data = await response.json();
+        toast.error('Failed to send message.', { description: data.error || 'Please try again later.' });
+      }
+    } catch (error) {
+      toast.error('Failed to send message.', { description: 'Network error. Please try again later.' });
+    }
+    setIsSubmitting(false);
   };
 
   return (

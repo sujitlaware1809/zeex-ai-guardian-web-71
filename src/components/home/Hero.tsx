@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowDown } from 'lucide-react';
 
 const Hero = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   // Animation on scroll
   useEffect(() => {
@@ -39,6 +40,10 @@ const Hero = () => {
     }
   };
 
+  const handleVideoLoad = () => {
+    setIsVideoLoaded(true);
+  };
+
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 pt-20 md:pt-24">
       {/* Modern animated gradient background */}
@@ -70,22 +75,37 @@ const Hero = () => {
   Zeex AI redefines how businesses, cities, and industries protect and manage their environments using AI-driven surveillance to detect, respond, and prevent incidents before they escalate.
 </p>
 
-          {/* Video with modern border */}
+          {/* Video with modern border and lazy loading */}
           <div 
             className="w-full max-w-5xl mx-auto aspect-video rounded-2xl mb-10 overflow-hidden hero-element relative group" 
             style={{ animationDelay: '0.6s' }}
           >
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 opacity-20 rounded-2xl group-hover:opacity-30 transition-opacity duration-300"></div>
             <div className="absolute inset-0.5 rounded-xl bg-white overflow-hidden">
+              {!isVideoLoaded && (
+                <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                    <p className="text-gray-600">Click to load video</p>
+                  </div>
+                </div>
+              )}
               <iframe 
                 width="100%" 
                 height="100%" 
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                src={isVideoLoaded ? "https://www.youtube.com/embed/dQw4w9WgXcQ" : ""}
                 title="Zeex AI Demo Video" 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowFullScreen
-                className="scale-[0.99] group-hover:scale-100 transition-transform duration-300"
+                className={`scale-[0.99] group-hover:scale-100 transition-transform duration-300 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
+                loading="lazy"
+                onLoad={handleVideoLoad}
+                onClick={() => !isVideoLoaded && setIsVideoLoaded(true)}
               ></iframe>
             </div>
             <div className="absolute inset-0 border-2 border-white/10 rounded-2xl pointer-events-none"></div>

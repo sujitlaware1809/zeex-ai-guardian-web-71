@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Home, Building, MapPin, ShoppingCart, ArrowRight } from 'lucide-react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import OptimizedImage from '@/components/ui/OptimizedImage';
 
 const SolutionsPreview = () => {
   const controls = useAnimation();
@@ -37,7 +38,7 @@ const SolutionsPreview = () => {
       title: "Residential Security",
       description: "Smart home monitoring that integrates with your systems for complete surveillance.",
       icon: <Home className="text-blue-600" size={24} />,
-      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa",
+      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=320&fit=crop&auto=format&q=80",
       link: "/solutions/residential",
       colorClass: "group-hover:bg-blue-50",
       textColor: "group-hover:text-blue-300",
@@ -48,7 +49,7 @@ const SolutionsPreview = () => {
       title: "Commercial Surveillance",
       description: "Comprehensive protection for businesses with real-time monitoring and analytics.",
       icon: <Building className="text-indigo-600" size={24} />,
-      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab",
+      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=320&fit=crop&auto=format&q=80",
       link: "/solutions/commercial",
       colorClass: "group-hover:bg-indigo-50",
       textColor: "group-hover:text-indigo-300",
@@ -59,7 +60,7 @@ const SolutionsPreview = () => {
       title: "Public Safety",
       description: "Smart city solutions that enhance security in public spaces and transportation hubs.",
       icon: <MapPin className="text-purple-600" size={24} />,
-      image: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205",
+      image: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=400&h=320&fit=crop&auto=format&q=80",
       link: "/solutions/public-safety",
       colorClass: "group-hover:bg-purple-50",
       textColor: "group-hover:text-purple-300",
@@ -70,7 +71,7 @@ const SolutionsPreview = () => {
       title: "Shops & Supermarkets",
       description: "Retail security solutions with theft prevention and customer behavior analytics.",
       icon: <ShoppingCart className="text-green-600" size={24} />,
-      image: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df",
+      image: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=400&h=320&fit=crop&auto=format&q=80",
       link: "/solutions/retail",
       colorClass: "group-hover:bg-green-50",
       textColor: "group-hover:text-green-300",
@@ -119,7 +120,7 @@ const SolutionsPreview = () => {
           }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
-          {solutionCards.map((card) => (
+          {solutionCards.map((card, index) => (
             <motion.div 
               key={card.id}
               variants={fadeInUp}
@@ -129,14 +130,13 @@ const SolutionsPreview = () => {
               <div className="group relative overflow-hidden rounded-2xl h-full border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-gray-900/80 z-10"></div>
                 <div className="absolute inset-0 backdrop-blur-sm z-0"></div>
-                <img 
+                <OptimizedImage 
                   src={card.image} 
                   alt={card.title} 
                   className="w-full h-80 object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                  decoding="async"
                   width={400}
                   height={320}
+                  priority={index < 2} // Priority loading for first 2 images
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
                   <div className={`p-3 bg-white rounded-xl w-14 h-14 flex items-center justify-center mb-5 shadow-md ${card.colorClass} transition-colors`}>
