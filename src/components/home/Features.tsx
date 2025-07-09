@@ -79,13 +79,7 @@ const Features = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <FeatureCard 
-            icon={<Video />} 
-            title="AI for CCTV Surveillance" 
-            description="Transform your CCTV cameras into smart security agents with AI-powered analytics, real-time monitoring, and instant alerts for suspicious activity." 
-            linkTo="/solutions" 
-            delay="0.05s" 
-          />
+         
           <FeatureCard 
             icon={<Shield />}
             title="Advanced Threat Detection"
