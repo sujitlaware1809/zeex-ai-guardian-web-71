@@ -1,10 +1,95 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Play, Shield, Zap, Eye } from 'lucide-react';
 
 const Hero = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [volume, setVolume] = useState(1);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  // Handle play/pause toggle
+  const handlePlayPause = () => {
+    if (!isVideoLoaded) {
+      setIsVideoLoaded(true);
+      setTimeout(() => {
+        videoRef.current?.play();
+        setIsPlaying(true);
+      }, 100);
+    } else if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+        setIsPlaying(true);
+      } else {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      }
+    }
+  };
+
+  // Update progress bar
+  const handleTimeUpdate = () => {
+    if (videoRef.current) {
+      setProgress((videoRef.current.currentTime / videoRef.current.duration) * 100);
+    }
+  };
+
+  // Seek video
+  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (videoRef.current) {
+      const value = Number(e.target.value);
+      videoRef.current.currentTime = (value / 100) * videoRef.current.duration;
+      setProgress(value);
+    }
+  };
+
+  // Volume control
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Number(e.target.value);
+    setVolume(value);
+    if (videoRef.current) {
+      videoRef.current.volume = value;
+    }
+  };
+
+  // Sync play/pause state
+  const handlePlay = () => setIsPlaying(true);
+  const handlePause = () => setIsPlaying(false);
+
+  // Fullscreen toggle
+  const handleFullscreen = () => {
+    if (!isFullscreen && videoRef.current) {
+      if (videoRef.current.requestFullscreen) {
+        videoRef.current.requestFullscreen();
+      } else if ((videoRef.current as any).webkitRequestFullscreen) {
+        (videoRef.current as any).webkitRequestFullscreen();
+      } else if ((videoRef.current as any).msRequestFullscreen) {
+        (videoRef.current as any).msRequestFullscreen();
+      }
+      setIsFullscreen(true);
+    } else if (document.fullscreenElement) {
+      document.exitFullscreen();
+      setIsFullscreen(false);
+    }
+  };
+
+  // Set initial volume
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.volume = volume;
+    }
+  }, [volume]);
+
+  useEffect(() => {
+    const onFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    document.addEventListener('fullscreenchange', onFullscreenChange);
+    return () => document.removeEventListener('fullscreenchange', onFullscreenChange);
+  }, []);
 
   // Animation on scroll
   useEffect(() => {
@@ -45,132 +130,165 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 pt-20 md:pt-24">
-      {/* Modern animated gradient background */}
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 pt-20 md:pt-24">
+      {/* Enhanced animated gradient background */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent opacity-20 animate-gradient-pan"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-500/20 via-transparent to-transparent opacity-30 animate-gradient-pan"></div>
+        <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-500/15 via-transparent to-transparent opacity-25 animate-gradient-pan-reverse"></div>
       </div>
 
-      {/* Floating tech elements */}
+      {/* Enhanced floating tech elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-[15%] w-4 h-4 rounded-full bg-blue-500/50 filter blur-[15px] animate-float-slow"></div>
-        <div className="absolute top-1/3 right-[20%] w-6 h-6 rounded-full bg-indigo-500/50 filter blur-[20px] animate-float-medium"></div>
-        <div className="absolute bottom-1/4 right-[15%] w-8 h-8 rounded-full bg-purple-500/50 filter blur-[25px] animate-float-fast"></div>
-        <div className="absolute bottom-1/3 left-[10%] w-10 h-10 rounded-full bg-cyan-500/50 filter blur-[30px] animate-float-slow"></div>
+        <div className="absolute top-1/4 left-[15%] w-6 h-6 rounded-full bg-blue-500/40 filter blur-[20px] animate-float-slow"></div>
+        <div className="absolute top-1/3 right-[20%] w-8 h-8 rounded-full bg-indigo-500/40 filter blur-[25px] animate-float-medium"></div>
+        <div className="absolute bottom-1/4 right-[15%] w-10 h-10 rounded-full bg-purple-500/40 filter blur-[30px] animate-float-fast"></div>
+        <div className="absolute bottom-1/3 left-[10%] w-12 h-12 rounded-full bg-cyan-500/40 filter blur-[35px] animate-float-slow"></div>
+        <div className="absolute top-1/2 left-1/2 w-4 h-4 rounded-full bg-emerald-500/30 filter blur-[15px] animate-float-medium"></div>
       </div>
 
       <div className="container-default relative z-10 pb-24 px-4">
         <div className="text-center max-w-6xl mx-auto">
-          <div className="inline-block mb-4 px-4 py-2 bg-blue-100/50 backdrop-blur-sm rounded-full border border-blue-200/50 hero-element">
-            <span className="text-sm font-medium text-blue-600"> Real-Time Intelligence. Real-World Impact</span>
+          {/* Enhanced badge */}
+          <div className="inline-flex items-center gap-2 mb-6 px-6 py-3 bg-white/80 backdrop-blur-md rounded-full border border-blue-200/50 shadow-lg hero-element">
+            <Shield className="w-4 h-4 text-blue-600" />
+            <span className="text-sm font-semibold text-blue-700">Real-Time Intelligence. Real-World Impact</span>
+            <Zap className="w-4 h-4 text-blue-600" />
           </div>
 
-     <div className="overflow-visible">  {/* Prevents text clipping */}
-  <h1 className="font-bold text-4xl md:text-4xl lg:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 gradient-text-safe hero-element leading-[1.3] md:leading-[1.4] pb-2">
-    AI-Powered Surveillance for Safety & Smart Management
-  </h1>
-</div>
-<div className="my-8"></div>
-<p className="text-xl md:text-2xl mb-8 text-gray-700 max-w-3xl mx-auto hero-element pb-1" style={{ animationDelay: '0.3s' }}>
-  Zeex AI redefines how businesses, cities, and industries protect and manage their environments using AI-driven surveillance to detect, respond, and prevent incidents before they escalate.
-</p>
+          {/* Enhanced main heading */}
+          <div className="overflow-visible mb-8">
+            <h1 className="font-bold text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 gradient-text-safe hero-element leading-[1.2] md:leading-[1.3] pb-4">
+              AI-Powered Surveillance for
+              <span className="block text-4xl md:text-5xl lg:text-6xl mt-2">Safety & Smart Management</span>
+            </h1>
+          </div>
 
-          {/* Video with modern border and lazy loading */}
+          {/* Enhanced subtitle */}
+          <p className="text-xl md:text-2xl mb-12 text-gray-700 max-w-4xl mx-auto hero-element leading-relaxed" style={{ animationDelay: '0.3s' }}>
+            Zeex AI redefines how businesses, cities, and industries protect and manage their environments using 
+            <span className="font-semibold text-blue-600"> AI-driven surveillance</span> to detect, respond, and prevent incidents before they escalate.
+          </p>
+
+          {/* Enhanced CTA buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 hero-element" style={{ animationDelay: '0.4s' }}>
+            <Link
+              to="/solutions"
+              className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 border border-blue-500/20"
+            >
+              <span className="relative z-10">Explore Solutions</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-indigo-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </Link>
+            <Link
+              to="/contact"
+              className="group px-8 py-4 bg-white/80 backdrop-blur-sm text-gray-700 font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 border border-gray-200/50 hover:border-blue-200"
+            >
+              <span className="relative z-10">Get Started</span>
+            </Link>
+          </div>
+
+          {/* Enhanced video section */}
           <div 
-            className="w-full max-w-5xl mx-auto aspect-video rounded-2xl mb-10 overflow-hidden hero-element relative group" 
+            className="w-full max-w-5xl mx-auto aspect-video rounded-3xl mb-10 overflow-hidden hero-element relative group shadow-2xl border border-white/20" 
             style={{ animationDelay: '0.6s' }}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 opacity-20 rounded-2xl group-hover:opacity-30 transition-opacity duration-300"></div>
-            <div className="absolute inset-0.5 rounded-xl bg-white overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/30 to-purple-600/30 opacity-30 rounded-3xl group-hover:opacity-40 transition-opacity duration-300"></div>
+            <div className="absolute inset-1 rounded-2xl bg-white overflow-hidden">
               {!isVideoLoaded && (
-                <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <svg className="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                      </svg>
+                <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center relative" onClick={handlePlayPause} style={{ cursor: 'pointer' }}>
+                  <img
+                    src="/video_thumbnail.png"
+                    alt="Video thumbnail"
+                    className="absolute inset-0 w-full h-full object-cover rounded-2xl z-0"
+                  />
+                  <div className="absolute inset-0 bg-black/40 rounded-2xl z-10"></div>
+                  <div className="text-center relative z-20">
+                    <div className="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                      <Play className="w-10 h-10 text-blue-600 ml-1" />
                     </div>
-                    <p className="text-gray-600">Click to load video</p>
+                    <p className="text-white font-medium text-lg">Watch Our Demo</p>
                   </div>
                 </div>
               )}
-              <iframe 
-                width="100%" 
-                height="100%" 
-                src={isVideoLoaded ? "https://www.youtube.com/embed/dQw4w9WgXcQ" : ""}
-                title="Zeex AI Demo Video" 
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowFullScreen
-                className={`scale-[0.99] group-hover:scale-100 transition-transform duration-300 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
-                loading="lazy"
-                onLoad={handleVideoLoad}
-                onClick={() => !isVideoLoaded && setIsVideoLoaded(true)}
-              ></iframe>
+              <video
+                ref={videoRef}
+                src="/video.mp4"
+                className={`w-full h-full object-cover rounded-2xl ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
+                poster="/video_thumbnail.png"
+                onTimeUpdate={handleTimeUpdate}
+                onPlay={handlePlay}
+                onPause={handlePause}
+                onClick={handlePlayPause}
+                tabIndex={0}
+                style={{ outline: 'none' }}
+              />
+              {/* Enhanced Custom Controls */}
+              {isVideoLoaded && (
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="flex items-center gap-4">
+                    <button
+                      onClick={handlePlayPause}
+                      className="text-white hover:text-blue-300 transition-colors"
+                    >
+                      {isPlaying ? (
+                        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                        </svg>
+                      ) : (
+                        <Play className="w-6 h-6" />
+                      )}
+                    </button>
+                    
+                    <div className="flex-1">
+                      <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        value={progress}
+                        onChange={handleSeek}
+                        className="w-full h-2 bg-white/30 rounded-lg appearance-none cursor-pointer slider"
+                      />
+                    </div>
+                    
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="range"
+                        min="0"
+                        max="1"
+                        step="0.1"
+                        value={volume}
+                        onChange={handleVolumeChange}
+                        className="w-16 h-2 bg-white/30 rounded-lg appearance-none cursor-pointer slider"
+                      />
+                      <button
+                        onClick={handleFullscreen}
+                        className="text-white hover:text-blue-300 transition-colors"
+                      >
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
-            <div className="absolute inset-0 border-2 border-white/10 rounded-2xl pointer-events-none"></div>
           </div>
 
-          {/* CTA buttons with hover effects */}
-          <div 
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-14 hero-element" 
-            style={{ animationDelay: '0.9s' }}
-          >
-            <Link 
-              to="/contact" 
-              className="relative px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] group w-full sm:w-auto"
+          {/* Enhanced scroll indicator */}
+          <div className="flex flex-col items-center hero-element" style={{ animationDelay: '0.8s' }}>
+            <p className="text-sm text-gray-600 mb-4 font-medium">Discover More</p>
+            <button
+              onClick={scrollToContent}
+              className="group p-3 bg-white/80 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 border border-gray-200/50"
             >
-              <span className="relative z-10">Request a Demo</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </Link>
-            <Link 
-              to="/solutions" 
-              className="px-8 py-4 bg-white text-gray-900 font-medium rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] hover:bg-gray-50 w-full sm:w-auto"
-            >
-              Explore Solutions
-            </Link>
-          </div>
-
-          {/* Modern scroll indicator */}
-          <div 
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer group"
-            onClick={scrollToContent}
-          >
-            <div className="w-12 h-20 rounded-full border-2 border-gray-300/50 flex items-center justify-center">
-              <div className="w-1 h-6 bg-gradient-to-b from-blue-500 to-indigo-500 rounded-full animate-bounce group-hover:from-blue-600 group-hover:to-indigo-600 transition-colors"></div>
-            </div>
+              <ArrowDown className="w-5 h-5 text-gray-600 group-hover:text-blue-600 transition-colors animate-bounce" />
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Target for scroll indicator */}
-      <div ref={scrollRef}></div>
-
-      {/* Animation styles */}
-      <style>{`
-        @keyframes gradient-pan {
-          from { background-position: 0% 0%; }
-          to { background-position: 100% 100%; }
-        }
-        .animate-gradient-pan {
-          animation: gradient-pan 15s ease infinite alternate;
-        }
-        @keyframes float-slow {
-          0%, 100% { transform: translateY(0) translateX(0); }
-          50% { transform: translateY(-20px) translateX(10px); }
-        }
-        @keyframes float-medium {
-          0%, 100% { transform: translateY(0) translateX(0); }
-          50% { transform: translateY(-15px) translateX(-10px); }
-        }
-        @keyframes float-fast {
-          0%, 100% { transform: translateY(0) translateX(0); }
-          50% { transform: translateY(-10px) translateX(5px); }
-        }
-        .animate-float-slow { animation: float-slow 8s ease-in-out infinite; }
-        .animate-float-medium { animation: float-medium 6s ease-in-out infinite; }
-        .animate-float-fast { animation: float-fast 4s ease-in-out infinite; }
-      `}</style>
+      {/* Scroll target */}
+      <div ref={scrollRef} className="absolute bottom-0"></div>
     </section>
   );
 };

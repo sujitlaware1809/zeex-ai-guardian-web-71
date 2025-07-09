@@ -117,7 +117,7 @@ const services = [
     title: 'Traffic Management',
     description: 'Intelligent traffic monitoring and management systems for cities and highways. Our traffic solutions reduce congestion, improve safety, and provide real-time traffic analytics.',
     icon: TrafficCone,
-    image: 'https://images.unsplash.com/photo-1545459720-aac8509eb02c?w=800&h=500&fit=crop&auto=format&q=80',
+    image: 'https://images.unsplash.com/photo-1597762333765-cbcd63dd8acc?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     benefits: [
       'Traffic flow optimization',
       'Accident detection',
@@ -203,12 +203,7 @@ const Services = () => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
           </svg>
         </Link>
-        <Link 
-          to="/services#comparison" 
-          className="inline-flex items-center justify-center px-6 py-3.5 sm:px-8 sm:py-4 border-2 border-white/80 text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 hover:shadow-lg text-sm sm:text-base"
-        >
-          Compare Services
-        </Link>
+        
       </motion.div>
     </div>
   </div>
@@ -245,40 +240,40 @@ const Services = () => {
           </div>
           
           {/* Services Cards Preview */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-10 md:mb-20">
             {services.map((service, index) => (
               <div 
                 key={service.id}
                 className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
               >
-                <div className="h-48 overflow-hidden relative">
+                <div className="min-h-[180px] h-auto overflow-hidden relative">
                   <OptimizedImage 
                     src={service.image} 
                     alt={service.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-auto min-h-[180px] object-cover transition-transform duration-500 group-hover:scale-105"
                     width={400}
                     height={240}
                     priority={index < 3}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-                    <div className="p-6">
+                    <div className="p-4 md:p-6">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
                           <service.icon className="h-5 w-5 text-blue-600" />
                         </div>
-                        <h3 className="text-2xl font-bold text-white">{service.title}</h3>
+                        <h3 className="text-lg md:text-2xl font-bold text-white">{service.title}</h3>
                       </div>
                     </div>
                   </div>
                 </div>
                 
-                <div className="p-6">
-                  <p className="text-gray-600 mb-4 line-clamp-3">
+                <div className="p-4 md:p-6">
+                  <p className="text-gray-600 mb-3 md:mb-4 line-clamp-3 text-sm md:text-base">
                     {service.description}
                   </p>
                   <Link 
                     to={`#${service.id}`} 
-                    className="inline-flex items-center text-blue-600 font-medium hover:text-blue-800 transition-colors"
+                    className="inline-flex items-center text-blue-600 font-medium hover:text-blue-800 transition-colors text-sm md:text-base"
                   >
                     Learn more
                     <ArrowRight className="ml-1 w-4 h-4" />
@@ -289,27 +284,27 @@ const Services = () => {
           </div>
           
           {/* Detailed Services Sections */}
-          <div className="space-y-32">
+          <div className="space-y-20 md:space-y-32">
             {services.map((service, index) => (
               <div key={service.id} id={service.id} className="scroll-mt-24">
                 {/* Service Header with Decorative Element */}
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="h-1 flex-grow rounded-full bg-gradient-to-r from-blue-600 to-indigo-600"></div>
-                  <h2 className="text-3xl font-bold text-gray-900 flex items-center gap-3 whitespace-nowrap">
-                    <service.icon className="h-8 w-8 text-blue-600" />
+                <div className="flex flex-col md:flex-row items-center gap-4 mb-8">
+                  <div className="h-1 w-full md:w-auto flex-grow rounded-full bg-gradient-to-r from-blue-600 to-indigo-600"></div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 flex items-center gap-3 whitespace-nowrap">
+                    <service.icon className="h-7 w-7 md:h-8 md:w-8 text-blue-600" />
                     {service.title}
                   </h2>
-                  <div className="h-1 flex-grow rounded-full bg-gradient-to-r from-indigo-600 to-blue-600"></div>
+                  <div className="h-1 w-full md:w-auto flex-grow rounded-full bg-gradient-to-r from-indigo-600 to-blue-600"></div>
                 </div>
                 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-10 md:mb-16">
                   {/* Image column with enhanced styling */}
                   <div className={index % 2 === 0 ? 'order-none' : 'order-none lg:order-last'}>
                     <div className="rounded-2xl overflow-hidden shadow-xl relative group">
                       <OptimizedImage 
                         src={service.image} 
                         alt={service.title} 
-                        className="w-full h-auto transform transition-transform duration-700 group-hover:scale-105"
+                        className="w-full h-auto min-h-[220px] transform transition-transform duration-700 group-hover:scale-105"
                         width={600}
                         height={400}
                       />
@@ -319,12 +314,12 @@ const Services = () => {
                   
                   {/* Content column */}
                   <div>
-                    <p className="text-lg text-gray-600 mb-8">
+                    <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8">
                       {service.description}
                     </p>
                     
-                    <h4 className="text-xl font-semibold mb-6 text-gray-800">Key Benefits</h4>
-                    <ul className="space-y-4 mb-8">
+                    <h4 className="text-lg md:text-xl font-semibold mb-4 md:mb-6 text-gray-800">Key Benefits</h4>
+                    <ul className="space-y-3 md:space-y-4 mb-6 md:mb-8">
                       {service.benefits.map((benefit, i) => (
                         <li key={i} className="flex items-start gap-3">
                           <div className="p-1 rounded-full bg-blue-100 text-blue-600 mt-0.5">
@@ -337,7 +332,7 @@ const Services = () => {
                     
                     <Link 
                       to={`/services/${service.id}`}
-                      className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium rounded-lg hover:shadow-lg transition-all hover:scale-105"
+                      className="inline-flex items-center px-5 py-2.5 md:px-6 md:py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium rounded-lg hover:shadow-lg transition-all hover:scale-105 text-sm md:text-base"
                     >
                       Learn More
                       <ArrowRight className="ml-2 w-4 h-4" />
@@ -346,146 +341,26 @@ const Services = () => {
                 </div>
                 
                 {/* Use Cases Section with Modern Cards */}
-                <div className="bg-gray-50 p-8 rounded-2xl">
-                  <h4 className="text-2xl font-semibold mb-8 text-gray-800 text-center">
+                <div className="bg-gray-50 p-4 md:p-8 rounded-2xl overflow-x-auto">
+                  <h4 className="text-lg md:text-2xl font-semibold mb-6 md:mb-8 text-gray-800 text-center">
                     How {service.title} Works in Practice
                   </h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4 md:gap-6">
                     {service.useCases.map((useCase, i) => (
-                      <div key={i} className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+                      <div key={i} className="bg-white p-4 md:p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
                         <div className="flex items-center gap-3 mb-3">
                           <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-semibold">
                             {i + 1}
                           </div>
-                          <h5 className="font-medium text-gray-700">Use Case</h5>
+                          <h5 className="font-medium text-gray-700 text-sm md:text-base">Use Case</h5>
                         </div>
-                        <p className="text-gray-600">{useCase}</p>
+                        <p className="text-gray-600 text-sm md:text-base">{useCase}</p>
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Comparison Table with Modern Design */}
-      <section className="py-20 bg-gray-50">
-        <div className="container-default">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-gray-900">Service Comparison</h2>
-            <p className="text-lg text-gray-600">
-              Compare our different security services to find the perfect fit for your needs
-            </p>
-          </div>
-          
-          <div className="overflow-x-auto bg-white rounded-2xl shadow-lg p-2">
-            <table className="w-full">
-              <thead>
-                <tr>
-                  <th className="py-6 px-6 text-left text-gray-700 font-bold text-lg">Features</th>
-                  {services.map((service) => (
-                    <th key={service.id} className="py-6 px-6 text-center">
-                      <div className="flex flex-col items-center">
-                        <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-2">
-                          <service.icon className="h-6 w-6 text-blue-600" />
-                        </div>
-                        <span className="font-bold text-gray-800">{service.title}</span>
-                      </div>
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-t">
-                  <td className="py-4 px-6 font-medium text-gray-700">AI-powered detection</td>
-                  <td className="py-4 px-6 text-center">
-                    <Check className="w-6 h-6 mx-auto text-blue-500" />
-                  </td>
-                  <td className="py-4 px-6 text-center">
-                    <Check className="w-6 h-6 mx-auto text-blue-500" />
-                  </td>
-                  <td className="py-4 px-6 text-center">
-                    <Check className="w-6 h-6 mx-auto text-blue-500" />
-                  </td>
-                </tr>
-                <tr className="border-t">
-                  <td className="py-4 px-6 font-medium text-gray-700">Facial recognition</td>
-                  <td className="py-4 px-6 text-center">
-                    <Check className="w-6 h-6 mx-auto text-blue-500" />
-                  </td>
-                  <td className="py-4 px-6 text-center">
-                    <Check className="w-6 h-6 mx-auto text-blue-500" />
-                  </td>
-                  <td className="py-4 px-6 text-center">
-                    <Check className="w-6 h-6 mx-auto text-blue-500" />
-                  </td>
-                </tr>
-                <tr className="border-t">
-                  <td className="py-4 px-6 font-medium text-gray-700">Multi-camera support</td>
-                  <td className="py-4 px-6 text-center">
-                    <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Up to 8</span>
-                  </td>
-                  <td className="py-4 px-6 text-center">
-                    <span className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium">Unlimited</span>
-                  </td>
-                  <td className="py-4 px-6 text-center">
-                    <span className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium">Unlimited</span>
-                  </td>
-                </tr>
-                <tr className="border-t">
-                  <td className="py-4 px-6 font-medium text-gray-700">Smart alerts</td>
-                  <td className="py-4 px-6 text-center">
-                    <Check className="w-6 h-6 mx-auto text-blue-500" />
-                  </td>
-                  <td className="py-4 px-6 text-center">
-                    <Check className="w-6 h-6 mx-auto text-blue-500" />
-                  </td>
-                  <td className="py-4 px-6 text-center">
-                    <Check className="w-6 h-6 mx-auto text-blue-500" />
-                  </td>
-                </tr>
-                <tr className="border-t">
-                  <td className="py-4 px-6 font-medium text-gray-700">Analytics dashboard</td>
-                  <td className="py-4 px-6 text-center">
-                    <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Basic</span>
-                  </td>
-                  <td className="py-4 px-6 text-center">
-                    <span className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium">Advanced</span>
-                  </td>
-                  <td className="py-4 px-6 text-center">
-                    <span className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium">Advanced</span>
-                  </td>
-                </tr>
-                <tr className="border-t">
-                  <td className="py-4 px-6 font-medium text-gray-700">Cloud storage</td>
-                  <td className="py-4 px-6 text-center">
-                    <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">30 days</span>
-                  </td>
-                  <td className="py-4 px-6 text-center">
-                    <span className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium">90 days</span>
-                  </td>
-                  <td className="py-4 px-6 text-center">
-                    <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">Customizable</span>
-                  </td>
-                </tr>
-                <tr className="border-t">
-                  <td className="py-4 px-6 font-medium text-gray-700">API access</td>
-                  <td className="py-4 px-6 text-center">
-                    <svg className="w-6 h-6 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                  </td>
-                  <td className="py-4 px-6 text-center">
-                    <Check className="w-6 h-6 mx-auto text-blue-500" />
-                  </td>
-                  <td className="py-4 px-6 text-center">
-                    <Check className="w-6 h-6 mx-auto text-blue-500" />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
           </div>
         </div>
       </section>

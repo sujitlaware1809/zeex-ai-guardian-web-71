@@ -88,6 +88,10 @@ const navItems: NavItem[] = [
   { 
     title: "Contact",
     path: "/contact"
+  },
+  { 
+    title: "Careers",
+    path: "/careers"
   }
 ];
 
@@ -183,7 +187,6 @@ const Navbar = () => {
               )}
             </div>
           ))}
-          
           <Link 
             to="/contact"
             className="ml-4 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium rounded-lg shadow-sm hover:shadow-md hover:from-blue-500 hover:to-indigo-500 transition-all"

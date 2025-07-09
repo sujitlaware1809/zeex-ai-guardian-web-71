@@ -3,18 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>zeex-ai-guardian-web</title>
-    <meta name="description" content="Lovable Generated Project" />
+    <title>Zeex AI</title>
     <meta name="author" content="Lovable" />
 
-    <meta property="og:title" content="zeex-ai-guardian-web" />
-    <meta property="og:description" content="Lovable Generated Project" />
+    <meta property="og:title" content="Zeex AI" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta property="og:image" content="" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta name="twitter:image" content="" />
+    <link rel="icon" type="image/x-icon" href="/fevicon.ico" />
   </head>
 
   <body>
@@ -22,5 +20,72 @@
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
+    <!-- Ravvio Chat Bubble Widget -->
+    <style>
+      .chat-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+      }
+      #chat-toggle { display: none; }
+      .chat-button {
+        width: 65px; height: 65px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #2563eb, #4f46e5);
+        color: white; border: none; cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        display: flex; align-items: center; justify-content: center;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .chat-button:hover { transform: scale(1.1); }
+      .chat-frame {
+        position: absolute;
+        bottom: 80px;
+        right: 0;
+        display: none; width: 400px; height: 550px;
+        border-radius: 16px; overflow: hidden;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      }
+      #chat-toggle:checked ~ .chat-frame {
+        display: block;
+        animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      }
+      @keyframes popIn {
+        0% { transform: scale(0.95); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+      }
+      @media screen and (max-width: 767px) {
+        .chat-frame {
+          width: calc(100vw - 40px);
+          height: 500px;
+          right: 0;
+        }
+      }
+    </style>
+    <div class="chat-container">
+      <input type="checkbox" id="chat-toggle">
+      <label class="chat-button" for="chat-toggle">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+      </label>
+      <div class="chat-frame">
+        <iframe src="https://chatbot.ravvio.in/embed/684c07f8-cab9-487a-92d2-403f23678e50?primaryColor=%232563eb&chatTitle=ZEEX+Assistant&welcomeMessage=Hi+there%21+I%27m+Zeex+AI+assistant.+How+can+I+help+you+today%3F&showBranding=true&suggestedQuestions=%5B%22What+services+do+you+offer%3F%22%2C%22How+can+I+get+started%3F%22%2C%22What+are+your+pricing+plans%3F%22%5D" width="100%" height="100%" style="border: none;" title="Chatbot"></iframe>
+      </div>
+    </div>
+    <script>
+      window.RavvioConfig = {
+        agentId: '684c07f8-cab9-487a-92d2-403f23678e50',
+        primaryColor: '#2563eb',
+        position: 'bottom-right',
+        size: 'medium',
+        chatTitle: 'ZEEX Assistant',
+        welcomeMessage: 'Hi there! I\'m Zeex AI assistant. How can I help you today?',
+        showBranding: true,
+        suggestedQuestions: ["What services do you offer?","How can I get started?","What are your pricing plans?"]
+      };
+    </script>
+    <script src="https://chatbot.ravvio.in/api/embed/widget.js" async></script>
   </body>
 </html>

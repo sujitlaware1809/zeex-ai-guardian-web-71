@@ -83,7 +83,7 @@ const Features = () => {
             icon={<Shield />}
             title="Advanced Threat Detection"
             description="Our AI-powered threat detection system continuously monitors and identifies potential security risks before they become problems."
-            linkTo="/services/intrusion-detection"
+            linkTo=""
             delay="0.1s"
           />
           
@@ -91,7 +91,7 @@ const Features = () => {
             icon={<Video />}
             title="AI-Visual Surveillance Analytics"
             description="Intelligent video analysis detects unusual patterns while ensuring privacy and compliance."
-            linkTo="/services/facial-recognition"
+            linkTo=""
             delay="0.2s"
           />
           
@@ -99,7 +99,7 @@ const Features = () => {
             icon={<Bell />}
             title="Real-time alerts on your Devices"
             description="Instant notifications with contextual information delivered to your preferred devices."
-            linkTo="/services/real-time-alerts"
+            linkTo=""
             delay="0.3s"
           />
           
@@ -107,7 +107,7 @@ const Features = () => {
             icon={<Cloud />}
             title="Seamless Integration with CCTV and Device"
             description="Easy setup, multi-device support, and customizable dashboard."
-            linkTo="/services/cloud-video-analytics"
+            linkTo=""
             delay="0.4s"
           />
         </div>
@@ -116,7 +116,7 @@ const Features = () => {
 
         <div className="text-center mt-16 animate-on-scroll" style={{ animationDelay: '0.6s' }}>
           <Link 
-            to="/services" 
+            to="/solutions" 
             className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-medium rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all hover:bg-gray-50 hover:-translate-y-0.5"
           >
             Explore all features

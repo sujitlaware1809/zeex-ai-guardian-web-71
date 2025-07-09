@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '@/components/layout/Layout';
-import { Shield, ArrowRight } from 'lucide-react';
+import { Shield, ArrowRight, Mail, Bell } from 'lucide-react';
 import { motion, useAnimation } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
@@ -56,6 +56,72 @@ const blogPosts = [
     category: 'Case Study'
   }
 ];
+
+const NewsletterSignup = ({ premium }: { premium?: boolean }) => {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('idle');
+    setMessage('');
+    try {
+      const res = await fetch('http://localhost:5000/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus('success');
+        setMessage('Thank you for subscribing!');
+        setEmail('');
+      } else {
+        setStatus('error');
+        setMessage(data.error || 'Subscription failed. Try again.');
+      }
+    } catch {
+      setStatus('error');
+      setMessage('Subscription failed. Try again.');
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className={premium ? "flex flex-col w-full items-center" : "flex flex-col sm:flex-row gap-3 items-center mt-12 justify-center"}>
+      <div className={premium ? "flex flex-row w-full gap-4" : "flex flex-row w-full gap-2"}>
+        <input
+          type="email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          placeholder="Your email"
+          required
+          className={
+            premium
+              ? "flex-1 px-6 py-4 rounded-lg border border-blue-200 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white shadow-sm"
+              : "border rounded px-4 py-2"
+          }
+        />
+        <button
+          type="submit"
+          className={
+            premium
+              ? "bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-lg font-bold text-lg shadow transition-colors"
+              : "bg-blue-600 text-white px-6 py-2 rounded font-semibold"
+          }
+        >
+          Subscribe
+        </button>
+      </div>
+      {status === 'success' && (
+        <span className="text-green-600 mt-4 text-center w-full font-medium">{message}</span>
+      )}
+      {status === 'error' && (
+        <span className="text-red-600 mt-4 text-center w-full font-medium">{message}</span>
+      )}
+    </form>
+  );
+};
 
 const Blog = () => {
   const controls = useAnimation();
@@ -253,40 +319,22 @@ const Blog = () => {
       </motion.section>
 
       {/* Newsletter Section */}
-      <motion.section 
-        initial="hidden"
-        animate={controls}
-        variants={staggerContainer}
-        className="bg-gradient-to-r from-blue-600 to-indigo-600 py-16 text-white"
-      >
-        <div className="container-default px-6">
-          <motion.div 
-            variants={fadeInUp}
-            className="max-w-2xl mx-auto text-center"
-          >
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
-            <p className="text-blue-100 mb-6">
-              Stay updated with the latest insights in AI security, delivered straight to your inbox.
-            </p>
-            <motion.form 
-              variants={fadeInUp}
-              className="flex flex-col sm:flex-row gap-3"
-            >
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="flex-grow px-4 py-3 rounded-md border-0 focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-900"
-              />
-              <button 
-                type="submit" 
-                className="btn-primary bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-md font-medium transition-colors"
-              >
-                Subscribe
-              </button>
-            </motion.form>
-          </motion.div>
+      <section className="w-full flex justify-center items-center py-14 mt-20">
+        <div className="w-full max-w-xl bg-white rounded-2xl shadow-xl flex flex-col md:flex-row items-stretch p-0 overflow-hidden border border-blue-100">
+          {/* Left: Icon */}
+          <div className="flex flex-col items-center justify-center md:w-1/3 w-full md:min-h-full mb-4 md:mb-0 bg-gradient-to-br from-blue-500/10 to-indigo-400/10">
+            <div className="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 shadow-md mt-6 md:mt-0">
+              <Mail className="w-7 h-7 text-white" />
+            </div>
+          </div>
+          {/* Right: Content */}
+          <div className="flex-1 flex flex-col justify-center px-6 py-8">
+            <h2 className="text-2xl font-bold text-blue-900 mb-2 leading-tight">Stay in the Loop</h2>
+            <p className="text-blue-800/90 mb-5 text-base">Sign up for our newsletter to get the latest AI security news, insights, and exclusive updates. No spam, ever.</p>
+            <NewsletterSignup premium />
+          </div>
         </div>
-      </motion.section>
+      </section>
     </Layout>
   );
 };

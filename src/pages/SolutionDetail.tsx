@@ -181,147 +181,160 @@ const servicesDetails = {
       { value: '24/7', label: 'Monitoring' }
     ]
   },
-  'banks-atms-financial': {
-    title: 'Banks, ATMs & Financial Institutions Security',
-    description: 'Advanced security solutions for financial institutions including banks, ATMs, and other monetary facilities with high-level protection.',
-    icon: Banknote,
-    image: 'https://images.unsplash.com/photo-1601597111151-8b15e4e0cb4d',
-    headerImage: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d',
-    benefits: [
-      'Fraud detection and prevention',
-      'ATM skimming protection',
-      'Vault monitoring',
-      'Customer identification verification',
-      '24/7 transaction monitoring'
-    ],
-    content: `
-      <h2 class="text-3xl font-bold mb-6">Financial Institution Security Solutions</h2>
-      <p class="mb-6">Banks, ATMs, and financial institutions require the highest level of security to protect assets, customers, and sensitive data. Our specialized solutions combine physical security with digital monitoring to create comprehensive protection.</p>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-          <h4 class="font-bold text-lg mb-3">ATM Protection</h4>
-          <p>Advanced anti-skimming technology and behavior monitoring at all ATM locations.</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-          <h4 class="font-bold text-lg mb-3">Transaction Security</h4>
-          <p>Real-time analysis of transactions to detect fraudulent activity.</p>
-        </div>
+  // Complete updated 'banks-atms-financial' service object to replace in servicesDetails
+
+'banks-atms-financial': {
+  title: 'Banks, ATMs & Financial Institutions CCTV Surveillance',
+  description: 'Advanced AI-powered CCTV surveillance solutions specifically designed for banks, ATMs, and financial institutions with real-time threat detection and fraud prevention.',
+  icon: Banknote,
+  image: 'https://i.ibb.co/nqx2CHFR/bank.jpg',
+  headerImage: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d',
+  benefits: [
+    'AI-powered threat detection and behavior analysis',
+    'Advanced ATM skimming and tampering protection', 
+    '24/7 real-time surveillance monitoring',
+    'Facial recognition and customer verification',
+    'Integrated alarm systems with instant alerts',
+    'Compliance with banking security regulations'
+  ],
+  content: `
+    <h2 class="text-3xl font-bold mb-6">Advanced CCTV Surveillance for Financial Security</h2>
+    <p class="mb-6">Financial institutions face unique security challenges that require specialized surveillance solutions. Our AI-powered CCTV systems provide comprehensive protection for banks, ATMs, and financial facilities with intelligent threat detection, real-time monitoring, and advanced analytics designed specifically for the banking sector.</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <h4 class="font-bold text-lg mb-3">ATM Surveillance & Protection</h4>
+        <p>Advanced anti-skimming detection, facial recognition, and behavioral analysis to protect ATM users and prevent fraud attempts.</p>
       </div>
-    `,
-    features: [
-      {
-        id: 'atm-protection',
-        title: 'ATM Protection',
-        description: 'Anti-skimming technology and behavior monitoring at all ATM locations.',
-        image: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d'
-      },
-      {
-        id: 'transaction-monitoring',
-        title: 'Transaction Monitoring',
-        description: 'Real-time analysis of transactions to detect fraudulent activity.',
-        image: 'https://images.unsplash.com/photo-1601597111151-8b15e4e0cb4d'
-      },
-      {
-        id: 'vault-security',
-        title: 'Vault Security',
-        description: 'Multi-factor authentication and 24/7 monitoring of secure areas.',
-        image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf'
-      },
-      {
-        id: 'customer-verification',
-        title: 'Customer Verification',
-        description: 'Advanced facial recognition for customer identification and fraud prevention.',
-        image: 'https://images.unsplash.com/photo-1601760561441-16420502c7e0'
-      },
-      {
-        id: 'cyber-security',
-        title: 'Cyber Security',
-        description: 'Integrated digital protection for online banking systems.',
-        image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b'
-      },
-      {
-        id: 'emergency-response',
-        title: 'Emergency Response',
-        description: 'Instant lockdown and alert systems for security incidents.',
-        image: 'https://images.unsplash.com/photo-1581093057305-263bd975ae4a'
-      }
-    ],
-    recommendedServices: [
-      {
-        title: 'Digital Fraud Prevention',
-        description: 'Protection against online banking fraud and cyber threats.',
-        icon: Lock
-      },
-      {
-        title: 'Cash Handling',
-        description: 'Monitoring of cash movement and handling procedures.',
-        icon: Banknote
-      },
-      {
-        title: 'VIP Protection',
-        description: 'Enhanced security for high-net-worth individuals.',
-        icon: Shield
-      },
-      {
-        title: 'Compliance Monitoring',
-        description: 'Automated tracking of regulatory compliance procedures.',
-        icon: Check
-      },
-      {
-        title: 'Branch Analytics',
-        description: 'Customer behavior analysis for branch optimization.',
-        icon: Database
-      },
-      {
-        title: 'Mobile Security',
-        description: 'Protection for mobile banking applications.',
-        icon: Cloud
-      }
-    ],
-    workflow: [
-      {
-        title: 'Risk Analysis',
-        description: 'Detailed assessment of vulnerabilities in your financial institution\'s security.',
-        icon: '📊'
-      },
-      {
-        title: 'Multi-Layer Design',
-        description: 'Creation of a defense-in-depth security strategy for all access points.',
-        icon: '🛡️'
-      },
-      {
-        title: 'ATM Hardening',
-        description: 'Implementation of anti-skimming and tamper-proof technologies.',
-        icon: '🏧'
-      },
-      {
-        title: 'Vault Security',
-        description: 'Installation of advanced monitoring systems for high-security areas.',
-        icon: '🔐'
-      },
-      {
-        title: 'Cyber Integration',
-        description: 'Linking physical security with digital protection systems.',
-        icon: '💻'
-      },
-      {
-        title: 'Response Protocols',
-        description: 'Establishment of emergency procedures and staff training.',
-        icon: '🚨'
-      }
-    ],
-    stats: [
-      { value: '99.9%', label: 'Detection accuracy' },
-      { value: '60%', label: 'Fraud reduction' },
-      { value: '2s', label: 'Alert time' }
-    ]
-  },
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <h4 class="font-bold text-lg mb-3">Branch Security Monitoring</h4>
+        <p>Comprehensive surveillance coverage of banking halls, teller areas, and customer zones with real-time threat assessment.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <h4 class="font-bold text-lg mb-3">Vault & Cash Management</h4>
+        <p>High-security monitoring of vault areas, cash handling zones, and safe deposit box areas with multi-layer protection.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <h4 class="font-bold text-lg mb-3">Perimeter & Entrance Security</h4>
+        <p>Advanced surveillance of building perimeters, parking areas, and entry points with license plate recognition.</p>
+      </div>
+    </div>
+
+
+  `,
+  features: [
+    {
+      id: 'atm-surveillance',
+      title: 'ATM Surveillance Systems',
+      description: 'Comprehensive CCTV coverage of ATM locations with anti-skimming detection, facial recognition, and suspicious behavior analysis.',
+      image: 'https://i.ibb.co/mrWYnQ9X/bank-3.jpg'
+    },
+    {
+      id: 'branch-monitoring', 
+      title: 'Branch Security Monitoring',
+      description: 'Complete surveillance coverage of banking halls, teller counters, and customer areas with AI-powered threat detection.',
+      image: 'https://i.ibb.co/FkwyXP04/bank-1.jpg'
+    },
+    {
+      id: 'vault-protection',
+      title: 'Vault & Safe Area Protection', 
+      description: 'High-security CCTV systems for vault monitoring, cash handling areas, and safe deposit box zones with motion detection.',
+      image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf'
+    },
+    {
+      id: 'facial-recognition',
+      title: 'Facial Recognition & Verification',
+      description: 'Advanced facial recognition technology for customer verification, VIP identification, and blacklist monitoring.',
+      image: 'https://images.unsplash.com/photo-1559137771-536eecb999ab?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    },
+    {
+      id: 'perimeter-security',
+      title: 'Perimeter & Parking Security',
+      description: 'Comprehensive surveillance of building exteriors, parking areas, and approach routes with license plate recognition.',
+      image: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    },
+    {
+      id: 'emergency-response',
+      title: 'Emergency Response Integration', 
+      description: 'Automated alarm systems with instant notifications to security teams and law enforcement agencies.',
+      image: 'https://images.unsplash.com/photo-1645717339830-54a4b1bdc33b?q=80&w=1191&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    },
+  ],
+  recommendedServices: [
+    {
+      title: 'ATM Protection Suite',
+      description: 'Complete CCTV surveillance package specifically designed for ATM locations.',
+      icon: Video
+    },
+    {
+      title: 'Fraud Detection Analytics',
+      description: 'AI-powered analysis of customer behavior to detect potential fraud attempts.',
+      icon: Shield
+    },
+    {
+      title: 'Cash Transport Security',
+      description: 'Surveillance systems for secure cash transport and armored vehicle monitoring.',
+      icon: Banknote
+    },
+    {
+      title: 'Multi-Branch Monitoring',
+      description: 'Centralized monitoring solution for banks with multiple branch locations.',
+      icon: Building
+    },
+    {
+      title: 'VIP Customer Protection', 
+      description: 'Enhanced security measures for high-net-worth individuals and VIP banking.',
+      icon: Lock
+    },
+    {
+      title: 'Night Security Monitoring',
+      description: 'Advanced night vision surveillance for after-hours security protection.',
+      icon: Bell
+    }
+  ],
+  workflow: [
+    {
+      title: 'Security Risk Assessment',
+      description: 'Comprehensive evaluation of your banking facility\'s security vulnerabilities and regulatory compliance requirements.',
+      icon: '🔍'
+    },
+    {
+      title: 'CCTV System Design',
+      description: 'Custom surveillance system design with optimal camera placement for maximum coverage and threat detection.',
+      icon: '📐'
+    },
+    {
+      title: 'Professional Installation',
+      description: 'Expert installation of high-definition CCTV cameras, recording systems, and monitoring equipment by certified technicians.',
+      icon: '🔧'
+    },
+    {
+      title: 'AI Integration & Testing',
+      description: 'Implementation of AI-powered analytics, facial recognition, and behavior analysis with comprehensive system testing.',
+      icon: '🤖'
+    },
+    {
+      title: 'Staff Training & Protocols',
+      description: 'Comprehensive training for bank staff on system operation, emergency procedures, and security protocols.',
+      icon: '👨‍🏫'
+    },
+    {
+      title: '24/7 Monitoring Support',
+      description: 'Continuous surveillance monitoring with real-time alerts, maintenance support, and system optimization.',
+      icon: '👁️'
+    }
+  ],
+  stats: [
+    { value: '99.8%', label: 'Detection accuracy' },
+    { value: '<2s', label: 'Alert response time' },
+    { value: '24/7', label: 'Monitoring coverage' }
+  ]
+},
   'industry-smart-factories': {
     title: 'Industry Safety & Smart Factories',
     description: 'Integrated security and safety solutions for industrial environments and smart factory implementations.',
     icon: Factory,
-    image: 'https://images.unsplash.com/photo-1513828583688-c52646db42da',
+    image: 'https://i.ibb.co/hxhDTFjw/indus.jpg',
     headerImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475',
     benefits: [
       'Equipment monitoring and protection',
@@ -350,19 +363,19 @@ const servicesDetails = {
         id: 'equipment-monitoring',
         title: 'Equipment Monitoring',
         description: '24/7 monitoring of critical machinery for operational anomalies.',
-        image: 'https://images.unsplash.com/photo-1513828583688-c52646db42da'
+        image: 'https://i.ibb.co/3GfSZnj/2i.jpg'
       },
       {
         id: 'safety-compliance',
         title: 'Safety Compliance',
         description: 'AI-powered detection of safety violations or hazardous situations.',
-        image: 'https://images.unsplash.com/photo-1581093057305-263bd975ae4a'
+        image: 'https://i.ibb.co/gLBc02Bd/3i.jpg'
       },
       {
         id: 'access-control',
         title: 'Access Control',
         description: 'Facial recognition-based access for sensitive industrial areas.',
-        image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf'
+        image: 'https://i.ibb.co/FkwyXP04/bank-1.jpg'
       },
       {
         id: 'iot-integration',
@@ -374,7 +387,7 @@ const servicesDetails = {
         id: 'hazard-detection',
         title: 'Hazard Detection',
         description: 'Early warning systems for chemical leaks or environmental dangers.',
-        image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70'
+        image: 'https://i.ibb.co/5WBc6XG5/6i.jpg'
       },
       {
         id: 'supply-chain',
@@ -457,7 +470,7 @@ const servicesDetails = {
     title: 'Traffic & Public Safety Management',
     description: 'AI-powered solutions for traffic monitoring, accident prevention, and overall public safety enhancement.',
     icon: TrafficCone,
-    image: 'https://images.unsplash.com/photo-1500380804539-4e1e8c1e7118',
+    image: 'https://plus.unsplash.com/premium_photo-1690958385391-76844034f557?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     headerImage: 'https://images.unsplash.com/photo-1580977251946-3f8c48548cf6',
     benefits: [
       'Traffic flow optimization',
@@ -486,31 +499,31 @@ const servicesDetails = {
         id: 'traffic-monitoring',
         title: 'Traffic Monitoring',
         description: 'Real-time analysis of traffic flow and congestion patterns.',
-        image: 'https://images.unsplash.com/photo-1500380804539-4e1e8c1e7118'
+        image: 'https://images.unsplash.com/photo-1708807472445-d33589e6b090?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
       },
       {
         id: 'accident-detection',
         title: 'Accident Detection',
         description: 'Immediate identification of accidents and automatic emergency alerts.',
-        image: 'https://images.unsplash.com/photo-1581093057305-263bd975ae4a'
+        image: 'https://i.ibb.co/zTKcWMLf/Image-8.png'
       },
       {
         id: 'license-plate-recognition',
         title: 'License Plate Recognition',
         description: 'Automated vehicle identification for security and traffic management.',
-        image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70'
+        image: 'https://mobisoftinfotech.com/resources/wp-content/uploads/2022/02/Number-Plate-Detection.png'
       },
       {
         id: 'emergency-routing',
         title: 'Emergency Routing',
         description: 'Priority routing for emergency vehicles through smart traffic light control.',
-        image: 'https://images.unsplash.com/photo-1583511655826-05700442b31b'
+        image: 'https://i.ibb.co/0ycQR8y2/0af87d30-a2f4-4c0f-b965-f5c0fc130877.png'
       },
       {
         id: 'pedestrian-safety',
         title: 'Pedestrian Safety',
         description: 'Monitoring of crosswalks and high-traffic pedestrian areas.',
-        image: 'https://images.unsplash.com/photo-1509822929063-6b6cfc9b42f2'
+        image: 'https://images.unsplash.com/photo-1574149064818-adf57cca3b3c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
       },
       {
         id: 'public-transport',
@@ -546,8 +559,8 @@ const servicesDetails = {
         icon: Calendar
       },
       {
-        title: 'Air Quality',
-        description: 'Monitoring of emissions and environmental impact.',
+        title: 'Singal Optimization',
+        description: 'Monitoring of signal and reduce traffic jam.',
         icon: Cloud
       }
     ],
@@ -590,276 +603,300 @@ const servicesDetails = {
     ]
   },
   'smart-cities-infrastructure': {
-    title: 'Smart Cities & Government Infrastructure',
-    description: 'Comprehensive security and monitoring solutions for smart city implementations and government infrastructure.',
-    icon: Globe,
-    image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df',
-    headerImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab',
-    benefits: [
-      'City-wide monitoring integration',
-      'Critical infrastructure protection',
-      'Public space surveillance',
-      'Emergency response coordination',
-      'Data-driven urban planning'
-    ],
-    content: `
-      <h2 class="text-3xl font-bold mb-6">Smart City & Infrastructure Solutions</h2>
-      <p class="mb-6">Modern cities require integrated security solutions that protect critical infrastructure while enhancing quality of life for residents. Our smart city systems provide comprehensive monitoring and management of public spaces, utilities, and government facilities.</p>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-          <h4 class="font-bold text-lg mb-3">Infrastructure Monitoring</h4>
-          <p>24/7 monitoring of critical utilities, transportation systems, and public facilities.</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-          <h4 class="font-bold text-lg mb-3">Public Safety</h4>
-          <p>AI-powered surveillance of parks, plazas, and other public areas with privacy protections.</p>
-        </div>
+  title: 'Smart Cities & Government Infrastructure CCTV Surveillance',
+  description: 'Comprehensive AI-powered CCTV surveillance solutions for smart city implementations, government infrastructure, and public safety management.',
+  icon: Globe,
+  image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df',
+  headerImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab',
+  benefits: [
+    'City-wide AI surveillance network integration',
+    'Critical infrastructure protection and monitoring',
+    'Public space safety with privacy compliance',
+    'Emergency response coordination and automation',
+    'Data-driven urban planning and analytics',
+    'Multi-agency coordination and communication'
+  ],
+  content: `
+    <h2 class="text-3xl font-bold mb-6">Advanced CCTV Surveillance for Smart Cities & Government Infrastructure</h2>
+    <p class="mb-6">Modern cities and government facilities require integrated surveillance solutions that protect critical infrastructure while enhancing public safety and quality of life. Our AI-powered CCTV systems provide comprehensive monitoring and management of public spaces, utilities, government buildings, and municipal facilities with advanced analytics and emergency response capabilities.</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <h4 class="font-bold text-lg mb-3">Infrastructure Protection</h4>
+        <p>24/7 surveillance of critical utilities, transportation hubs, government buildings, and public facilities with AI-powered threat detection.</p>
       </div>
-    `,
-    features: [
-      {
-        id: 'infrastructure-monitoring',
-        title: 'Infrastructure Monitoring',
-        description: '24/7 monitoring of critical utilities and transportation systems.',
-        image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab'
-      },
-      {
-        id: 'public-space-security',
-        title: 'Public Space Security',
-        description: 'AI-powered surveillance of parks, plazas, and public areas.',
-        image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df'
-      },
-      {
-        id: 'emergency-coordination',
-        title: 'Emergency Coordination',
-        description: 'Integrated systems for rapid response to incidents or disasters.',
-        image: 'https://images.unsplash.com/photo-1583511655826-05700442b31b'
-      },
-      {
-        id: 'data-analytics',
-        title: 'Data Analytics',
-        description: 'Comprehensive data collection and analysis for urban planning.',
-        image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40'
-      },
-      {
-        id: 'utility-management',
-        title: 'Utility Management',
-        description: 'Monitoring and optimization of water, electricity, and gas systems.',
-        image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d'
-      },
-      {
-        id: 'environmental-monitoring',
-        title: 'Environmental Monitoring',
-        description: 'Air quality, noise pollution, and other environmental factors tracking.',
-        image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef'
-      }
-    ],
-    recommendedServices: [
-      {
-        title: 'Urban Analytics',
-        description: 'Data-driven insights for city planning and development.',
-        icon: Database
-      },
-      {
-        title: 'Public Transport',
-        description: 'Security and optimization for city transportation systems.',
-        icon: Bus
-      },
-      {
-        title: 'Emergency Systems',
-        description: 'Integrated response coordination for city-wide incidents.',
-        icon: Bell
-      },
-      {
-        title: 'Utility Protection',
-        description: 'Security for water, power, and other critical infrastructure.',
-        icon: Cpu
-      },
-      {
-        title: 'Tourist Safety',
-        description: 'Enhanced security in high-traffic tourist areas.',
-        icon: MapPin
-      },
-      {
-        title: 'Event Security',
-        description: 'Management of large public gatherings and events.',
-        icon: Calendar
-      }
-    ],
-   workflow: [
-      {
-        title: 'City Assessment',
-        description: 'Comprehensive evaluation of current infrastructure and security needs.',
-        icon: '🏙️'
-      },
-      {
-        title: 'System Architecture',
-        description: 'Design of integrated smart city security network.',
-        icon: '📡'
-      },
-      {
-        title: 'Sensor Deployment',
-        description: 'Installation of IoT devices across municipal areas.',
-        icon: '📶'
-      },
-      {
-        title: 'Data Integration',
-        description: 'Connection of various city systems into unified platform.',
-        icon: '💾'
-      },
-      {
-        title: 'Department Training',
-        description: 'Education for city staff on system operation and maintenance.',
-        icon: '👨‍💼'
-      },
-      {
-        title: 'Public Interface',
-        description: 'Development of citizen-facing applications and alerts.',
-        icon: '📱'
-      }
-    ],
-    stats: [
-      { value: '50%', label: 'Faster response' },
-      { value: '30%', label: 'Cost savings' },
-      { value: '24/7', label: 'Monitoring' }
-    ]
-  },
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <h4 class="font-bold text-lg mb-3">Public Safety Monitoring</h4>
+        <p>Comprehensive surveillance of parks, plazas, transit stations, and public areas with crowd management and incident detection.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <h4 class="font-bold text-lg mb-3">Emergency Coordination</h4>
+        <p>Integrated response systems for rapid coordination between police, fire, medical, and municipal services during incidents.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <h4 class="font-bold text-lg mb-3">Urban Analytics</h4>
+        <p>Data collection and analysis for urban planning, traffic optimization, and municipal resource allocation decisions.</p>
+      </div>
+    </div>
+
+  
+  `,
+  features: [
+    {
+      id: 'infrastructure-monitoring',
+      title: 'Critical Infrastructure Surveillance',
+      description: '24/7 CCTV monitoring of power plants, water facilities, transportation hubs, and government buildings with AI threat detection.',
+      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab'
+    },
+    {
+      id: 'public-space-security',
+      title: 'Public Space Safety Monitoring',
+      description: 'AI-powered surveillance of parks, plazas, transit stations, and public areas with crowd management and behavior analysis.',
+      image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df'
+    },
+    {
+      id: 'emergency-coordination',
+      title: 'Emergency Response Integration',
+      description: 'Integrated systems for rapid response coordination between police, fire, medical, and municipal services during incidents.',
+      image: 'https://images.unsplash.com/photo-1645717339830-54a4b1bdc33b?q=80&w=1191&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    },
+    {
+      id: 'traffic-management',
+      title: 'Smart Traffic Surveillance',
+      description: 'Intelligent traffic monitoring with license plate recognition, violation detection, and flow optimization capabilities.',
+      image: 'https://images.unsplash.com/photo-1708807472445-d33589e6b090?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    },
+    
+    {
+      id: 'data-analytics',
+      title: 'Urban Planning Analytics',
+      description: 'Comprehensive data collection and analysis for urban planning, resource allocation, and municipal decision-making.',
+      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40'
+    },
+    {
+      id: 'border-security',
+      title: 'Border & Perimeter Security',
+      description: 'Advanced surveillance for city boundaries, ports, airports, and other critical perimeter areas with intrusion detection.',
+      image: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    }
+  ],
+  recommendedServices: [
+    {
+      title: 'Command & Control Center',
+      description: 'Centralized monitoring and coordination center for city-wide surveillance operations.',
+      icon: Database
+    },
+    {
+      title: 'Public Transport Security',
+      description: 'Comprehensive surveillance and security for buses, trains, and transit stations.',
+      icon: Bus
+    },
+    {
+      title: 'Tourist Area Protection',
+      description: 'Enhanced security monitoring in high-traffic tourist and commercial areas.',
+      icon: MapPin
+    },
+    {
+      title: 'Event Management',
+      description: 'Specialized surveillance and crowd management for large public gatherings and events.',
+      icon: Calendar
+    },
+    {
+      title: 'Disaster Response',
+      description: 'Emergency coordination systems for natural disasters and crisis management.',
+      icon: Bell
+    },
+    {
+      title: 'Smart Lighting Integration',
+      description: 'Integration with smart street lighting for enhanced nighttime surveillance.',
+      icon: Cloud
+    }
+  ],
+  workflow: [
+    {
+      title: 'City-Wide Assessment',
+      description: 'Comprehensive evaluation of current infrastructure, security needs, and municipal requirements across all city sectors.',
+      icon: '🏙️'
+    },
+    {
+      title: 'Integrated System Architecture',
+      description: 'Design of comprehensive surveillance network connecting all municipal departments and emergency services.',
+      icon: '📡'
+    },
+    {
+      title: 'Phased Deployment',
+      description: 'Strategic installation of CCTV cameras and sensors across critical infrastructure and public areas in phases.',
+      icon: '🔧'
+    },
+    {
+      title: 'AI Analytics Integration',
+      description: 'Implementation of advanced AI systems for traffic, crowd, environmental, and security analytics.',
+      icon: '🤖'
+    },
+    {
+      title: 'Multi-Agency Training',
+      description: 'Comprehensive training for police, fire, municipal staff, and emergency responders on system operation.',
+      icon: '👨‍💼'
+    },
+    {
+      title: 'Command Center Operations',
+      description: 'Establishment of 24/7 monitoring center with real-time coordination and response capabilities.',
+      icon: '🖥️'
+    }
+  ],
+  stats: [
+    { value: '65%', label: 'Faster emergency response' },
+    { value: '40%', label: 'Crime reduction in monitored areas' },
+    { value: '24/7', label: 'City-wide monitoring' }
+  ]
+},
   'corporate-residential': {
-    title: 'Corporate Offices, Residential Complexes & Societies',
-    description: 'Integrated security solutions for corporate environments, residential buildings, and housing societies.',
-    icon: Building,
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab',
-    headerImage: 'https://images.unsplash.com/photo-1557804506-669a67965ba0',
-    benefits: [
-      'Visitor management systems',
-      'Perimeter protection',
-      'Common area monitoring',
-      'Parking security',
-      'Emergency response integration'
-    ],
-    content: `
-      <h2 class="text-3xl font-bold mb-6">Corporate & Residential Security Solutions</h2>
-      <p class="mb-6">Office buildings and residential complexes require security solutions that protect occupants while maintaining convenience and quality of life. Our integrated systems provide comprehensive protection for both corporate and residential environments.</p>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-          <h4 class="font-bold text-lg mb-3">Visitor Management</h4>
-          <p>Advanced check-in systems with facial recognition and automated access control.</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-          <h4 class="font-bold text-lg mb-3">Common Area Security</h4>
-          <p>24/7 monitoring of lobbies, hallways, and other shared spaces.</p>
-        </div>
+  title: 'Corporate Offices, Residential Complexes & Societies CCTV Surveillance',
+  description: 'Advanced AI-powered CCTV surveillance solutions for corporate offices, residential buildings, and housing societies with intelligent monitoring and access control.',
+  icon: Building,
+  image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab',
+  headerImage: 'https://images.unsplash.com/photo-1557804506-669a67965ba0',
+  benefits: [
+    'AI-powered visitor management and facial recognition',
+    'Comprehensive perimeter and common area surveillance',
+    '24/7 real-time monitoring with instant alerts',
+    'Advanced parking security with license plate recognition',
+    'Integrated emergency response and evacuation systems',
+    'Remote monitoring capabilities for property managers'
+  ],
+  content: `
+    <h2 class="text-3xl font-bold mb-6">Advanced CCTV Surveillance for Corporate & Residential Security</h2>
+    <p class="mb-6">Corporate offices and residential complexes require sophisticated surveillance solutions that balance security with privacy and convenience. Our AI-powered CCTV systems provide comprehensive protection for both professional and residential environments with intelligent monitoring, access control, and emergency response capabilities.</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <h4 class="font-bold text-lg mb-3">Visitor Management & Access Control</h4>
+        <p>Advanced facial recognition and automated check-in systems for seamless visitor management and secure access control.</p>
       </div>
-    `,
-    features: [
-      {
-        id: 'visitor-management',
-        title: 'Visitor Management',
-        description: 'Advanced check-in systems with facial recognition and access control.',
-        image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf'
-      },
-      {
-        id: 'common-area-security',
-        title: 'Common Area Security',
-        description: '24/7 monitoring of lobbies, hallways, and shared spaces.',
-        image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0'
-      },
-      {
-        id: 'parking-protection',
-        title: 'Parking Protection',
-        description: 'Comprehensive surveillance of parking areas with license plate recognition.',
-        image: 'https://images.unsplash.com/photo-1486401899868-0e435ed85128'
-      },
-      {
-        id: 'emergency-systems',
-        title: 'Emergency Systems',
-        description: 'Integrated emergency response and evacuation management.',
-        image: 'https://images.unsplash.com/photo-1583511655826-05700442b31b'
-      },
-      {
-        id: 'access-control',
-        title: 'Access Control',
-        description: 'Secure entry systems with multi-factor authentication.',
-        image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf'
-      },
-      {
-        id: 'resident-services',
-        title: 'Resident Services',
-        description: 'Convenience features for residents including package tracking.',
-        image: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df'
-      }
-    ],
-    recommendedServices: [
-      {
-        title: 'Smart Locks',
-        description: 'Keyless entry systems with advanced security features.',
-        icon: Lock
-      },
-      {
-        title: 'Package Management',
-        description: 'Secure handling and tracking of deliveries.',
-        icon: ShoppingCart
-      },
-      {
-        title: 'Facility Booking',
-        description: 'Reservation systems for shared amenities.',
-        icon: Calendar
-      },
-      {
-        title: 'Energy Management',
-        description: 'Smart systems to optimize building energy usage.',
-        icon: Cloud
-      },
-      {
-        title: 'Maintenance Tracking',
-        description: 'Automated monitoring of building maintenance needs.',
-        icon: Wrench
-      },
-      {
-        title: 'Community App',
-        description: 'Integrated platform for resident communication.',
-        icon: Smartphone
-      }
-    ],
-    workflow: [
-      {
-        title: 'Security Audit',
-        description: 'Thorough assessment of current vulnerabilities and protection needs.',
-        icon: '🔎'
-      },
-      {
-        title: 'Access System Design',
-        description: 'Customized plan for visitor and resident access management.',
-        icon: '📝'
-      },
-      {
-        title: 'Camera Installation',
-        description: 'Strategic placement of surveillance cameras in all critical areas.',
-        icon: '📹'
-      },
-      {
-        title: 'Emergency System Setup',
-        description: 'Implementation of alarms, lockdown procedures, and evacuation plans.',
-        icon: '🚨'
-      },
-      {
-        title: 'Resident Onboarding',
-        description: 'Registration of residents and setup of access credentials.',
-        icon: '👥'
-      },
-      {
-        title: 'Monitoring Center',
-        description: '24/7 surveillance operations with trained security personnel.',
-        icon: '🖥️'
-      }],
-    stats: [
-      { value: '99%', label: 'Access control accuracy' },
-      { value: '40%', label: 'Security incidents reduced' },
-      { value: '24/7', label: 'Monitoring' }
-    ]
-  }
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <h4 class="font-bold text-lg mb-3">Common Area Surveillance</h4>
+        <p>24/7 monitoring of lobbies, hallways, elevators, and shared spaces with AI-powered behavior analysis and threat detection.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <h4 class="font-bold text-lg mb-3">Perimeter & Parking Security</h4>
+        <p>Comprehensive surveillance of building perimeters, entry points, and parking areas with license plate recognition and intrusion detection.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <h4 class="font-bold text-lg mb-3">Emergency Response Integration</h4>
+        <p>Integrated alarm systems with instant notifications to security teams, management, and emergency services for rapid response.</p>
+      </div>
+    </div>
+
+
+`,
+  features: [
+    {
+      id: 'visitor-management',
+      title: 'Smart Visitor Management',
+      description: 'AI-powered visitor registration with facial recognition, automated check-in, and guest tracking throughout the premises.',
+      image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf'
+    },
+    {
+      id: 'common-area-security',
+      title: 'Common Area Surveillance',
+      description: 'Comprehensive CCTV coverage of lobbies, hallways, elevators, and shared spaces with behavior analysis and crowd monitoring.',
+      image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0'
+    },
+    {
+      id: 'parking-protection',
+      title: 'Parking & Vehicle Security',
+      description: 'Advanced surveillance of parking areas with license plate recognition, vehicle tracking, and unauthorized access detection.',
+      image: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    },
+    {
+      id: 'emergency-systems',
+      title: 'Emergency Response Integration',
+      description: 'Automated emergency detection and response systems with instant alerts to security teams and emergency services.',
+      image: 'https://images.unsplash.com/photo-1645717339830-54a4b1bdc33b?q=80&w=1191&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    },
+    {
+      id: 'access-control',
+      title: 'Multi-Level Access Control',
+      description: 'Secure entry systems with biometric authentication, key card integration, and role-based access permissions.',
+      image: 'https://images.unsplash.com/photo-1559137771-536eecb999ab?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    },
+    {
+      id: 'remote-monitoring',
+      title: 'Remote Monitoring & Management',
+      description: 'Cloud-based monitoring platform for property managers with real-time alerts, reporting, and mobile access.',
+      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40'
+    }
+  ],
+  recommendedServices: [
+    {
+      title: 'Smart Building Integration',
+      description: 'Integration with building automation systems for comprehensive management.',
+      icon: Building
+    },
+    {
+      title: 'Mobile Security App',
+      description: 'Dedicated mobile application for residents and security management.',
+      icon: Smartphone
+    },
+    {
+      title: 'Package Management',
+      description: 'Secure handling and tracking of deliveries with CCTV monitoring.',
+      icon: ShoppingCart
+    },
+    {
+      title: 'Facility Booking System',
+      description: 'Reservation systems for shared amenities with usage monitoring.',
+      icon: Calendar
+    },
+    {
+      title: 'Energy Management',
+      description: 'Smart systems to optimize building energy usage with surveillance integration.',
+      icon: Cloud
+    },
+    {
+      title: 'Maintenance Tracking',
+      description: 'Automated monitoring of building maintenance needs and vendor access.',
+      icon: Wrench
+    }
+  ],
+  workflow: [
+    {
+      title: 'Security Assessment',
+      description: 'Comprehensive evaluation of building vulnerabilities, traffic patterns, and security requirements for both residents and staff.',
+      icon: '🔎'
+    },
+    {
+      title: 'Surveillance System Design',
+      description: 'Custom CCTV system design with optimal camera placement for maximum coverage while respecting privacy requirements.',
+      icon: '📐'
+    },
+    {
+      title: 'Professional Installation',
+      description: 'Expert installation of surveillance cameras, access control systems, and monitoring equipment with minimal disruption.',
+      icon: '🔧'
+    },
+    {
+      title: 'AI Integration & Testing',
+      description: 'Implementation of AI-powered analytics, facial recognition, and behavior analysis with comprehensive system testing.',
+      icon: '🤖'
+    },
+    {
+      title: 'User Training & Onboarding',
+      description: 'Training for security staff, property managers, and resident orientation on system features and emergency procedures.',
+      icon: '👨‍🏫'
+    },
+    {
+      title: '24/7 Monitoring Support',
+      description: 'Continuous surveillance monitoring with real-time alerts, maintenance support, and regular system optimization.',
+      icon: '👁️'
+    }
+  ],
+  stats: [
+    { value: '99.5%', label: 'Access control accuracy' },
+    { value: '<3s', label: 'Alert response time' },
+    { value: '24/7', label: 'Monitoring coverage' }
+  ]
+},
 };
 const ServiceDetail = () => {
   const { serviceId } = useParams();

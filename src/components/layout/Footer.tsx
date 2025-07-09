@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, Youtube } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -19,14 +19,15 @@ const Footer = () => {
               AI-powered surveillance and security solutions for a safer tomorrow.
             </p>
             <div className="flex space-x-4 mt-6">
-              <a href="https://facebook.com" className="hover:text-zeex-300 transition-colors" aria-label="Facebook">
-                <Facebook size={20} />
+            <a href="https://www.linkedin.com/company/zeex-ai" className="hover:text-zeex-300 transition-colors" aria-label="LinkedIn">
+                <Linkedin size={20} />
               </a>
-              <a href="https://twitter.com" className="hover:text-zeex-300 transition-colors" aria-label="Twitter">
+              <a href="https://x.com/ZEEX_AI" className="hover:text-zeex-300 transition-colors" aria-label="Twitter">
                 <Twitter size={20} />
               </a>
-              <a href="https://www.linkedin.com/company/zeex-ai" className="hover:text-zeex-300 transition-colors" aria-label="LinkedIn">
-                <Linkedin size={20} />
+              
+              <a href="https://youtube.com/@zeexai" className="hover:text-zeex-300 transition-colors" aria-label="Youtube">
+                <Youtube size={20} />
               </a>
               <a href="https://www.instagram.com/zeex_ai/" className="hover:text-zeex-300 transition-colors" aria-label="Instagram">
                 <Instagram size={20} />

@@ -126,7 +126,7 @@ const Index = () => {
       url: "https://www.iitm.ac.in"
     },
     {
-      name: "Nirmaan",
+      name: "Nirmaan (Pre-Incubator, IITM)",
       logo: "https://nirmaan.iitm.ac.in/static/media/nirmaan%20logo.8b8518964b925a2a2d57.png?w=200&h=80&fit=contain&q=80",
       url: "https://nirmaan.iitm.ac.in"
     },
@@ -171,7 +171,7 @@ const Index = () => {
   const implementationSteps = [
     {
       title: "Discovery Audit",
-      description: "Comprehensive system analysis & requirements mapping",
+      description: "Analyze current setup and define surveillance goals.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -180,7 +180,7 @@ const Index = () => {
     },
     {
       title: "Solution Architecture",
-      description: "Customized technical design & integration blueprint",
+      description: "Design a tailored, AI-ready surveillance blueprint.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -198,7 +198,7 @@ const Index = () => {
     },
     {
       title: "Validation Testing",
-      description: "Rigorous QA & performance optimization",
+      description: "Test performance, accuracy, and system stability.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -207,7 +207,7 @@ const Index = () => {
     },
     {
       title: "Ongoing Excellence",
-      description: "Continuous monitoring & proactive support",
+      description: "Provide 24/7 monitoring, updates, and support.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -223,53 +223,7 @@ const Index = () => {
     <div className="overflow-hidden">
       <Hero />
       
-      {/* Supported By Section */}
-      <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container-default px-6">
-          <FadeInSection className="text-center mb-12">
-            <span className="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-medium mb-4">
-              Trusted Partnerships
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-5">
-              Supported by <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent inline-block">Industry Leaders</span>
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Our technology is recognized and supported by premier institutions and industry leaders.
-            </p>
-          </FadeInSection>
-
-          <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {supportedBy.map((partner, index) => (
-              <FadeInSection key={index} delay={index * 100}>
-                <a
-                  href={partner.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block"
-                >
-                  <div className="bg-white rounded-2xl p-6 h-full flex flex-col items-center border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:border-blue-100 transform hover:-translate-y-1">
-                    <div className="mb-6 w-full h-24 flex items-center justify-center p-4">
-                      <OptimizedImage 
-                        src={partner.logo} 
-                        alt={partner.name} 
-                        className="max-h-full max-w-full object-contain transition-all duration-300 group-hover:scale-105"
-                        width={200}
-                        height={80}
-                        priority={index < 2}
-                      />
-                    </div>
-                    <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
-                      {partner.name}
-                    </h3>
-                  </div>
-                </a>
-              </FadeInSection>
-            ))}
-          </div>
-        </div>
-      </section>
-      
-      {/* Optimized Lazy-loaded Solutions Preview */}
+      <Features />
       <Suspense fallback={
         <div className="min-h-[300px] flex items-center justify-center bg-gray-50 rounded-xl my-12">
           <div className="animate-pulse flex flex-col items-center">
@@ -281,8 +235,6 @@ const Index = () => {
       }>
         <SolutionsPreview />
       </Suspense>
-      
-      <Features />
       
       {/* Implementation Workflow Section - Fixed visibility issues */}
       <section className="py-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
@@ -372,7 +324,6 @@ const Index = () => {
       </section>
       
       {/* Call to Action Section - Improved contrast and visibility */}
-{/* CTA Section */}
       <section className="py-24 bg-gradient-to-br from-blue-800 to-indigo-900 text-white relative overflow-hidden">
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden">
@@ -388,7 +339,7 @@ const Index = () => {
           className="container-default text-center relative z-10"
         >
           <div className="max-w-4xl mx-auto">
-                  <h2 className="text-5xl font-bold mb-6">Ready to Enhance Your Security?</h2>
+            <h2 className="text-5xl font-bold mb-6">Ready to Enhance Your Security?</h2>
             <p className="text-xl mb-10 text-blue-100">
               Our team is ready to help you implement the perfect security solution for your needs.
             </p>
@@ -399,7 +350,6 @@ const Index = () => {
               >
                 Request a Consultation
               </Link>
-        
             </div>
           </div>
         </motion.div>
@@ -428,6 +378,62 @@ const Index = () => {
             {blogPosts.map((post, index) => (
               <FadeInSection key={index} delay={index * 100}>
                 <BlogPostCard post={post} />
+              </FadeInSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Supported By Section - now just before the footer */}
+      <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container-default px-6">
+          <FadeInSection className="text-center mb-12">
+            <span className="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-medium mb-4">
+              Trusted Partnerships
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-5">
+              Supported by <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent inline-block">Industry Leaders</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Our technology is recognized and supported by premier institutions and industry leaders.
+            </p>
+          </FadeInSection>
+          <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {supportedBy.map((partner, index) => (
+              <FadeInSection key={index} delay={index * 100}>
+                <a
+                  href={partner.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block"
+                >
+                  <div className="bg-white rounded-2xl p-6 h-full flex flex-col items-center border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:border-blue-100 transform hover:-translate-y-1">
+                    <div className="mb-4 w-full h-24 flex items-center justify-center p-4">
+                      <OptimizedImage 
+                        src={partner.logo} 
+                        alt={partner.name} 
+                        className="max-h-full max-w-full object-contain transition-all duration-300 group-hover:scale-105 filter grayscale group-hover:grayscale-0"
+                        width={index < 2 ? 80 : 200}
+                        height={index < 2 ? 32 : 80}
+                        style={index < 2 ? { width: '80px', height: '32px' } : {}}
+                        priority={index < 2}
+                      />
+                    </div>
+                    <h3 className="text-lg font-bold text-center mt-2">
+                      <span
+                        style={{
+                          background: 'rgba(255,255,255,0.96)',
+                          padding: '0.25rem 0.75rem',
+                          borderRadius: '0.5rem',
+                          color: '#1e3a8a',
+                          boxShadow: '0 2px 8px 0 rgba(0,0,0,0.04)'
+                        }}
+                      >
+                        {partner.name}
+                      </span>
+                    </h3>
+                  </div>
+                </a>
               </FadeInSection>
             ))}
           </div>
