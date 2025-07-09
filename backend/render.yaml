@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: zeexai-backend
+    env: python
+    buildCommand: ""
+    startCommand: python app.py
+    plan: free
+    envVars:
+      - key: SMTP_USER
+        value: your-email@gmail.com
+      - key: SMTP_PASS
+        value: your-app-password
+      - key: SARVAM_API_KEY
+        value: your-sarvam-key

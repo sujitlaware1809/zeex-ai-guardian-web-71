@@ -37,7 +37,7 @@ const Chatbot: React.FC = () => {
 
   const fetchZzexiaData = async (query: string) => {
     try {
-      const response = await fetch('https://zzexia.com/api/data?q=' + encodeURIComponent(query));
+      const response = await fetch('https://zeex-website-backend-1.onrender.com/api/data?q=' + encodeURIComponent(query));
       if (!response.ok) return null;
       const data = await response.json();
       return JSON.stringify(data);
@@ -54,7 +54,7 @@ const Chatbot: React.FC = () => {
     setLoading(true);
 
     try {
-      const res = await fetch('http://localhost:5000/chat', {
+      const res = await fetch('https://zeex-website-backend-1.onrender.com/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: input }),

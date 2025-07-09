@@ -21,7 +21,7 @@ const Contact = () => {
     setSubmittedEmail(formData.email);
 
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const response = await fetch('https://zeex-website-backend-1.onrender.com/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

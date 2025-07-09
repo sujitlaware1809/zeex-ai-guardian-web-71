@@ -67,7 +67,7 @@ const NewsletterSignup = ({ premium }: { premium?: boolean }) => {
     setStatus('idle');
     setMessage('');
     try {
-      const res = await fetch('http://localhost:5000/api/newsletter', {
+      const res = await fetch('https://zeex-website-backend-1.onrender.com/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),

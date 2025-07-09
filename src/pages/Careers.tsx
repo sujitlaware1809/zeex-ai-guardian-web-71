@@ -259,7 +259,7 @@ const Careers: React.FC = () => {
         formDataToSend.append('resume', formData.resume);
       }
 
-      const response = await fetch('http://localhost:5000/api/career-application', {
+      const response = await fetch('https://zeex-website-backend-1.onrender.com/api/career-application', {
         method: 'POST',
         body: formDataToSend,
       });
