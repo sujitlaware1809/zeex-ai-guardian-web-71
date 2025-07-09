@@ -146,21 +146,21 @@ const Index = () => {
   const blogPosts = [
     {
       link: "/blog/ai-advancements",
-      image: "https://images.unsplash.com/photo-1488229297570-58520851e868?w=500&h=300&fit=crop&auto=format&q=80",
+      image: "https://plus.unsplash.com/premium_photo-1683121710572-7723bd2e235d?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       title: "AI Advancements in Modern Surveillance",
       date: "April 15, 2025",
       description: "Explore how artificial intelligence is revolutionizing surveillance systems and improving security outcomes."
     },
     {
       link: "/blog/privacy-security",
-      image: "https://images.unsplash.com/photo-1563790617029-80a94f39b35e?w=500&h=300&fit=crop&auto=format&q=80",
+      image: "https://images.unsplash.com/photo-1617772718763-f4ddab89311b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       title: "Balancing Privacy with Security in AI Surveillance",
       date: "April 8, 2025",
       description: "How modern AI-powered security systems protect privacy while enhancing safety measures."
     },
     {
       link: "/blog/future-trends",
-      image: "https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?w=500&h=300&fit=crop&auto=format&q=80",
+      image: "https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1",
       title: "5 Future Trends in AI Security for 2025",
       date: "April 1, 2025",
       description: "Discover emerging trends in AI security technology and how they will shape the future of surveillance."
