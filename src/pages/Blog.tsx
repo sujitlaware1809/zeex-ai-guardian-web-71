@@ -12,7 +12,7 @@ const blogPosts = [
     title: 'AI Advancements in Modern Surveillance',
     excerpt: 'Explore how artificial intelligence is revolutionizing surveillance systems and improving security outcomes.',
     date: 'April 15, 2025',
-    image: 'https://images.unsplash.com/photo-1488229297570-58520851e868',
+    image: 'https://plus.unsplash.com/premium_photo-1683121710572-7723bd2e235d?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     category: 'Technology'
   },
   {
@@ -20,7 +20,7 @@ const blogPosts = [
     title: 'Balancing Privacy with Security in AI Surveillance',
     excerpt: 'How modern AI-powered security systems protect privacy while enhancing safety measures.',
     date: 'April 8, 2025',
-    image: 'https://images.unsplash.com/photo-1563790617029-80a94f39b35e',
+    image: 'https://images.unsplash.com/photo-1617772718763-f4ddab89311b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     category: 'Privacy'
   },
   {
